@@ -2883,3 +2883,59 @@
 .slide--platform .platform-mini{
   padding: 10px 14px !important;
 }
+
+/* =========================================================
+   v7.8d — FINAL: paid-duo room for caption, beauty IG single row of 7
+   ========================================================= */
+.slide--paid-duo .slide__inner{
+  padding-bottom: 110px !important;
+}
+.slide--paid-duo .paid-duo-card .phone-frame,
+.slide--paid-duo .phone-frame{
+  height: 420px !important;
+  max-height: 420px !important;
+  width: 236px !important;
+}
+.slide--paid-duo .paid-duo-card{
+  text-align: center !important;
+}
+.slide--paid-duo .paid-duo-card > *:last-child,
+.slide--paid-duo .paid-duo-card .caption,
+.slide--paid-duo .paid-duo-card__name,
+.slide--paid-duo .paid-duo-card h3{
+  margin-top: 12px !important;
+  font-size: 16px !important;
+  display: block !important;
+}
+
+/* Beauty IG — single row of 7 phones */
+.slide--beauty-ig .beauty-ig-grid{
+  grid-template-columns: repeat(7, 1fr) !important;
+  gap: 10px !important;
+  max-width: 1280px !important;
+  max-height: 360px !important;
+}
+.slide--beauty-ig .ig-phone,
+.slide--beauty-ig .phone-frame--ig,
+.slide--beauty-ig .beauty-ig-card .phone-frame{
+  width: 130px !important;
+  height: 230px !important;
+}
+.slide--beauty-ig .slide__inner{
+  padding-bottom: 60px !important;
+}
+
+/* Platform body — strictly contained */
+.slide--platform .slide__inner--platform{
+  padding-bottom: 80px !important;
+}
+.slide--platform .platform-grid-3x3{
+  max-height: calc(100vh - 380px) !important;
+}
+
+/* Bastille — fix overflow */
+.slide--bastille .bastille-inner,
+.slide--bastille-campaign .bastille-inner{
+  max-height: calc(100vh - 100px) !important;
+  overflow: hidden !important;
+}
