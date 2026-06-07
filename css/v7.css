@@ -3925,3 +3925,25 @@
   /* hide horizontal-only nav dots if any */
   .dot-nav { display: none !important; }
 }
+
+/* v7.14 — bastille mobile: show but downsized; hide nav-bar overlap */
+@media (max-width: 900px) {
+  .slide--bastille-campaign .bastille-campaign-grid { display: flex !important; flex-direction: column !important; gap: 18px !important; }
+  .slide--bastille-campaign .bastille-campaign-left,
+  .slide--bastille-campaign .bastille-campaign-right { width: 100% !important; max-width: 100% !important; }
+  .slide--bastille-campaign .bastille-campaign-headline { font-size: 28px !important; line-height: 1.1 !important; }
+  .slide--bastille-campaign .bastille-campaign-lead { font-size: 14px !important; line-height: 1.5 !important; }
+  .slide--bastille-campaign .bastille-campaign-card {
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+  }
+  .slide--bastille-campaign .ig-mock,
+  .slide--bastille-campaign .insta-post-mock { display: block !important; }
+  .slide--bastille .bastille-mechanics .bm-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    font-size: 12px !important;
+  }
+}
