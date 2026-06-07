@@ -259,6 +259,7 @@ def post_card(post):
   # subtopic: prefer subforum (v7 schema), fall back to subtopic
   subtopic = h(post.get('subforum', post.get('subtopic','')))
   cta      = h(post.get('cta','Read →'))
+  snippet  = h(post.get('snippet',''))
   # Strip leading ▲ from votes if already present (fa_60posts has it)
   votes_clean = votes.lstrip('▲ ').strip()
   return f'''<div class="post-card-mockup">
@@ -268,6 +269,7 @@ def post_card(post):
     </div>
     <div class="pcm-subtopic">{subtopic}</div>
     <div class="pcm-title">{title}</div>
+    {f'<div class="pcm-snippet">{snippet}</div>' if snippet else ''}
     <div class="pcm-persona">{persona}</div>
     <div class="pcm-cta">{cta}</div>
   </div>'''
@@ -728,7 +730,7 @@ slides.append(divider("04","Bastille Day Campaign","Win-a-trip · follower acqui
 slides.append('''<section class="slide slide--dark slide--bastille"><div class="slide__inner slide__inner--bastille">
   <div class="bastille-left">
     <div class="eyebrow eyebrow--gold">CHAPTER 04 · BASTILLE DAY · 14 JUILLET 2025</div>
-    <h1 class="bastille-headline">Bastille Day<br><span class="gold">· 14 July ·</span></h1>
+    <h1 class="bastille-headline">Bastille Day<br><span class="gold">· 14 juillet ·</span></h1>
     <div class="bastille-sub">Liberté Toujours</div>
     <div class="rule"></div>
     <div class="bastille-terms">
@@ -753,12 +755,12 @@ slides.append('''<section class="slide slide--dark slide--bastille"><div class="
       <div class="bpc-title">&ldquo;Liberté Toujours&rdquo; — Bastille Day 2025</div>
       <div class="bpc-body">On 14 July, France rolls out the tricolour carpets. The 2025 edition carries the motto <em>Liberté Toujours</em> — linking revolutionary ideals to post-Olympic optimism still humming through Paris. Weave even a few French phrases into the day and you&rsquo;re no longer a spectator — you&rsquo;re a participant.</div>
       <div class="bpc-tags">#BastilleDay #LibertéToujours #LearnFrench #FrenchAtelier</div>
-      <div class="bpc-cta">Win a trip to France →</div>
-    </div>
-    <div class="mech-list" style="margin-top:24px;">
-      <div class="mech"><div class="mech-h">PRIZE</div><div class="mech-b">Long weekend in Paris · flights + 3 nights + private French lesson on-site.</div></div>
-      <div class="mech"><div class="mech-h">ENTRY</div><div class="mech-b">Follow @frenchatelier · tag 2 friends · share to story.</div></div>
-      <div class="mech"><div class="mech-h">GOAL</div><div class="mech-b">+15K followers across IG/TikTok · 25% of monthly organic leads.</div></div>
+      <div class="bpc-metrics">
+        <div class="bpc-metric"><span class="bpc-metric-n">4,812</span><span class="bpc-metric-l">Likes</span></div>
+        <div class="bpc-metric"><span class="bpc-metric-n">318</span><span class="bpc-metric-l">Comments</span></div>
+        <div class="bpc-metric"><span class="bpc-metric-n">941</span><span class="bpc-metric-l">Shares</span></div>
+        <div class="bpc-metric"><span class="bpc-metric-n">62K</span><span class="bpc-metric-l">Reach</span></div>
+      </div>
     </div>
   </div>
 </div></section>''')

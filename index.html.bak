@@ -39,7 +39,29 @@
     <h1 class="ch-title">Paid Media</h1>
     <div class="rule"></div>
     <div class="ch-sub">Two Charline cuts · 80/20 · CPL at $13.40</div>
-  </div></section><section class="slide slide--cream"><div class="slide__inner">
+  </div></section><section class="slide slide--cream slide--paid-single"><div class="slide__inner">
+  <div class="eyebrow">CHAPTER 01 · PAID · BRAND VIDEO · PHILIPPE</div>
+  <h2 class="title">The teacher behind the method.</h2>
+  <div class="rule"></div>
+  <div class="paid-solo">
+    <div class="paid-card">
+      <div class="paid-phone paid-phone--lg">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <video autoplay muted loop playsinline poster="posters/paid/philippe.jpg">
+            <source src="videos/paid/philippe.mp4" type="video/mp4">
+          </video>
+          <button class="sound-toggle" onclick="toggleVideoSound(this)" title="Toggle sound" aria-label="Toggle sound"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button>
+        </div>
+      </div>
+      <div class="paid-meta">
+        <div class="paid-h">Philippe · Brand Testimonial</div>
+        <div class="paid-s">CEO and founder speaks directly to camera. Authentic voice, green eyes, direct address. Used in brand awareness and retargeting campaigns.</div>
+        <div class="paid-tag">30s · 9:16 · Meta + YouTube · Brand Awareness</div>
+      </div>
+    </div>
+  </div>
+</div></section><section class="slide slide--cream"><div class="slide__inner">
   <div class="eyebrow">CHAPTER 01 · PAID · CHARLINE MASTERCLASS · TWO CUTS</div>
   <h2 class="title">Two cuts. Same teacher. Different hook.</h2>
   <div class="rule"></div>
@@ -895,7 +917,7 @@
         </div>
         <div class="ml2-subj">Customer Testimonials</div>
         <div class="ml2-hero"><img src="images/real_emails/email06_landing_desktop_1920x502.jpg" alt=""></div>
-        <div class="ml2-body"><p>Suubject line: People like you are already doing this!</p><p>Many people who join the French Atelier have something in common: they hesitated.</p><p>They thought their French was too rusty. Or that &quot;real&quot; languages should be learned younger. Or that a live class would be too much pressure.</p><p>Here&#x27;s what two of them shared, a few weeks in.</p><p>Claire, 47, New York. &quot;I was the quietest one in lesson one. By lesson three, I caught myself laughing at a joke in French — without translating it first. That moment felt like a small door opening.&quot;</p><p class="ml2-signoff">À bientôt,<br>The French Atelier</p></div>
+        <div class="ml2-body"><p>Subject line: People like you are already doing this!</p><p>Many people who join the French Atelier have something in common: they hesitated.</p><p>They thought their French was too rusty. Or that &quot;real&quot; languages should be learned younger. Or that a live class would be too much pressure.</p><p>Here&#x27;s what two of them shared, a few weeks in.</p><p>Claire, 47, New York. &quot;I was the quietest one in lesson one. By lesson three, I caught myself laughing at a joke in French — without translating it first. That moment felt like a small door opening.&quot;</p><p class="ml2-signoff">À bientôt,<br>The French Atelier</p></div>
       </div>
       <div class="ml2-landing">
       <div class="ml2-landing-label">LANDING PAGE · MOBILE</div>
@@ -972,7 +994,7 @@
   </div>
 </div></section><section class="slide slide--cream slide--ml2"><div class="slide__inner">
     <div class="eyebrow">CHAPTER 03 · NURTURE / CONVERSION FLOW · EMAIL 01 · DAY OF COURSE PURCHASE · DAY 0 · LIVE</div>
-    <h2 class="title title--md">Welcome</h2>
+    <h2 class="title title--md">Vous êtes inscrit</h2>
     <div class="rule"></div>
     <div class="ml2-split">
       <div class="ml2-frame">
@@ -985,9 +1007,9 @@
           <div class="ml2-from"><div class="ml2-avatar">FA</div><div><div class="ml2-from-name">The French Atelier</div><div class="ml2-from-addr">hello@frenchatelier.com</div></div></div>
           <div class="ml2-to">to you</div>
         </div>
-        <div class="ml2-subj">Welcome</div>
+        <div class="ml2-subj">Vous êtes inscrit · You&#x27;re in</div>
         <div class="ml2-hero ml2-hero--brand"><div class="ml2-brand-mark">FRENCH ATELIER</div><div class="ml2-brand-tag">BY ACADOMIA</div><div class="ml2-brand-rule"></div><div class="ml2-brand-sub">Day of Course Purchase · DAY 0</div></div>
-        <div class="ml2-body"><p>Subject line: Bienvenue. You&#x27;re in the right place.</p><p>Bonjour,</p><p>Welcome to French Atelier.</p><p>Whatever brought you here — a song you can almost hum, a city you&#x27;ve already visited, a few words a grandparent once said — there&#x27;s a reason French has stayed with you.</p><p>French Atelier is a private, certified French language school — small by design, streamed live from France, led by native teachers handpicked for their depth and grace.</p><p class="ml2-signoff">The French Atelier team</p></div>
+        <div class="ml2-body"><p>Subject line: Vous êtes inscrit · You&#x27;re in</p><p>You didn&#x27;t sign up for a language app. You signed up for France.</p><p>Somewhere in a sunlit apartment in Paris, a window is open. The city is doing what it always does — slow traffic, close bells, a waiter wiping down a zinc bar. In a few days, all of it will be on your screen, live, one small group, one teacher, one city at a time.</p><p>What you just enrolled in isn&#x27;t a course the way the market uses that word. It&#x27;s a cultural passage. A slow opening of a door that most people only ever peer through: the café in the 11th where the owner already knows what you want, the Tuesday market in Nice, the small vineyard in Bordeaux where the light turns amber at five.</p><p>Each week, you meet on Zoom for 85 minutes — your teacher in France, eight of you in the call. You&#x27;ll speak, listen, laugh, ask how to order properly. Slowly, week by week, the language stops being a subject — and becomes a world.</p><p class="ml2-signoff">À bientôt,<br>French Atelier</p></div>
       </div>
       <div class="ml2-landing ml2-landing--brand">
       <div class="ml2-landing-label">EMAIL 01 · LIFECYCLE STAGE</div>
@@ -1000,8 +1022,8 @@
     </div>
     </div>
   </div></section><section class="slide slide--cream slide--ml2"><div class="slide__inner">
-    <div class="eyebrow">CHAPTER 03 · NURTURE / CONVERSION FLOW · EMAIL 02 · WHAT DOES PARIS SMELL LIKE · DAY 3 · LIVE</div>
-    <h2 class="title title--md">How it Works</h2>
+    <div class="eyebrow">CHAPTER 03 · NURTURE / CONVERSION FLOW · EMAIL 02 · WHAT DOES PARIS SMELL LIKE · DAY 1 · LIVE</div>
+    <h2 class="title title--md">What does Paris smell like?</h2>
     <div class="rule"></div>
     <div class="ml2-split">
       <div class="ml2-frame">
@@ -1014,9 +1036,9 @@
           <div class="ml2-from"><div class="ml2-avatar">FA</div><div><div class="ml2-from-name">The French Atelier</div><div class="ml2-from-addr">hello@frenchatelier.com</div></div></div>
           <div class="ml2-to">to you</div>
         </div>
-        <div class="ml2-subj">How it Works</div>
-        <div class="ml2-hero ml2-hero--brand"><div class="ml2-brand-mark">FRENCH ATELIER</div><div class="ml2-brand-tag">BY ACADOMIA</div><div class="ml2-brand-rule"></div><div class="ml2-brand-sub">What Does Paris Smell Like · DAY 3</div></div>
-        <div class="ml2-body"><p>Subject line: Here&#x27;s how French Atelier actually works</p><p>Bonjour,</p><p>A quick note to make things clear, because we know &quot;online French&quot; can mean a lot of different things.</p><p>French Atelier isn&#x27;t an app, and it isn&#x27;t a stack of videos to watch alone. It&#x27;s a real, culture-focused and structured course — streamed live from beautiful French locations and delivered in small groups by a native French teacher who guides every session.</p><p>You&#x27;ll meet weekly for around five months. Each session has a clear shape, planned ahead of time. You don&#x27;t need to prepare alone. You don&#x27;t try to figure out what comes next. The path is laid out for you, step by step.</p><p class="ml2-signoff">The French Atelier team</p></div>
+        <div class="ml2-subj">What does Paris smell like?</div>
+        <div class="ml2-hero ml2-hero--brand"><div class="ml2-brand-mark">FRENCH ATELIER</div><div class="ml2-brand-tag">BY ACADOMIA</div><div class="ml2-brand-rule"></div><div class="ml2-brand-sub">Experience · DAY 1</div></div>
+        <div class="ml2-body"><p>Subject line: What does Paris smell like?</p><p>Close your eyes for a second. It&#x27;s 7 in the morning somewhere in the 11th. A boulangerie door swings open and the whole block smells like warm flour, yeast, a little sugar. Someone walks past with coffee. The metro exhales below you. Somewhere, a church bell.</p><p>This is the thing no textbook can teach. Paris has a grammar of the senses. The rain on cobblestone after a long afternoon. Butter melting into a cast-iron pan around seven. The Seine in July, warm and a little green. Tobacco and wool in the winter. Lavender at a market stall in spring.</p><p>You don&#x27;t memorise any of it — it settles into you, and later, when you reach for a word, the word already smells like something. This is why we teach French the way we do. Language without context is just vocabulary. We&#x27;d rather give you the whole room.</p><p class="ml2-signoff">À bientôt,<br>French Atelier</p></div>
       </div>
       <div class="ml2-landing ml2-landing--brand">
       <div class="ml2-landing-label">EMAIL 02 · LIFECYCLE STAGE</div>
@@ -1117,7 +1139,7 @@
         </div>
         <div class="ml2-subj">Customer Testimonials</div>
         <div class="ml2-hero"><img src="images/real_emails/email06_landing_desktop_1920x502.jpg" alt=""></div>
-        <div class="ml2-body"><p>Suubject line: People like you are already doing this!</p><p>Many people who join the French Atelier have something in common: they hesitated.</p><p>They thought their French was too rusty. Or that &quot;real&quot; languages should be learned younger. Or that a live class would be too much pressure.</p><p>Here&#x27;s what two of them shared, a few weeks in.</p><p>Claire, 47, New York. &quot;I was the quietest one in lesson one. By lesson three, I caught myself laughing at a joke in French — without translating it first. That moment felt like a small door opening.&quot;</p><p class="ml2-signoff">À bientôt,<br>The French Atelier</p></div>
+        <div class="ml2-body"><p>Subject line: People like you are already doing this!</p><p>Many people who join the French Atelier have something in common: they hesitated.</p><p>They thought their French was too rusty. Or that &quot;real&quot; languages should be learned younger. Or that a live class would be too much pressure.</p><p>Here&#x27;s what two of them shared, a few weeks in.</p><p>Claire, 47, New York. &quot;I was the quietest one in lesson one. By lesson three, I caught myself laughing at a joke in French — without translating it first. That moment felt like a small door opening.&quot;</p><p class="ml2-signoff">À bientôt,<br>The French Atelier</p></div>
       </div>
       <div class="ml2-landing">
       <div class="ml2-landing-label">LANDING PAGE · MOBILE</div>
@@ -1261,7 +1283,7 @@
         </div>
         <div class="ml2-subj">Comme d&#x27;habitude · A small return to where it began ·</div>
         <div class="ml2-hero"><img src="images/real_emails/email12_landing_desktop_1920x502.jpg" alt=""></div>
-        <div class="ml2-body"><p>Bonjour,</p><p>You&#x27;ve come back. The light is grey-blue, the rooftops are zinc, and the city smells faintly of rain on stone. After Nice, Bordeaux, Chamonix, Champagne — Paris feels narrower, quicker, more itself.</p><p>A small café on a side street in the 11th. Two tables outside, one inside near the bar. The waiter recognises no one and everyone at the same time.</p><p>— Bonjour. Un café, s&#x27;il vouLeave s plaît.</p><p>— Comme d&#x27;habitude ?</p><p class="ml2-signoff">À bientôt,The French Atelier team</p></div>
+        <div class="ml2-body"><p>Bonjour,</p><p>You&#x27;ve come back. The light is grey-blue, the rooftops are zinc, and the city smells faintly of rain on stone. After Nice, Bordeaux, Chamonix, Champagne — Paris feels narrower, quicker, more itself.</p><p>A small café on a side street in the 11th. Two tables outside, one inside near the bar. The waiter recognises no one and everyone at the same time.</p><p>— Bonjour. Un café, s&#x27;il vous plaît.</p><p>— Comme d&#x27;habitude ?</p><p class="ml2-signoff">À bientôt,The French Atelier team</p></div>
       </div>
       <div class="ml2-landing">
       <div class="ml2-landing-label">LANDING PAGE · MOBILE</div>
@@ -1355,6 +1377,7 @@
         <video autoplay muted loop playsinline>
           <source src="videos/site/site_walkthrough.mp4" type="video/mp4">
         </video>
+        <button class="sound-toggle" onclick="toggleVideoSound(this)" title="Toggle sound" aria-label="Toggle sound"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button>
       </div>
     </div>
     <div class="site-stats site-stats--inline">
@@ -2078,7 +2101,7 @@
   </div></section><section class="slide slide--dark slide--bastille"><div class="slide__inner slide__inner--bastille">
   <div class="bastille-left">
     <div class="eyebrow eyebrow--gold">CHAPTER 04 · BASTILLE DAY · 14 JUILLET 2025</div>
-    <h1 class="bastille-headline">Bastille Day<br><span class="gold">· 14 July ·</span></h1>
+    <h1 class="bastille-headline">Bastille Day<br><span class="gold">· 14 juillet ·</span></h1>
     <div class="bastille-sub">Liberté Toujours</div>
     <div class="rule"></div>
     <div class="bastille-terms">
@@ -2103,12 +2126,12 @@
       <div class="bpc-title">&ldquo;Liberté Toujours&rdquo; — Bastille Day 2025</div>
       <div class="bpc-body">On 14 July, France rolls out the tricolour carpets. The 2025 edition carries the motto <em>Liberté Toujours</em> — linking revolutionary ideals to post-Olympic optimism still humming through Paris. Weave even a few French phrases into the day and you&rsquo;re no longer a spectator — you&rsquo;re a participant.</div>
       <div class="bpc-tags">#BastilleDay #LibertéToujours #LearnFrench #FrenchAtelier</div>
-      <div class="bpc-cta">Win a trip to France →</div>
-    </div>
-    <div class="mech-list" style="margin-top:24px;">
-      <div class="mech"><div class="mech-h">PRIZE</div><div class="mech-b">Long weekend in Paris · flights + 3 nights + private French lesson on-site.</div></div>
-      <div class="mech"><div class="mech-h">ENTRY</div><div class="mech-b">Follow @frenchatelier · tag 2 friends · share to story.</div></div>
-      <div class="mech"><div class="mech-h">GOAL</div><div class="mech-b">+15K followers across IG/TikTok · 25% of monthly organic leads.</div></div>
+      <div class="bpc-metrics">
+        <div class="bpc-metric"><span class="bpc-metric-n">4,812</span><span class="bpc-metric-l">Likes</span></div>
+        <div class="bpc-metric"><span class="bpc-metric-n">318</span><span class="bpc-metric-l">Comments</span></div>
+        <div class="bpc-metric"><span class="bpc-metric-n">941</span><span class="bpc-metric-l">Shares</span></div>
+        <div class="bpc-metric"><span class="bpc-metric-n">62K</span><span class="bpc-metric-l">Reach</span></div>
+      </div>
     </div>
   </div>
 </div></section><section class="slide slide--dark slide--divider"><div class="slide__inner">

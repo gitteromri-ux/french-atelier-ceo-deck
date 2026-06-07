@@ -15,16 +15,18 @@
   justify-content: center;
   padding-left: 9vw;
 }
+/* FIX: raised tl-note opacity from .55→.72 on dark chapter-closer slides */
 .slide--chapter-closer .tl-note {
-  color: rgba(245,239,230,.55);
+  color: rgba(245,239,230,.72);
 }
 
 /* Dark stat grid (for dark slides) */
+/* FIX: raised opacity from .6→.82 and .45→.65 for legibility on navy bg */
 .stat-grid--dark .stat-l {
-  color: rgba(245,239,230,.6);
+  color: rgba(245,239,230,.82);
 }
 .stat-grid--dark .stat-s {
-  color: rgba(245,239,230,.45);
+  color: rgba(245,239,230,.65);
 }
 .stat-grid--dark .stat-n.gold {
   color: var(--gold);
@@ -63,7 +65,7 @@
   align-items: center;
   justify-content: center;
   color: #0A1128;
-  z-index: 10;
+  z-index: 50;
   transition: background 0.15s, transform 0.12s;
   box-shadow: 0 2px 8px rgba(0,0,0,.35);
   padding: 0;
@@ -89,6 +91,36 @@
 }
 .paid-phone .phone-frame {
   position: relative;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   VID-GRID PHONE SIZE FIXES
+   At 1440×900 the organic video grids start at ~433px, leaving
+   only 467px of available height. The default phone widths
+   produce frames that overflow the viewport and hide the
+   sound-toggle button + bottom burned-in text.
+
+   vid-grid--1  (solo, 300px default → 533px tall):
+     Fix: 248px → 441px tall. Fits with ~26px margin.
+
+   vid-grid--2  (2-up, 374px default → 665px tall):
+     Fix: 263px → 468px tall. Fits with ~1px margin (safe).
+
+   vid-grid--8  (4×2, 278px default → first-row ends at 927px):
+     Fix: 260px → 462px tall. First row ends at 895px.
+   ────────────────────────────────────────────────────────────── */
+.slide--vidgrid .vid-grid--1 .vid-phone {
+  width: 248px;
+}
+/* vid-grid--2: tighten max-width so each column is ~254px
+   (254×2 + 32 gap = 540px) → phone 9/16 = 452px, fits at ~885px */
+.slide--vidgrid .vid-grid--2 {
+  max-width: 540px;
+}
+/* vid-grid--8 (Homonyms 4×2): reduce phone width so first row
+   fits in viewport (260×16/9 = 462px, starts at 433 → ends 895) */
+.slide--vidgrid .vid-grid--8 .vid-phone {
+  width: 260px;
 }
 
 /* ──────────────────────────────────────────────────────────────
@@ -217,7 +249,8 @@
 .ef-day {
   font-family: 'Inter', sans-serif;
   font-size: 10px;
-  color: rgba(245,239,230,.5);
+  /* FIX: raised opacity from .5→.75 for legibility on dark navy */
+  color: rgba(245,239,230,.75);
   margin-bottom: 4px;
   letter-spacing: .08em;
 }
@@ -309,8 +342,8 @@
   padding: 12px 14px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  min-height: 130px;
+  gap: 5px;
+  min-height: 160px;
   transition: box-shadow 0.15s;
 }
 .post-card-mockup:hover {
@@ -358,6 +391,20 @@
   color: var(--navy);
   line-height: 1.3;
   font-style: italic;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.pcm-snippet {
+  font-family: 'Inter', sans-serif;
+  font-size: 9.5px;
+  color: #555;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   flex: 1;
 }
 .pcm-persona {
@@ -382,7 +429,8 @@
 }
 .slide__inner--bastille {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* FIX: widened left column from 3fr→4fr so bastille-terms has room for nowrap bt-en text */
+  grid-template-columns: 4fr 3fr;
   gap: 48px;
   align-items: start;
   padding: 60px 7vw;
@@ -409,7 +457,7 @@
   font-family: 'Cormorant Garamond', serif;
   font-size: 26px;
   font-style: italic;
-  color: rgba(245,239,230,.7);
+  color: var(--gold);
   margin-bottom: 2px;
 }
 .bastille-left .rule {
@@ -425,6 +473,7 @@
   gap: 18px;
 }
 .bastille-term {
+  display: block;
   border-left: 2px solid var(--gold);
   padding-left: 16px;
 }
@@ -438,8 +487,10 @@
 .bt-en {
   font-family: 'Inter', sans-serif;
   font-size: 11px;
-  color: rgba(245,239,230,.55);
+  /* FIX: raised opacity from .55→.75; white-space nowrap prevents word-by-word wrap */
+  color: rgba(245,239,230,.75);
   letter-spacing: .06em;
+  white-space: nowrap;
 }
 .bastille-footer {
   font-family: 'Inter', sans-serif;
@@ -457,8 +508,8 @@
   gap: 0;
 }
 .bastille-post-card {
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(201,169,97,.3);
+  background: #F5EFE6;
+  border: 1px solid rgba(201,169,97,.4);
   border-radius: 8px;
   padding: 24px 26px;
   display: flex;
@@ -469,40 +520,59 @@
   font-family: 'Inter', sans-serif;
   font-size: 10px;
   letter-spacing: .2em;
-  color: var(--gold);
+  color: #8a6c28;
   text-transform: uppercase;
 }
 .bpc-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 22px;
   font-style: italic;
-  color: #F5EFE6;
+  color: #1a1f2e;
   line-height: 1.25;
 }
 .bpc-body {
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   line-height: 1.65;
-  color: rgba(245,239,230,.75);
+  color: rgba(26,31,46,.75);
 }
 .bpc-body em {
-  color: var(--gold);
+  color: #8a6c28;
   font-style: italic;
 }
 .bpc-tags {
   font-family: 'Inter', sans-serif;
   font-size: 10px;
-  color: rgba(201,169,97,.7);
+  color: #8a6c28;
   letter-spacing: .04em;
 }
-.bpc-cta {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  color: var(--gold);
+/* Engagement metrics row */
+.bpc-metrics {
+  display: flex;
+  gap: 20px;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(26,31,46,.15);
+}
+.bpc-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.bpc-metric-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
   font-weight: 600;
-  letter-spacing: .1em;
+  color: #1a1f2e;
+  line-height: 1;
+}
+.bpc-metric-l {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  letter-spacing: .12em;
   text-transform: uppercase;
-  margin-top: 4px;
+  color: rgba(26,31,46,.5);
 }
 
 /* Bastille mech-list on dark bg */
@@ -581,9 +651,78 @@
 }
 
 /* ──────────────────────────────────────────────────────────────
-   ML2 BODY OVERFLOW FIX (explicit override)
+   ML2 FRAME + BODY OVERFLOW FIX (explicit override)
+   Frame starts at ~363px from top (header takes ~303px + 60px padding-top).
+   Max frame height = 900 - 363 - 12px margin = 525px = calc(100vh - 375px)
    ────────────────────────────────────────────────────────────── */
-.ml2-body {
-  max-height: 70vh !important;
+.slide--ml2 .ml2-frame {
+  max-height: calc(100vh - 375px) !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.slide--ml2 .ml2-body {
+  flex: 1 !important;
+  min-height: 0 !important;
   overflow-y: auto !important;
+  max-height: none !important;
+}
+/* General ml2-body cap (non-ml2 slides) */
+.ml2-body {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   PAID SOLO — Single centered phone (Philippe video slide)
+   ────────────────────────────────────────────────────────────── */
+.paid-solo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 48px;
+  margin-top: 30px;
+}
+.paid-solo .paid-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 400px;
+}
+.paid-solo .paid-phone--lg {
+  width: 185px !important;
+}
+@media (max-height: 820px) {
+  .paid-solo .paid-phone--lg {
+    width: 160px !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   PAID PHONE HEIGHT FIX — ensure phone + meta fit in 840px slide
+   Available after header: ~485px → phone max height ~330px → width ~185px
+   ────────────────────────────────────────────────────────────── */
+/* Override the 340px from v6.css for the paid chapter phone frames */
+.paid-phone--lg {
+  width: 185px !important;
+}
+/* Charline two-phone layout: slightly larger since no bottom meta overflow risk */
+.paid-row .paid-phone--lg {
+  width: 220px !important;
+}
+@media (max-height: 820px) {
+  .paid-phone--lg {
+    width: 160px !important;
+  }
+  .paid-row .paid-phone--lg {
+    width: 190px !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   PAID ROW MARGIN FIX — reduce top margin to prevent tag overflow
+   ────────────────────────────────────────────────────────────── */
+.paid-row {
+  margin-top: 20px;
 }

@@ -88,7 +88,7 @@
 
 /* SITE — fix alignment */
 .site-wrap{ display:flex; flex-direction:column; align-items:center; gap:20px; margin-top:20px; }
-.browser-body--video{ background:#000; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; }
+.browser-body--video{ background:#000; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; position:relative; }
 .browser-body--video video{ width:100%; height:100%; object-fit:cover; display:block; }
 .site-stats--inline{ display:flex; gap:60px; justify-content:center; max-width:none; margin:0; }
 .site-stats--inline .ss{ text-align:center; min-width:0; }
