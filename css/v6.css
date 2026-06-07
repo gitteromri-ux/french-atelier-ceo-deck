@@ -282,3 +282,444 @@
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
+
+/* ===== v7: email mockup fix — full body visible, moved up ===== */
+.slide--email .slide__inner {
+  padding-top: 60px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.slide--email .ml2-card,
+.slide--email .email-mockup {
+  margin-top: 16px;
+  max-height: calc(100vh - 220px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.slide--email .ml2-hero {
+  flex-shrink: 0;
+  max-height: 30%;
+}
+.slide--email .ml2-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 20px 28px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.slide--email .ml2-body p {
+  margin: 0 0 10px;
+}
+.slide--email .ml2-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Make sure the slide itself doesn't overflow */
+.slide--email {
+  overflow: hidden;
+}
+
+/* Landing asset column should also fit */
+.slide--email .ml2-landing,
+.slide--email .ml2-landing--brand {
+  max-height: calc(100vh - 240px);
+  overflow: hidden;
+}
+
+/* ml2 slides (slide--ml2): same fixes applied to the actual classes in use */
+.slide--ml2 .slide__inner {
+  padding-top: 60px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.slide--ml2 .ml2-frame {
+  margin-top: 16px;
+  max-height: calc(100vh - 220px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.slide--ml2 .ml2-hero {
+  flex-shrink: 0;
+  max-height: 30%;
+}
+.slide--ml2 .ml2-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 20px 28px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.slide--ml2 .ml2-body p {
+  margin: 0 0 10px;
+}
+.slide--ml2 .ml2-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Prevent ml2 slide itself from overflowing */
+.slide--ml2 {
+  overflow: hidden;
+}
+
+/* Landing asset column constrained */
+.slide--ml2 .ml2-landing,
+.slide--ml2 .ml2-landing--brand {
+  max-height: calc(100vh - 240px);
+  overflow: hidden;
+}
+
+/* Ensure slide__inner can grow if needed — min-height not fixed height */
+.slide--ml2 .slide__inner,
+.slide--email .slide__inner {
+  min-height: 100vh;
+  height: auto;
+}
+
+/* ===== Bastille slide — editorial dark redesign ===== */
+.slide--bastille {
+  background: #0A1128;
+  overflow: hidden;
+}
+
+/* Full-bleed inner — overrides slide__inner defaults */
+.bastille-inner {
+  width: 100%;
+  height: 100%;
+  padding: 52px 72px 48px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Top eyebrow */
+.bastille-eyebrow {
+  margin-bottom: 32px;
+  letter-spacing: .22em;
+}
+
+/* Two-column layout */
+.bastille-columns {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 64px;
+  flex: 1;
+  align-items: start;
+}
+
+/* ---- LEFT COLUMN ---- */
+.bastille-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.bastille-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 76px;
+  line-height: 1.02;
+  font-weight: 500;
+  color: #F5EFE6;
+  margin: 0 0 10px;
+  letter-spacing: -.01em;
+}
+
+.bastille-subheadline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  font-style: italic;
+  font-weight: 400;
+  color: #C9A961;
+  margin: 0 0 6px;
+  line-height: 1.15;
+}
+
+.bastille-rule {
+  width: 60px;
+  height: 2px;
+  background: #C9A961;
+  border: 0;
+  margin: 18px 0 20px;
+  flex-shrink: 0;
+}
+
+.bastille-lead {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.62;
+  color: #F5EFE6;
+  margin: 0 0 28px;
+  max-width: 560px;
+  opacity: .92;
+}
+
+/* Terms grid */
+.bastille-terms-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.bastille-term {
+  display: grid;
+  grid-template-columns: 180px 18px 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 10px;
+  align-items: baseline;
+}
+
+.bastille-term-fr {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-style: italic;
+  color: #F5EFE6;
+  font-weight: 500;
+}
+
+.bastille-term-arrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #C9A961;
+  opacity: .8;
+}
+
+.bastille-term-en {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #F5EFE6;
+  letter-spacing: .01em;
+}
+
+.bastille-term-note {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: rgba(201, 169, 97, .75);
+  letter-spacing: .06em;
+  grid-column: 3;
+  margin-top: 2px;
+}
+
+/* Footer eyebrow */
+.bastille-footer-eyebrow {
+  font-size: 10px !important;
+  letter-spacing: .18em !important;
+  opacity: .75;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ---- RIGHT COLUMN ---- */
+.bastille-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 6px;
+}
+
+/* Feature card */
+.bastille-feature-card {
+  background: #F5EFE6;
+  border: 1.5px solid #0A1128;
+  border-radius: 10px;
+  padding: 28px 28px 22px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.45), 0 2px 8px rgba(0,0,0,.3);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bastille-card-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: #C9A961;
+  padding: 5px 10px;
+  border: 1px solid rgba(201,169,97,.4);
+  border-radius: 3px;
+  display: inline-block;
+  align-self: flex-start;
+}
+
+.bastille-card-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: #0A1128;
+  line-height: 1.22;
+  margin: 0;
+}
+
+.bastille-card-byline {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: #5E657A;
+  margin: 0;
+  letter-spacing: .04em;
+}
+
+.bastille-card-excerpt {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #1B1F2E;
+  margin: 0;
+  opacity: .88;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.bastille-card-engagement {
+  display: flex;
+  gap: 20px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(10,17,40,.12);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #5E657A;
+}
+
+/* Link below card */
+.bastille-card-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #C9A961;
+  letter-spacing: .04em;
+}
+
+.bastille-link-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+
+/* ===================================================================
+   DARK SLIDE OVERRIDES — applies to all .slide--dark slides
+   Background: #0A1128 (navy) · Text: #F5EFE6 (cream) · Gold: #C9A961
+   =================================================================== */
+
+/* Base dark slide colors */
+.slide--dark {
+  background: #0A1128;
+  color: #F5EFE6;
+}
+
+/* Eyebrow / labels → gold */
+.slide--dark .eyebrow {
+  color: #C9A961;
+}
+
+/* Main titles → cream */
+.slide--dark .title,
+.slide--dark .title--lg,
+.slide--dark .title--md,
+.slide--dark .title--sm {
+  color: #F5EFE6;
+}
+
+/* Lead / body paragraphs → soft cream */
+.slide--dark .lead {
+  color: rgba(245, 239, 230, 0.85);
+}
+
+/* Rule → gold */
+.slide--dark .rule {
+  background: #C9A961;
+  border: none;
+}
+
+/* Gold accent spans */
+.slide--dark .gold {
+  color: #C9A961;
+}
+
+/* ── Agenda slide (slide 02) ── */
+.slide--dark .agenda { border-color: rgba(201, 169, 97, 0.2); }
+.slide--dark .ag { border-bottom-color: rgba(201, 169, 97, 0.18); }
+.slide--dark .ag-n { color: #C9A961; }
+.slide--dark .ag-h { color: #F5EFE6; }
+.slide--dark .ag-s { color: rgba(245, 239, 230, 0.65); }
+
+/* ── Stat grid slides (06, 14, 37) — paid/organic/quora stat heroes ── */
+.slide--dark .stat-grid { border-color: transparent; }
+.slide--dark .stat {
+  border-color: rgba(201, 169, 97, 0.2);
+}
+.slide--dark .stat-n { color: #F5EFE6; }
+.slide--dark .stat-l { color: #C9A961; }
+.slide--dark .stat-s { color: rgba(245, 239, 230, 0.6); }
+.slide--dark .cpl-note,
+.slide--dark .tl-note {
+  color: rgba(245, 239, 230, 0.6);
+}
+
+/* ── Five creative formats intro (slide 08) ── */
+.slide--dark .fmt-grid--5 .fmt {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(201, 169, 97, 0.25);
+}
+.slide--dark .fmt-grid--5 .fmt-pill {
+  background: #C9A961;
+  color: #0A1128;
+}
+.slide--dark .fmt-grid--5 .fmt-h { color: #F5EFE6; }
+.slide--dark .fmt-grid--5 .fmt-d { color: rgba(245, 239, 230, 0.75); }
+.slide--dark .fmt-grid--5 .fmt-meta {
+  color: #C9A961;
+  border-top-color: rgba(201, 169, 97, 0.2);
+}
+
+/* ── Email lifecycle program overview (slide 16) ── */
+.slide--dark p.lead { color: rgba(245, 239, 230, 0.82); }
+.slide--dark .email-program-grid { border-color: transparent; }
+.slide--dark .ep {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(201, 169, 97, 0.2);
+}
+.slide--dark .ep-num { color: #C9A961; }
+.slide--dark .ep-day { color: rgba(245, 239, 230, 0.55); }
+.slide--dark .ep-cat { color: #F5EFE6; }
+.slide--dark .program-note { color: rgba(245, 239, 230, 0.6); }
+
+/* ── Quora/Reddit strategy (slide 34) ── */
+.slide--dark .qr-strategy { color: #F5EFE6; }
+.slide--dark .qr-pillar {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(201, 169, 97, 0.25);
+}
+.slide--dark .qr-num { color: #C9A961; }
+.slide--dark .qr-h { color: #F5EFE6; }
+.slide--dark .qr-b { color: rgba(245, 239, 230, 0.75); }
+
+/* ── Quora performance stat hero (slide 37) — uses .stat-grid, covered above ── */
+/* Also override the tl-note */
+.slide--dark .tl-note { color: rgba(245, 239, 230, 0.6); }
+
+/* ── Subtle gold linework: section dividers inside dark slides ── */
+.slide--dark .rule {
+  width: 80px;
+  height: 2px;
+  background: #C9A961;
+  border: none;
+}
+
+/* ── Display headlines used in ask/closing (already styled, reinforce) ── */
+.slide--dark .display { color: #F5EFE6; }
+.slide--dark .display em { color: #C9A961; font-style: italic; }
+
+/* ── Ensure sub-lead on dark slides is legible ── */
+.slide--dark .sub-lead { color: rgba(245, 239, 230, 0.7); }
