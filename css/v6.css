@@ -132,3 +132,70 @@
   .vid-phone .phone-frame{ border-width:4px; }
   .ml2-frame{ max-height:580px; }
 }
+
+/* === V6.1 — five-format grid + variable video grids + branded email placeholders === */
+
+/* Five-format taxonomy grid */
+.fmt-grid--5{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; margin-top:24px; }
+.fmt-grid--5 .fmt{ background:#fff; border:1px solid var(--line); border-radius:6px; padding:18px 16px; display:flex; flex-direction:column; gap:8px; }
+.fmt-grid--5 .fmt-pill{ display:inline-block; align-self:flex-start; font-family:'Inter',sans-serif; font-size:9px; letter-spacing:.18em; background:var(--navy); color:#fff; padding:4px 9px; border-radius:2px; }
+.fmt-grid--5 .fmt-h{ font-family:'Cormorant Garamond',serif; font-size:20px; color:var(--navy); font-weight:500; margin:4px 0 4px; line-height:1.15; }
+.fmt-grid--5 .fmt-d{ font-family:'Inter',sans-serif; font-size:11.5px; line-height:1.5; color:var(--ink); margin:0; flex:1; }
+.fmt-grid--5 .fmt-meta{ font-family:'Inter',sans-serif; font-size:10px; color:var(--gold-2); font-style:italic; padding-top:6px; border-top:1px solid var(--line); margin-top:auto; }
+
+/* Variable video grids — auto layout based on count */
+.vid-grid--1{ grid-template-columns:minmax(0,1fr); max-width:480px; margin-left:auto; margin-right:auto; gap:24px; }
+.vid-grid--2{ grid-template-columns:repeat(2,1fr); max-width:780px; margin-left:auto; margin-right:auto; gap:32px; }
+.vid-grid--5{ grid-template-columns:repeat(5,1fr); gap:20px; }
+.vid-grid--7{ grid-template-columns:repeat(7,1fr); gap:14px; }
+.vid-grid--8{ grid-template-columns:repeat(4,1fr); gap:20px; }   /* 4x2 */
+.vid-grid--9{ grid-template-columns:repeat(3,1fr); gap:22px; }   /* 3x3 */
+.vid-grid--10{ grid-template-columns:repeat(5,1fr); gap:18px; }  /* 5x2 */
+.vid-grid--11{ grid-template-columns:repeat(6,1fr); gap:16px; }  /* 6+5 */
+.vid-grid--12{ grid-template-columns:repeat(6,1fr); gap:16px; }
+
+/* Solo-card video (Tourism, History) — larger phone, side caption */
+.vid-grid--1 .vid-card{ flex-direction:row; align-items:center; gap:36px; }
+.vid-grid--1 .vid-phone{ width:300px; flex-shrink:0; }
+.vid-grid--1 .vid-meta{ text-align:left; padding:0; }
+.vid-grid--1 .vid-line{ justify-content:flex-start; }
+.vid-grid--1 .vid-fr{ font-size:22px; }
+.vid-grid--1 .vid-tag{ font-size:10px; width:54px; }
+.vid-grid--1 .vid-tr{ font-size:13px; margin-top:10px; }
+
+/* Two-card video (Wines) */
+.vid-grid--2 .vid-fr{ font-size:16px; }
+.vid-grid--2 .vid-tag{ font-size:9px; width:48px; }
+.vid-grid--2 .vid-tr{ font-size:11px; }
+
+/* Branded hero placeholder for emails 1/2 with no real hero asset */
+.ml2-hero--brand{
+  background: linear-gradient(135deg, var(--navy) 0%, #15214a 100%);
+  color: var(--cream);
+  padding: 28px 18px 22px;
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  border-bottom: 2px solid var(--gold);
+}
+.ml2-brand-mark{ font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:500; letter-spacing:.06em; color:var(--cream); }
+.ml2-brand-tag{ font-family:'Inter',sans-serif; font-size:9px; letter-spacing:.28em; color:var(--gold); }
+.ml2-brand-rule{ width:60px; height:1px; background:var(--gold); margin:6px 0; }
+.ml2-brand-sub{ font-family:'Inter',sans-serif; font-size:10px; letter-spacing:.18em; color:rgba(245,239,230,.75); }
+
+/* Branded landing placeholder for emails without landing assets */
+.ml2-landing--brand{ align-items:stretch; }
+.ml2-landing--brand .ml2-landing-brand{
+  width: 240px;
+  aspect-ratio: 9/16;
+  background: var(--cream-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 14px;
+  padding: 30px 22px;
+  text-align: center;
+}
+.ml2-lb-cat{ font-family:'Cormorant Garamond',serif; font-size:24px; color:var(--navy); font-weight:500; line-height:1.15; }
+.ml2-lb-day{ font-family:'Inter',sans-serif; font-size:11px; letter-spacing:.22em; color:var(--gold-2); }
+.ml2-lb-rule{ width:50px; height:1px; background:var(--gold); margin:6px 0; }
+.ml2-lb-tag{ font-family:'Inter',sans-serif; font-size:10px; line-height:1.5; color:var(--muted); font-style:italic; }

@@ -18,16 +18,35 @@ EMAIL_META = {
 FORMAL_SPOKEN = [
   {"file":"formal_vs_spoken_2","top":"Il n'y a pas","bottom":"Y'a pas","tr":"There isn't"},
   {"file":"formal_vs_spoken_3","top":"Qu'est-ce que tu fais?","bottom":"Tu fais quoi?","tr":"What are you doing?"},
+  {"file":"formal_vs_spoken_4","top":"Je ne veux pas","bottom":"J'veux pas","tr":"I don't want"},
   {"file":"formal_vs_spoken_5","top":"Je ne comprends pas","bottom":"J'comprends pas","tr":"I don't understand"},
   {"file":"formal_vs_spoken_6","top":"Cela ne fait rien","bottom":"C'est pas grave","tr":"It doesn't matter"},
   {"file":"formal_vs_spoken_7","top":"Je suis en train de…","bottom":"J'suis en train de…","tr":"I'm in the middle of…"},
   {"file":"formal_vs_spoken_8","top":"Tu as compris?","bottom":"T'as capté?","tr":"Did you get it?"},
+  {"file":"formal_vs_spoken_9","top":"Je ne peux pas","bottom":"J'peux pas","tr":"I can't"},
+  {"file":"formal_vs_spoken_10","top":"Je ne crois pas","bottom":"J'crois pas","tr":"I don't think so"},
+  {"file":"formal_vs_spoken_11","top":"Tu n'es pas","bottom":"T'es pas","tr":"You're not"},
+  {"file":"formal_vs_spoken_12","top":"Il est en train de partir","bottom":"Il s'casse","tr":"He's leaving / taking off"},
 ]
 HOMONYMS = [
   {"file":"homonyms_1","top":"Verre","bottom":"Vers · Vert","tr":"Glass · Towards · Green"},
+  {"file":"homonyms_2","top":"Foi","bottom":"Foie · Fois","tr":"Faith · Liver · Time"},
   {"file":"homonyms_3","top":"Mère","bottom":"Mer · Maire","tr":"Mother · Sea · Mayor"},
+  {"file":"homonyms_4","top":"Pain","bottom":"Pin · Peint","tr":"Bread · Pine · Painted"},
   {"file":"homonyms_5","top":"Sang","bottom":"Sans · Cent","tr":"Blood · Without · Hundred"},
   {"file":"homonyms_6","top":"Coin","bottom":"Coing · Cou","tr":"Corner · Quince · Neck"},
+  {"file":"homonyms_7","top":"Cou","bottom":"Coup · Coût","tr":"Neck · Blow · Cost"},
+  {"file":"homonyms_8","top":"Cher","bottom":"Chair · Chère","tr":"Dear · Flesh · Expensive"},
+]
+WINES = [
+  {"file":"french_wines_1","top":"Un verre de rouge","bottom":"Un p'tit rouge","tr":"A glass of red wine"},
+  {"file":"french_wines_2","top":"À votre santé!","bottom":"Tchin-tchin!","tr":"Cheers!"},
+]
+TOURISM = [
+  {"file":"french_tourism","top":"Bienvenue en France","bottom":"Bienvenue chez nous","tr":"Welcome to France"},
+]
+HISTORY = [
+  {"file":"french_history","top":"Le Roi Soleil","bottom":"Louis XIV","tr":"The Sun King · 1638–1715"},
 ]
 
 def h(t): return html.escape(t) if t else ''
@@ -58,7 +77,7 @@ slides.append('''<section class="slide slide--cream"><div class="slide__inner">
   <div class="rule"></div>
   <div class="agenda">
     <div class="ag"><div class="ag-n">01</div><div><div class="ag-h">Paid Media</div><div class="ag-s">Two Charline Masterclass cuts · 80/20 spend · CPL at $13.40</div></div></div>
-    <div class="ag"><div class="ag-n">02</div><div><div class="ag-h">Organic Content</div><div class="ag-s">22 short-form videos · 4 locked creative formats · 1.8M impressions</div></div></div>
+    <div class="ag"><div class="ag-n">02</div><div><div class="ag-h">Organic Content</div><div class="ag-s">23 short-form videos · 5 locked creative formats · 1.8M impressions</div></div></div>
     <div class="ag"><div class="ag-n">03</div><div><div class="ag-h">Thought Leadership</div><div class="ag-s">15 lifecycle emails · 60 Quora/Reddit posts · live site · AI-SEO</div></div></div>
     <div class="ag"><div class="ag-n">04</div><div><div class="ag-h">Bastille Day</div><div class="ag-s">Win-a-trip · follower acquisition · +15K target</div></div></div>
     <div class="ag"><div class="ag-n">05</div><div><div class="ag-h">The Ask</div><div class="ag-s">From 1.9 → 2.5 weekly ROI · three levers · one quarter</div></div></div>
@@ -168,18 +187,19 @@ slides.append('''<section class="slide slide--cream"><div class="slide__inner">
 </div></section>''')
 
 # ============ CHAPTER 02 — ORGANIC ============
-slides.append(divider("02","Organic Content","Four locked creative formats · 22 videos · 1.8M impressions"))
+slides.append(divider("02","Organic Content","Five locked creative formats · 23 videos · 1.8M impressions"))
 
 # Format taxonomy intro
 slides.append('''<section class="slide slide--cream"><div class="slide__inner">
-  <div class="eyebrow">CHAPTER 02 · ORGANIC · FOUR CREATIVE FORMATS</div>
-  <h2 class="title">Four locked formats.<br>French words on every frame.</h2>
+  <div class="eyebrow">CHAPTER 02 · ORGANIC · FIVE CREATIVE FORMATS</div>
+  <h2 class="title">Five locked formats.<br>French words on every frame.</h2>
   <div class="rule"></div>
-  <div class="fmt-grid fmt-grid--4">
-    <div class="fmt"><div class="fmt-pill">FORMAT 01</div><h3 class="fmt-h">Formal vs Spoken</h3><p class="fmt-d">Same idea, two registers. Textbook French on top, street French on bottom.</p><div class="fmt-meta"><span>6 episodes shipped · 12 planned</span></div></div>
-    <div class="fmt"><div class="fmt-pill">FORMAT 02</div><h3 class="fmt-h">Homonyms</h3><p class="fmt-d">One sound · three meanings. Visual wordplay that breaks open the &lsquo;wait, what?&rsquo; moment.</p><div class="fmt-meta"><span>4 episodes shipped · 8 planned</span></div></div>
-    <div class="fmt"><div class="fmt-pill">FORMAT 03</div><h3 class="fmt-h">French Breakfast</h3><p class="fmt-d">ASMR-style food clips. Vocabulary served at the table — pain au chocolat, café crème, tartine.</p><div class="fmt-meta"><span>3 episodes shipped</span></div></div>
-    <div class="fmt"><div class="fmt-pill">FORMAT 04</div><h3 class="fmt-h">French Beauty</h3><p class="fmt-d">Testimonial reels with Melanie. Real students. Real progress arcs over 90 days.</p><div class="fmt-meta"><span>2 episodes shipped · 4 planned</span></div></div>
+  <div class="fmt-grid fmt-grid--5">
+    <div class="fmt"><div class="fmt-pill">FORMAT 01</div><h3 class="fmt-h">Formal vs Spoken</h3><p class="fmt-d">Same idea, two registers. Textbook French on top, street French on bottom.</p><div class="fmt-meta"><span>11 episodes shipped</span></div></div>
+    <div class="fmt"><div class="fmt-pill">FORMAT 02</div><h3 class="fmt-h">Homonyms</h3><p class="fmt-d">One sound · three meanings. Visual wordplay that breaks open the &lsquo;wait, what?&rsquo; moment.</p><div class="fmt-meta"><span>8 episodes shipped</span></div></div>
+    <div class="fmt"><div class="fmt-pill">FORMAT 03</div><h3 class="fmt-h">French Wines</h3><p class="fmt-d">Café-table vocabulary with Vincent. Wine, conversation, terroir — the words that earn you respect at the bistro.</p><div class="fmt-meta"><span>2 episodes shipped</span></div></div>
+    <div class="fmt"><div class="fmt-pill">FORMAT 04</div><h3 class="fmt-h">French Tourism</h3><p class="fmt-d">Travel French in real settings. Welcome phrases, directions, ordering — the survival kit for visitors.</p><div class="fmt-meta"><span>1 episode shipped · 4 planned</span></div></div>
+    <div class="fmt"><div class="fmt-pill">FORMAT 05</div><h3 class="fmt-h">French History</h3><p class="fmt-d">One king, one revolution, one phrase per clip. Cultural anchors that travel across the funnel.</p><div class="fmt-meta"><span>1 episode shipped · 6 planned</span></div></div>
   </div>
 </div></section>''')
 
@@ -212,45 +232,19 @@ def fmt_slide(label, videos, sub):
     <div class="vid-grid vid-grid--{len(videos)}">{cards}</div>
   </div></section>'''
 
-slides.append(fmt_slide("Formal vs Spoken", FORMAL_SPOKEN, "Six episodes. Top: how you learn it. Bottom: how the French actually say it."))
-slides.append(fmt_slide("Homonyms", HOMONYMS, "Four episodes. One sound · multiple meanings. The French wordplay trap."))
-
-# French Breakfast + Beauty placeholder slide
-slides.append('''<section class="slide slide--cream"><div class="slide__inner">
-  <div class="eyebrow">CHAPTER 02 · ORGANIC · BREAKFAST + BEAUTY</div>
-  <h2 class="title title--md">French Breakfast &amp; French Beauty.</h2>
-  <div class="sub-lead">Two complementary formats. Sensory + social proof.</div>
-  <div class="rule"></div>
-  <div class="ext-grid">
-    <div class="ext">
-      <div class="ext-tag">FORMAT 03 · BREAKFAST</div>
-      <h3 class="ext-h">3 episodes · vocabulary at the table</h3>
-      <ul class="ext-list">
-        <li><em>Le pain au chocolat</em> — ASMR-style café scene · 1:47 watch time</li>
-        <li><em>Le café crème</em> — Vincent orders, breaks down the verb forms · 2:12</li>
-        <li><em>La tartine</em> — Caitlin walks viewers through a French breakfast ritual · 1:58</li>
-      </ul>
-      <div class="ext-stat">112K views · 4.8% engagement · highest save-rate of any format</div>
-    </div>
-    <div class="ext">
-      <div class="ext-tag">FORMAT 04 · BEAUTY</div>
-      <h3 class="ext-h">2 episodes · student testimonials with Melanie</h3>
-      <ul class="ext-list">
-        <li><em>Beauty TLV</em> — Sarah's 90-day arc · Tel Aviv → conversational French</li>
-        <li><em>Beauty Bahaaim</em> — Lior speaks 4 minutes unscripted in French</li>
-      </ul>
-      <div class="ext-stat">28K views · 9.2% CTR to trial · best conversion of any organic format</div>
-    </div>
-  </div>
-</div></section>''')
+slides.append(fmt_slide("Formal vs Spoken", FORMAL_SPOKEN, "Eleven episodes. Top: how you learn it. Bottom: how the French actually say it."))
+slides.append(fmt_slide("Homonyms", HOMONYMS, "Eight episodes. One sound · multiple meanings. The French wordplay trap."))
+slides.append(fmt_slide("French Wines", WINES, "Two episodes. Café-table vocabulary with Vincent — the words that earn you respect at the bistro."))
+slides.append(fmt_slide("French Tourism", TOURISM, "One episode live. Welcome phrases shot on location — the survival kit for visitors."))
+slides.append(fmt_slide("French History", HISTORY, "One episode live. Cultural anchors — one king, one phrase, one minute."))
 
 # Organic stats
 slides.append('''<section class="slide slide--cream"><div class="slide__inner">
   <div class="eyebrow">CHAPTER 02 · ORGANIC · PERFORMANCE</div>
-  <h2 class="title">22 videos · 1.8M impressions · 14.4K leads.</h2>
+  <h2 class="title">23 videos · 1.8M impressions · 14.4K leads.</h2>
   <div class="rule"></div>
   <div class="stat-grid">
-    <div class="stat"><div class="stat-n">22</div><div class="stat-l">videos shipped</div><div class="stat-s">4 formats · Formal vs Spoken · Homonyms · Breakfast · Beauty</div></div>
+    <div class="stat"><div class="stat-n">23</div><div class="stat-l">videos shipped</div><div class="stat-s">5 formats · Formal vs Spoken · Homonyms · Wines · Tourism · History</div></div>
     <div class="stat"><div class="stat-n">1.8M</div><div class="stat-l">impressions</div><div class="stat-s">Meta Reels + TikTok + YT Shorts · 90 days</div></div>
     <div class="stat"><div class="stat-n">14.4K</div><div class="stat-l">organic leads</div><div class="stat-s">23% of total quarter leads · zero spend</div></div>
     <div class="stat"><div class="stat-n">4:1</div><div class="stat-l">ROI vs prod cost</div><div class="stat-s">~$80/clip · CPL equivalent $5.20</div></div>
@@ -298,7 +292,7 @@ def email_slide(num):
     else: hero_path = None
   has_mobile = os.path.exists(f'{ROOT}/{mobile_path}')
   
-  hero_html = f'<div class="ml2-hero"><img src="{hero_path}" alt=""></div>' if hero_path else '<div class="ml2-hero ml2-hero--empty"><div class="ml2-hero-placeholder">DOCX ONLY · NO HERO IMAGE</div></div>'
+  hero_html = f'<div class="ml2-hero"><img src="{hero_path}" alt=""></div>' if hero_path else '<div class="ml2-hero ml2-hero--brand"><div class="ml2-brand-mark">FRENCH ATELIER</div><div class="ml2-brand-tag">BY ACADOMIA</div><div class="ml2-brand-rule"></div><div class="ml2-brand-sub">' + h(meta["cat"]) + ' · DAY ' + str(meta["day"]) + '</div></div>'
   
   body_html = ''.join(f'<p>{h(p)}</p>' for p in body_paras[:5])
   signoff_html = '<br>'.join(h(line) for line in signoff.split('\n'))
@@ -310,7 +304,15 @@ def email_slide(num):
       <div class="ml2-landing-phone"><img src="{mobile_path}" alt=""></div>
     </div>'''
   else:
-    landing_html = '<div class="ml2-landing ml2-landing--empty"><div class="ml2-landing-label">DOCX ONLY · LANDING ASSET PENDING</div></div>'
+    landing_html = f'''<div class="ml2-landing ml2-landing--brand">
+      <div class="ml2-landing-label">EMAIL {num:02d} · LIFECYCLE STAGE</div>
+      <div class="ml2-landing-brand">
+        <div class="ml2-lb-cat">{h(meta["cat"])}</div>
+        <div class="ml2-lb-day">DAY {meta["day"]}</div>
+        <div class="ml2-lb-rule"></div>
+        <div class="ml2-lb-tag">Onboarding sequence · production · Klaviyo</div>
+      </div>
+    </div>'''
   
   return f'''<section class="slide slide--cream slide--ml2"><div class="slide__inner">
     <div class="eyebrow">CHAPTER 03 · EMAIL {num:02d} OF 15 · {meta['cat']} · DAY {meta['day']} · LIVE</div>
@@ -489,7 +491,7 @@ slides.append('''<section class="slide slide--dark slide--ask"><div class="slide
   <p class="lead lead--muted">Three levers · one quarter</p>
   <div class="rule"></div>
   <div class="lever-grid lever-grid--v6">
-    <div class="lever-v6"><div class="lever-top"><div class="lever-num">01</div><div class="lever-h">Organic lead growth</div></div><div class="lever-body">22 videos · 4 locked formats · 60 Quora/Reddit posts · Bastille follower drive</div><div class="lever-bottom"><div class="lever-target gold">25%</div><div class="lever-sub">of total leads</div></div></div>
+    <div class="lever-v6"><div class="lever-top"><div class="lever-num">01</div><div class="lever-h">Organic lead growth</div></div><div class="lever-body">23 videos · 5 locked formats · 60 Quora/Reddit posts · Bastille follower drive</div><div class="lever-bottom"><div class="lever-target gold">25%</div><div class="lever-sub">of total leads</div></div></div>
     <div class="lever-v6"><div class="lever-top"><div class="lever-num">02</div><div class="lever-h">Email lifecycle</div></div><div class="lever-body">15 emails live · 4 new flows · trial nurture · reactivation · Bastille countdown</div><div class="lever-bottom"><div class="lever-target gold">+15%</div><div class="lever-sub">reactivation lift</div></div></div>
     <div class="lever-v6"><div class="lever-top"><div class="lever-num">03</div><div class="lever-h">Paid CPL efficiency</div></div><div class="lever-body">Two cuts in market · two more in late June · maintain ≤ $14 with scale</div><div class="lever-bottom"><div class="lever-target gold">$13.40</div><div class="lever-sub">current CPL</div></div></div>
   </div>
