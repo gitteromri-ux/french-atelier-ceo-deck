@@ -49,21 +49,18 @@ slides.append('''<section class="slide slide--dark slide--cover">
 
 # ---------- AGENDA ----------
 agenda = [
- ("01","Organic viral formats — 20 French Graphic Words videos"),
- ("02","Organic — French Beauty (4 IG Reels in production)"),
- ("03","New paid media cuts — CPL down to $13.40"),
- ("04","Quora & Reddit — full 60-post organic-written deck"),
- ("05","New website + AI SEO — live walkthrough"),
- ("06","Email marketing — 4 flows, mocked up"),
- ("07","Bastille Day — Win a Trip to France"),
- ("08","The ask — 1.9 → 2.5 weekly ROI"),
+ ("01","Paid media — 2 new cuts · CPL $13.40"),
+ ("02","Organic — all 22 Drive videos + 4 French Beauty Reels"),
+ ("03","Thought leadership — 60 Quora/Reddit · 30 emails · new website"),
+ ("04","Bastille Day — Win a Trip to France"),
+ ("05","The ask — 1.9 → 2.5 weekly ROI"),
 ]
 slides.append('<section class="slide slide--cream"><div class="slide__inner slide__inner--centered"><h2 class="title">Agenda</h2><div class="rule"></div><ol class="agenda">'+
   "".join([f'<li><span class="num">{n}</span><span class="label">{l}</span></li>' for n,l in agenda])+
   '</ol></div></section>')
 
 def divider(num, title, sub):
-  return f'<section class="slide slide--dark slide--divider"><div class="slide__inner"><div class="eyebrow eyebrow--gold">SECTION {num}</div><h2 class="display display--md">{title}</h2><p class="lead lead--muted">{sub}</p><div class="rule"></div></div></section>'
+  return f'<section class="slide slide--dark slide--divider"><div class="slide__inner"><div class="eyebrow eyebrow--gold">CHAPTER {num}</div><h2 class="display display--md">{title}</h2><p class="lead lead--muted">{sub}</p><div class="rule"></div></div></section>'
 
 # ===== Phone components (LARGE) =====
 def reels_phone(video_stem, headline, sub):
@@ -134,10 +131,10 @@ def meta_card(video_stem, headline, sub):
   </div>'''
 
 # ===================== SECTION 01 =====================
-slides.append(divider("01","Organic Viral Formats","20 videos · TikTok · Instagram Reels · Meta Feed"))
+slides.append(divider("02A","Organic — French Graphic Words","All 22 Drive videos · TikTok · Reels · Meta Feed"))
 
 slides.append('''<section class="slide slide--cream"><div class="slide__inner">
-  <div class="eyebrow eyebrow--gold">SECTION 01 · CONTEXT</div>
+  <div class="eyebrow eyebrow--gold">CHAPTER 02 · ORGANIC · CONTEXT</div>
   <h2 class="title">French Graphic Words — what & why</h2><div class="rule"></div>
   <div class="ctx-grid">
     <div class="ctx-block"><div class="ctx-h">The format</div><p>Short, captioned French-language videos around two recurring concepts: <em>Homonymes</em> (same sound, different word) and <em>Formel vs Parlé</em> (textbook French vs how Paris actually speaks).</p></div>
@@ -152,7 +149,7 @@ for i in range(0, len(tt_videos), 2):
   chunk = tt_videos[i:i+2]
   phones = "".join([tiktok_phone(s, head(s)[0], head(s)[1]) for s in chunk])
   slides.append(f'''<section class="slide slide--cream"><div class="slide__inner">
-    <div class="eyebrow eyebrow--gold">SECTION 01 · TIKTOK · FOR YOU</div>
+    <div class="eyebrow eyebrow--gold">CHAPTER 02 · ORGANIC · TIKTOK</div>
     <h2 class="title title--md">TikTok placements <span class="muted">({i+1}–{i+len(chunk)} of {len(tt_videos)})</span></h2><div class="rule"></div>
     <div class="phone-row phone-row--2">{phones}</div>
   </div></section>''')
@@ -162,7 +159,7 @@ for i in range(0, len(ig_videos), 2):
   chunk = ig_videos[i:i+2]
   phones = "".join([reels_phone(s, head(s)[0], head(s)[1]) for s in chunk])
   slides.append(f'''<section class="slide slide--cream"><div class="slide__inner">
-    <div class="eyebrow eyebrow--gold">SECTION 01 · INSTAGRAM REELS</div>
+    <div class="eyebrow eyebrow--gold">CHAPTER 02 · ORGANIC · INSTAGRAM REELS</div>
     <h2 class="title title--md">Instagram Reels placements <span class="muted">({i+1}–{i+len(chunk)} of {len(ig_videos)})</span></h2><div class="rule"></div>
     <div class="phone-row phone-row--2">{phones}</div>
   </div></section>''')
@@ -170,16 +167,16 @@ for i in range(0, len(ig_videos), 2):
 # Meta — 1 per slide BIG
 for s in tt_videos[:3]:
   slides.append(f'''<section class="slide slide--cream"><div class="slide__inner">
-    <div class="eyebrow eyebrow--gold">SECTION 01 · META · FACEBOOK FEED</div>
+    <div class="eyebrow eyebrow--gold">CHAPTER 02 · ORGANIC · META FEED</div>
     <h2 class="title title--md">Meta Feed — paid amplification</h2><div class="rule"></div>
     <div class="meta-row">{meta_card(s, head(s)[0], head(s)[1])}</div>
   </div></section>''')
 
 # ===================== SECTION 02 — French Beauty =====================
-slides.append(divider("02","French Beauty","4 IG Reels · in production · post-meeting delivery"))
+slides.append(divider("02B","Organic — French Beauty","4 IG Reels · in production · post-meeting delivery"))
 
 slides.append('''<section class="slide slide--cream"><div class="slide__inner">
-  <div class="eyebrow eyebrow--gold">SECTION 02 · CONTEXT</div>
+  <div class="eyebrow eyebrow--gold">CHAPTER 02 · ORGANIC · FRENCH BEAUTY · CONTEXT</div>
   <h2 class="title">A second viral pillar — French Beauty</h2><div class="rule"></div>
   <p class="lead lead--dark">Four French Beauty Reels currently being re-edited to French Atelier brand. These complement the language-focused content and target the aspirational lifestyle layer of our audience — Parisian elegance, ritual, restraint.</p>
   <div class="edit-grid">
@@ -200,7 +197,7 @@ beauty_reels = [
 for idx, (code, head_txt, sub) in enumerate(beauty_reels):
   img_idx = idx+1
   slides.append(f'''<section class="slide slide--cream"><div class="slide__inner">
-    <div class="eyebrow eyebrow--gold">SECTION 02 · FRENCH BEAUTY · REEL {img_idx}/4</div>
+    <div class="eyebrow eyebrow--gold">CHAPTER 02 · ORGANIC · FRENCH BEAUTY · REEL {img_idx}/4</div>
     <h2 class="title title--md">{head_txt}</h2><div class="rule"></div>
     <div class="phone-row phone-row--2">
       <div class="phone phone--reels phone--lg">
@@ -234,10 +231,10 @@ for idx, (code, head_txt, sub) in enumerate(beauty_reels):
   </div></section>''')
 
 # ===================== SECTION 03 — Paid =====================
-slides.append(divider("03","Paid Media","CPL down to $13.40 · Charline masterclass · new cuts"))
+slides.append(divider("01","Paid Media","2 new cuts · CPL down to $13.40 · Charline masterclass"))
 
 slides.append(f'''<section class="slide slide--cream"><div class="slide__inner">
-  <div class="eyebrow eyebrow--gold">SECTION 03 · CONTEXT</div>
+  <div class="eyebrow eyebrow--gold">CHAPTER 01 · PAID MEDIA · CONTEXT</div>
   <h2 class="title">What changed in May–June 2026</h2><div class="rule"></div>
   <p class="lead lead--dark">We replaced broad-interest targeting with lookalikes of converters, shipped two new cuts of Charline's Paris masterclass, and tightened ad-to-landing-page scent. CPL dropped from $19.80 to <span class="gold">$13.40</span> while spend held flat.</p>
   <div class="paid-kpi-row">
@@ -249,17 +246,29 @@ slides.append(f'''<section class="slide slide--cream"><div class="slide__inner">
   </div>
 </div></section>''')
 
+# Paid media — BOTH CUTS
 slides.append(f'''<section class="slide slide--cream"><div class="slide__inner">
-  <div class="eyebrow eyebrow--gold">SECTION 03 · HERO ASSET</div>
-  <h2 class="title title--md">Charline masterclass — live from Paris</h2><div class="rule"></div>
+  <div class="eyebrow eyebrow--gold">CHAPTER 01 · PAID MEDIA · CUT A · CHARLINE MASTERCLASS</div>
+  <h2 class="title title--md">Cut A — The Masterclass hook</h2><div class="rule"></div>
   <div class="paid-hero-row">
     {meta_card("charline_masterclass","Master the art of French elegance","Join Charline live from Paris for an exclusive masterclass.")}
     {reels_phone("charline_masterclass","Masterclass · Paris","Live with Charline — French elegance, taught the way Paris teaches.")}
   </div>
+  <p class="caption">Cut A · 30s · Masterclass-led hook · live-from-Paris framing · highest CTR variant.</p>
+</div></section>''')
+
+slides.append(f'''<section class="slide slide--cream"><div class="slide__inner">
+  <div class="eyebrow eyebrow--gold">CHAPTER 01 · PAID MEDIA · CUT B · CHARLINE — IN-CLASS REFRAME</div>
+  <h2 class="title title--md">Cut B — The in-class reframe</h2><div class="rule"></div>
+  <div class="paid-hero-row">
+    {meta_card("charline_cut_b","What a French Atelier class actually feels like","Charline mid-class — the real teaching moment that converts.")}
+    {tiktok_phone("charline_cut_b","Inside the class","What a Charline class actually feels like — unfiltered.")}
+  </div>
+  <p class="caption">Cut B · 25s · In-class authenticity · strong mid-funnel performer · lower CPM, higher dwell-time.</p>
 </div></section>''')
 
 slides.append('''<section class="slide slide--cream"><div class="slide__inner">
-  <div class="eyebrow eyebrow--gold">SECTION 03 · WHAT WE DID — 80/20</div>
+  <div class="eyebrow eyebrow--gold">CHAPTER 01 · PAID MEDIA · 80/20 — 80/20</div>
   <h2 class="title">The 20% of moves that drove 80% of the CPL drop</h2><div class="rule"></div>
   <div class="move-list">
     <div class="move"><div class="move-h">Killed broad interests</div><div class="move-b">Cut 6 underperforming interest sets · concentrated budget on lookalikes of past converters.</div></div>
@@ -271,7 +280,7 @@ slides.append('''<section class="slide slide--cream"><div class="slide__inner">
 </div></section>''')
 
 slides.append('''<section class="slide slide--cream"><div class="slide__inner">
-  <div class="eyebrow eyebrow--gold">SECTION 03 · CPL TREND · APRIL → JUNE 2026</div>
+  <div class="eyebrow eyebrow--gold">CHAPTER 01 · PAID MEDIA · CPL TREND · APRIL → JUNE 2026</div>
   <h2 class="title">CPL reduction</h2><div class="rule"></div>
   <div class="chart-wrap">
     <svg viewBox="0 0 800 320" class="cpl-chart" preserveAspectRatio="xMidYMid meet">
@@ -300,10 +309,10 @@ slides.append('''<section class="slide slide--cream"><div class="slide__inner">
 </div></section>''')
 
 # ===================== SECTION 04 — Quora & Reddit (60 mockups) =====================
-slides.append(divider("04","Organic Written","Quora & Reddit · full 60-post content slate · 6 personas"))
+slides.append(divider("03A","Thought Leadership — Quora & Reddit","Full 60-post content slate · 6 personas · evergreen SEO + AI Overview assets"))
 
 slides.append('''<section class="slide slide--cream"><div class="slide__inner">
-  <div class="eyebrow eyebrow--gold">SECTION 04 · CONTEXT</div>
+  <div class="eyebrow eyebrow--gold">CHAPTER 03 · THOUGHT LEADERSHIP · QUORA + REDDIT · CONTEXT</div>
   <h2 class="title">Why this channel matters</h2><div class="rule"></div>
   <p class="lead lead--dark">Quora and Reddit are <em>the</em> high-intent surfaces for adults researching how to learn French. Our 60-post slate seeds the search graph with persona-matched answers — every post is a search-engine and AI-Overview asset for years.</p>
   <div class="ctx-grid">
@@ -316,7 +325,7 @@ slides.append('''<section class="slide slide--cream"><div class="slide__inner">
 
 # Personas
 slides.append('''<section class="slide slide--cream"><div class="slide__inner">
-  <div class="eyebrow eyebrow--gold">SECTION 04 · PERSONAS</div>
+  <div class="eyebrow eyebrow--gold">CHAPTER 03 · THOUGHT LEADERSHIP · PERSONAS</div>
   <h2 class="title">Six personas · one French Atelier</h2><div class="rule"></div>
   <div class="persona-grid">
     <div class="persona"><div class="persona-name">France-Bound Traveler</div><div class="persona-age">50–70</div><div class="persona-hook">Trip urgency · Paris café fluency</div></div>
@@ -378,7 +387,7 @@ for i in range(0, len(quora_posts), 2):
   chunk = quora_posts[i:i+2]
   cards = "".join([quora_card(p) for p in chunk])
   slides.append(f'''<section class="slide slide--cream"><div class="slide__inner">
-    <div class="eyebrow eyebrow--gold">SECTION 04 · QUORA · POSTS {i+1}–{i+len(chunk)} OF 30</div>
+    <div class="eyebrow eyebrow--gold">CHAPTER 03 · THOUGHT LEADERSHIP · QUORA · POSTS {i+1}–{i+len(chunk)} OF 30</div>
     <h2 class="title title--md">Quora answers — mockups</h2><div class="rule"></div>
     <div class="quora-grid">{cards}</div>
   </div></section>''')
@@ -387,22 +396,22 @@ for i in range(0, len(reddit_posts), 2):
   chunk = reddit_posts[i:i+2]
   cards = "".join([reddit_card(p) for p in chunk])
   slides.append(f'''<section class="slide slide--cream"><div class="slide__inner">
-    <div class="eyebrow eyebrow--gold">SECTION 04 · REDDIT · POSTS {i+1}–{i+len(chunk)} OF 30</div>
+    <div class="eyebrow eyebrow--gold">CHAPTER 03 · THOUGHT LEADERSHIP · REDDIT · POSTS {i+1}–{i+len(chunk)} OF 30</div>
     <h2 class="title title--md">Reddit posts — mockups</h2><div class="rule"></div>
     <div class="reddit-grid">{cards}</div>
   </div></section>''')
 
 # ===================== SECTION 05 — Website =====================
-slides.append(divider("05","New Website","frenchatelier.com · live screen recording · AI SEO"))
+slides.append(divider("03C","Thought Leadership — New Website","frenchatelier.com · live screen recording · AI SEO shipped"))
 
 slides.append('''<section class="slide slide--cream"><div class="slide__inner">
-  <div class="eyebrow eyebrow--gold">SECTION 05 · CONTEXT</div>
+  <div class="eyebrow eyebrow--gold">CHAPTER 03 · THOUGHT LEADERSHIP · NEW WEBSITE · CONTEXT</div>
   <h2 class="title">A site rebuilt for adults who buy</h2><div class="rule"></div>
   <p class="lead lead--dark">The previous site sold a feature list. The new site sells a feeling — France itself, told through the Six Pillars (Language, Art, Gastronomy, Film, Fashion, Music & Poetry). Built clean for AI Overviews and answer engines.</p>
 </div></section>''')
 
 slides.append('''<section class="slide slide--cream slide--site"><div class="slide__inner">
-  <div class="eyebrow eyebrow--gold">SECTION 05 · LIVE WEBSITE · SCREEN RECORDING</div>
+  <div class="eyebrow eyebrow--gold">CHAPTER 03 · THOUGHT LEADERSHIP · WEBSITE · SCREEN RECORDING</div>
   <h2 class="title title--md">frenchatelier.com — 60-second auto-scroll</h2><div class="rule"></div>
   <div class="browser-frame">
     <div class="browser-chrome">
@@ -417,7 +426,7 @@ slides.append('''<section class="slide slide--cream slide--site"><div class="sli
 </div></section>''')
 
 slides.append('''<section class="slide slide--cream"><div class="slide__inner">
-  <div class="eyebrow eyebrow--gold">SECTION 05 · AI SEO — WHAT'S SHIPPED</div>
+  <div class="eyebrow eyebrow--gold">CHAPTER 03 · THOUGHT LEADERSHIP · AI SEO — WHAT'S SHIPPED</div>
   <h2 class="title">Built for AI Overviews</h2><div class="rule"></div>
   <div class="move-list">
     <div class="move"><div class="move-h">Structured data</div><div class="move-b">Course · Person · Organization · Offer schema. CEFR levels, pricing and teachers exposed to LLM crawlers.</div></div>
@@ -429,10 +438,10 @@ slides.append('''<section class="slide slide--cream"><div class="slide__inner">
 </div></section>''')
 
 # ===================== SECTION 06 — Email =====================
-slides.append(divider("06","Email Marketing","4 flows · designed mockups · the cheapest ROI lever"))
+slides.append(divider("03B","Thought Leadership — Email","30 emails · 90-day flow · cheapest ROI lever"))
 
 slides.append('''<section class="slide slide--cream"><div class="slide__inner">
-  <div class="eyebrow eyebrow--gold">SECTION 06 · CONTEXT</div>
+  <div class="eyebrow eyebrow--gold">CHAPTER 03 · THOUGHT LEADERSHIP · EMAIL · CONTEXT</div>
   <h2 class="title">Where email fits</h2><div class="rule"></div>
   <p class="lead lead--dark">Email is the cheapest ROI lever we have. We're launching 4 flows targeting the four highest-leverage moments: first touch, free-assessment follow-up, 60-day dormants, and the Bastille campaign.</p>
 </div></section>''')
@@ -446,7 +455,7 @@ overview_rows = "".join([
   for e in EMAILS_30
 ])
 slides.append(f'''<section class="slide slide--cream"><div class="slide__inner">
-  <div class="eyebrow eyebrow--gold">SECTION 06 · FULL 30-EMAIL SEQUENCE MAP</div>
+  <div class="eyebrow eyebrow--gold">CHAPTER 03 · THOUGHT LEADERSHIP · EMAIL · 30-EMAIL SEQUENCE</div>
   <h2 class="title">All 30 emails · 90-day flow</h2><div class="rule"></div>
   <table class="em-table">
     <thead><tr><th>#</th><th>Day</th><th>Pillar</th><th>Subject line</th><th>Status</th></tr></thead>
@@ -471,7 +480,7 @@ for i in range(0, len(EMAILS_30), 5):
   chunk = EMAILS_30[i:i+5]
   rows = "".join([inbox_row(e) for e in chunk])
   slides.append(f'''<section class="slide slide--cream"><div class="slide__inner">
-    <div class="eyebrow eyebrow--gold">SECTION 06 · INBOX VIEW · EMAILS {i+1}–{i+len(chunk)} OF 30</div>
+    <div class="eyebrow eyebrow--gold">CHAPTER 03 · THOUGHT LEADERSHIP · EMAIL · INBOX VIEW · EMAILS {i+1}–{i+len(chunk)} OF 30</div>
     <h2 class="title title--md">Gmail inbox — as the subscriber sees it</h2><div class="rule"></div>
     <div class="inbox-frame">
       <div class="inbox-chrome"><span class="inbox-logo">M</span><span class="inbox-app-name">Inbox — you@gmail.com</span></div>
@@ -496,7 +505,7 @@ real_emails_full = [
 for short_title, sender, subject, body in real_emails_full:
   body_html = body.replace("\n","<br>")
   slides.append(f'''<section class="slide slide--cream"><div class="slide__inner">
-    <div class="eyebrow eyebrow--gold">SECTION 06 · {short_title.upper()} · LIVE SENT</div>
+    <div class="eyebrow eyebrow--gold">CHAPTER 03 · EMAIL · {short_title.upper()} · LIVE SENT</div>
     <h2 class="title title--md">{subject}</h2><div class="rule"></div>
     <div class="email-mock">
       <div class="email-chrome"><div class="email-dots"><span></span><span></span><span></span></div><div class="email-app">Mail</div></div>
@@ -511,11 +520,11 @@ for short_title, sender, subject, body in real_emails_full:
   </div></section>''')
 
 # ===================== SECTION 07 — Bastille Day =====================
-slides.append(divider("07","Bastille Day","Win a Trip to France · July 14 · follower-acquisition campaign"))
+slides.append(divider("04","Bastille Day","Win a Trip to France · July 14 · follower-acquisition campaign"))
 
 slides.append('''<section class="slide slide--dark slide--bastille"><div class="slide__inner slide--split">
   <div class="split-left">
-    <div class="eyebrow eyebrow--gold">BASTILLE DAY · JULY 14</div>
+    <div class="eyebrow eyebrow--gold">CHAPTER 04 · BASTILLE DAY · JULY 14</div>
     <h2 class="display display--md">Win a trip<br>to France.</h2>
     <p class="lead"><em class="gold">Follow · Tag · Win.</em></p>
     <p class="cover-meta">Drawn live July 14, 8pm Paris time.</p>
@@ -532,7 +541,7 @@ slides.append('''<section class="slide slide--dark slide--bastille"><div class="
 </div></section>''')
 
 # ===================== SECTION 08 — The Ask =====================
-slides.append(divider("08","The Ask","From 1.9 → 2.5 weekly ROI · three levers · one quarter"))
+slides.append(divider("05","The Ask","From 1.9 → 2.5 weekly ROI · three levers · one quarter"))
 
 slides.append('''<section class="slide slide--dark slide--ask"><div class="slide__inner">
   <h2 class="display display--md">From 1.9 to <span class="gold">2.5</span></h2>
@@ -552,6 +561,44 @@ slides.append('''<section class="slide slide--dark slide--closing"><div class="s
   <div class="rule"></div>
   <div class="cover-meta">French Atelier · by Acadomia · June 2026</div>
 </div></section>''')
+
+# === REORDER TO MATCH CHAPTER STRUCTURE ===
+# Find divider indices (markers of each section block)
+divider_markers = []
+for i, s in enumerate(slides):
+    if 'slide--divider' in s:
+        # Extract the chapter id from the divider HTML
+        import re as _re
+        m = _re.search(r'CHAPTER (\w+)', s)
+        if m:
+            divider_markers.append((i, m.group(1), s))
+
+# Group slides into blocks per chapter divider
+blocks = {}
+for idx, (start, ch_id, _) in enumerate(divider_markers):
+    end = divider_markers[idx+1][0] if idx+1 < len(divider_markers) else len(slides)
+    blocks[ch_id] = slides[start:end]
+
+# Preamble (cover + agenda) — before first divider
+preamble = slides[:divider_markers[0][0]] if divider_markers else slides
+
+# Closing slide — check if last slide is the closing (slide--closing)
+closing = []
+if slides and 'slide--closing' in slides[-1]:
+    # The closing slide should already be inside the last chapter block — extract it
+    last_ch_id = divider_markers[-1][1]
+    if blocks[last_ch_id] and 'slide--closing' in blocks[last_ch_id][-1]:
+        closing = [blocks[last_ch_id].pop()]
+
+# Rebuild in agenda order: 01 → 02A → 02B → 03A → 03B → 03C → 04 → 05
+order = ['01', '02A', '02B', '03A', '03B', '03C', '04', '05']
+ordered_slides = preamble[:]
+for ch in order:
+    if ch in blocks:
+        ordered_slides.extend(blocks[ch])
+ordered_slides.extend(closing)
+
+slides = ordered_slides
 
 # === BUILD ===
 deck_html = "\n\n".join(slides)
