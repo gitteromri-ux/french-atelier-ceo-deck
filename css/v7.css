@@ -3308,3 +3308,154 @@
   .slide--paid-duo .phone-frame { width: 170px !important; height: 302px !important; }
   .slide--beauty-ig .beauty-ig-card .phone-frame { max-width: 130px !important; height: 230px !important; }
 }
+
+/* =================================================================
+   v7.9b — MOBILE additional fixes
+   ================================================================= */
+@media (max-width: 900px) {
+  /* STAT GRID — 2x2 instead of 4 across */
+  .stat-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+  .stat {
+    padding: 14px 12px !important;
+    box-sizing: border-box !important;
+  }
+  .stat-n {
+    font-size: 28px !important;
+    line-height: 1.1 !important;
+  }
+  .stat-l {
+    font-size: 10px !important;
+    letter-spacing: 1px !important;
+    margin-top: 4px !important;
+  }
+  .stat-s {
+    font-size: 10px !important;
+    line-height: 1.35 !important;
+    margin-top: 6px !important;
+  }
+  .display, .display--md, .display--lg {
+    font-size: 26px !important;
+    line-height: 1.15 !important;
+  }
+
+  /* DIVIDER slides */
+  .slide--divider .slide__inner,
+  .slide.divider .slide__inner {
+    justify-content: center !important;
+    padding-top: 30vh !important;
+    text-align: center !important;
+  }
+  .slide--divider .title,
+  .slide.divider .title {
+    font-size: 32px !important;
+    line-height: 1.15 !important;
+  }
+
+  /* REDDIT/QUORA/MEDIUM mocks — full-width single column */
+  .slide--platform .platform-grid-3x3 {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .slide--platform .platform-hero,
+  .slide--platform .platform-mini {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    transform: none !important;
+  }
+  /* Reddit card internal layout — keep upvote sidebar narrow */
+  .slide--platform .mock-reddit,
+  .slide--platform .mock-reddit__row {
+    display: flex !important;
+    gap: 10px !important;
+    align-items: flex-start !important;
+  }
+  .slide--platform .mock-reddit__left {
+    flex: 0 0 40px !important;
+    width: 40px !important;
+    padding: 4px 6px !important;
+    font-size: 11px !important;
+    text-align: center !important;
+  }
+  .slide--platform .mock-reddit__right,
+  .slide--platform .mock-reddit__content {
+    flex: 1 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+  .slide--platform .mock-reddit__title,
+  .slide--platform .mock-reddit__body,
+  .slide--platform .mock-reddit__meta,
+  .slide--platform .mock-reddit__by {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+  }
+  .slide--platform .mock-reddit__by {
+    font-size: 10px !important;
+    display: inline-block !important;
+    max-width: 100% !important;
+  }
+  .slide--platform .mock-reddit__bar {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+  /* Quora upvotes inline */
+  .slide--platform .mock-quora__upvotes {
+    font-size: 12px !important;
+  }
+  /* Stack votes/views inline */
+  .slide--platform .mock-stack__stats {
+    display: flex !important;
+    gap: 12px !important;
+  }
+  .slide--platform .mock-stack__stat-n { font-size: 12px !important; }
+  .slide--platform .mock-stack__stat-l { font-size: 9px !important; }
+
+  /* Lever (slide 40 - 60 posts intro) */
+  .lever-v6, .slide__inner .lever-v6 {
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 14px !important;
+  }
+  .lever-v6 > * {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+  }
+
+  /* Pinterest images — taller cards in 2 cols */
+  .slide--platform#slide-pinterest .platform-grid-3x3 {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Title in email pair — use line break instead of dot separator */
+  .slide--email-pair .title {
+    line-height: 1.15 !important;
+  }
+  .slide--email-pair .email-pair-v78__sep {
+    display: inline !important;
+    color: #C9A961 !important;
+    padding: 0 6px !important;
+  }
+
+  /* Closer 4-stat dark slide */
+  .slide--dark .stat,
+  .stat-grid--dark .stat {
+    background: rgba(255,255,255,0.04) !important;
+    border: 1px solid rgba(201,169,97,0.18) !important;
+    border-radius: 10px !important;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .title { font-size: 22px !important; }
+  .stat-n { font-size: 24px !important; }
+  .slide__inner { padding: 18px 12px 72px !important; }
+}
