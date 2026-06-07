@@ -526,6 +526,7 @@ out_html = f'''<!doctype html>
 <div class="deck">
 {''.join(slides)}
 </div>
+<div class="nav-hint" id="navHint">{len(slides)} slides · use → to advance · F for fullscreen</div>
 <div class="nav-bar">
   <div class="nav-prev" onclick="goPrev()">←</div>
   <div class="nav-count"><span id="cur">1</span> / <span id="tot">{len(slides)}</span></div>
@@ -534,9 +535,12 @@ out_html = f'''<!doctype html>
 <script>
 const slides=document.querySelectorAll('.slide');let idx=0;
 function show(){{document.getElementById('cur').textContent=idx+1;const deck=document.querySelector('.deck');deck.scrollTo({{left:slides[idx].offsetLeft,behavior:'smooth'}});}}
-function goNext(){{idx=Math.min(idx+1,slides.length-1);show();}}
-function goPrev(){{idx=Math.max(idx-1,0);show();}}
-document.addEventListener('keydown',e=>{{if(e.key==='ArrowRight'||e.key===' ')goNext();if(e.key==='ArrowLeft')goPrev();}});
+function goNext(){{idx=Math.min(idx+1,slides.length-1);show();hideHint();}}
+function goPrev(){{idx=Math.max(idx-1,0);show();hideHint();}}
+function hideHint(){{const h=document.getElementById('navHint');if(h)h.style.display='none';}}
+document.addEventListener('keydown',e=>{{if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){{e.preventDefault();goNext();}}if(e.key==='ArrowLeft'||e.key==='PageUp'){{e.preventDefault();goPrev();}}if(e.key==='f'||e.key==='F'){{if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();}}}});
+const deckEl=document.querySelector('.deck');
+deckEl.addEventListener('scroll',()=>{{const i=Math.round(deckEl.scrollLeft/deckEl.clientWidth);if(i!==idx){{idx=i;document.getElementById('cur').textContent=idx+1;hideHint();}}}},{{passive:true}});
 </script>
 </body></html>'''
 

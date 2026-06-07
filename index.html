@@ -1141,6 +1141,7 @@
   <div class="cover-meta">French Atelier · by Acadomia · June 2026</div>
 </div></section>
 </div>
+<div class="nav-hint" id="navHint">42 slides · use → to advance · F for fullscreen</div>
 <div class="nav-bar">
   <div class="nav-prev" onclick="goPrev()">←</div>
   <div class="nav-count"><span id="cur">1</span> / <span id="tot">42</span></div>
@@ -1149,8 +1150,12 @@
 <script>
 const slides=document.querySelectorAll('.slide');let idx=0;
 function show(){document.getElementById('cur').textContent=idx+1;const deck=document.querySelector('.deck');deck.scrollTo({left:slides[idx].offsetLeft,behavior:'smooth'});}
-function goNext(){idx=Math.min(idx+1,slides.length-1);show();}
-function goPrev(){idx=Math.max(idx-1,0);show();}
-document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')goNext();if(e.key==='ArrowLeft')goPrev();});
+function goNext(){idx=Math.min(idx+1,slides.length-1);show();hideHint();}
+function goPrev(){idx=Math.max(idx-1,0);show();hideHint();}
+function hideHint(){const h=document.getElementById('navHint');if(h)h.style.display='none';}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();goNext();}if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();goPrev();}if(e.key==='f'||e.key==='F'){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();}});
+// Sync counter with scroll position (in case CEO swipes/scrolls)
+const deckEl=document.querySelector('.deck');
+deckEl.addEventListener('scroll',()=>{const i=Math.round(deckEl.scrollLeft/deckEl.clientWidth);if(i!==idx){idx=i;document.getElementById('cur').textContent=idx+1;hideHint();}},{passive:true});
 </script>
 </body></html>
