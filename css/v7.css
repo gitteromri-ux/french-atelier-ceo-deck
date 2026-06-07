@@ -3947,3 +3947,26 @@
     font-size: 12px !important;
   }
 }
+
+/* v7.15 — quora/medium author text overflow kill */
+@media (max-width: 900px) {
+  .slide--platform .platform-hero,
+  .slide--platform .platform-mini,
+  .slide--platform .platform-mini * {
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+  .mock-quora__author-row,
+  .mock-medium__author-row {
+    flex-wrap: wrap !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+  .mock-quora__author-info,
+  .mock-medium__author-info {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex: 1 1 0 !important;
+  }
+}
