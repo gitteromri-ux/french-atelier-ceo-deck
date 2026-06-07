@@ -3970,3 +3970,46 @@
     flex: 1 1 0 !important;
   }
 }
+
+/* v7.17 — REVERT: mobile = horizontal pager like desktop, slide = full screen */
+@media (max-width: 900px) {
+  html, body {
+    height: 100% !important;
+    overflow: hidden !important;
+  }
+  .deck {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-behavior: smooth !important;
+    padding-top: 0 !important;
+  }
+  .deck .slide,
+  .slide {
+    flex: 0 0 100vw !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scroll-snap-align: start !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 0 !important;
+  }
+  .deck .slide__inner,
+  .slide__inner {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 100% !important;
+    height: auto !important;
+    padding: 24px 16px 80px !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+  }
+}
