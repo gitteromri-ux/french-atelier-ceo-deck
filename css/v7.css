@@ -2993,3 +2993,40 @@
   max-height: 240px !important;
   overflow: hidden !important;
 }
+
+/* ============ v7.8f: paid-duo nuclear shrink, telegram 4-mini clamp, bastille fit ============ */
+
+/* paid-duo: shrink phone to fit caption */
+.slide--paid-duo .paid-duo-card .phone-frame,
+.slide--paid-duo .phone-frame{
+  height: 400px !important;
+  max-height: 400px !important;
+  width: 226px !important;
+}
+.slide--paid-duo .slide__inner{
+  padding-top: 32px !important;
+}
+
+/* Telegram: limit to 5 visible posts (1 hero + 4 mini) */
+.slide--platform#slide-telegram .platform-grid-3x3{
+  grid-template-columns: repeat(2, 1fr) !important;
+  grid-template-rows: repeat(2, auto) !important;
+  max-height: calc(100vh - 360px) !important;
+  overflow: hidden !important;
+}
+.slide--platform#slide-telegram .platform-grid-3x3 .platform-mini:nth-child(n+5){
+  display: none !important;
+}
+
+/* Bastille: tighter padding */
+.slide--bastille .slide__inner,
+.slide--bastille-campaign .slide__inner{
+  padding-top: 28px !important;
+  padding-bottom: 90px !important;
+}
+.slide--bastille-campaign .bastille-campaign-grid,
+.slide--bastille-campaign .bastille-campaign-right,
+.slide--bastille-campaign .bastille-campaign-left{
+  max-height: calc(100vh - 130px) !important;
+  overflow: hidden !important;
+}
