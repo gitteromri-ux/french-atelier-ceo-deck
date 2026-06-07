@@ -4137,3 +4137,34 @@
   }
   .phone-frame, .paid-phone, .ig-phone { position: relative !important; }
 }
+
+/* v7.19 — kill nested wrapper, video fills outer */
+@media (max-width: 900px) {
+  /* paid-duo: paid-phone wraps phone-frame. Make outer transparent, inner does the job */
+  .slide--paid-duo .paid-phone,
+  .slide--paid-duo .paid-phone--xl {
+    width: auto !important;
+    max-width: none !important;
+    aspect-ratio: auto !important;
+    height: auto !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+  .slide--paid-duo .paid-phone .phone-frame {
+    width: 100% !important;
+    max-width: 320px !important;
+    height: auto !important;
+    aspect-ratio: 9 / 16 !important;
+    margin: 0 auto !important;
+    background: #000 !important;
+    border: none !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: relative !important;
+  }
+}
