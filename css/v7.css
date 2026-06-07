@@ -839,9 +839,8 @@
   margin-top: 28px;
 }
 /* Row 2: 3 cards centered via auto margins on the row */
-.beauty-ig-grid .beauty-ig-card:nth-child(5) { grid-column: 1; }
-.beauty-ig-grid .beauty-ig-card:nth-child(6) { grid-column: 2; }
-.beauty-ig-grid .beauty-ig-card:nth-child(7) { grid-column: 3; }
+/* removed forced columns — let grid flow naturally */
+.beauty-ig-grid .beauty-ig-card:nth-child(n) { grid-column: auto !important; }
 
 .beauty-ig-card {
   display: flex; flex-direction: column; align-items: center; gap: 10px;
@@ -2937,5 +2936,60 @@
 .slide--bastille .bastille-inner,
 .slide--bastille-campaign .bastille-inner{
   max-height: calc(100vh - 100px) !important;
+  overflow: hidden !important;
+}
+
+/* ============ v7.8e: nuclear paid-duo, bastille fits ============ */
+.slide--paid-duo .slide__inner{
+  padding-top: 24px !important;
+  padding-bottom: 100px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100vh !important;
+}
+.slide--paid-duo .paid-duo-grid{
+  flex: 1 !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 60px !important;
+  align-items: center !important;
+  justify-items: center !important;
+  max-height: 100% !important;
+  overflow: hidden !important;
+}
+.slide--paid-duo .paid-duo-card{
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 14px !important;
+}
+.slide--paid-duo .paid-duo-card .phone-frame,
+.slide--paid-duo .phone-frame{
+  height: 440px !important;
+  max-height: 440px !important;
+  width: 250px !important;
+}
+
+/* Bastille — clamp */
+.slide--bastille .slide__inner,
+.slide--bastille-campaign .slide__inner{
+  padding-top: 28px !important;
+  padding-bottom: 70px !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
+}
+.slide--bastille .bastille-inner,
+.slide--bastille-campaign .bastille-inner,
+.slide--bastille-campaign .bastille-campaign-grid{
+  max-height: calc(100vh - 140px) !important;
+  overflow: hidden !important;
+}
+
+/* Telegram views overflow */
+.slide--platform#slide-telegram .mock-telegram__views{
+  display: none !important;
+}
+.slide--platform#slide-telegram .platform-mini{
+  max-height: 240px !important;
   overflow: hidden !important;
 }
