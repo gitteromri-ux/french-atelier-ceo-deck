@@ -3759,3 +3759,41 @@
   .phone-trio-grid .phone-frame, .phones-3 .phone-frame { max-width: 100px !important; height: 178px !important; }
   .slide--beauty-ig .phone-frame--ig { max-width: 140px !important; height: 250px !important; }
 }
+
+/* v7.11 — fixes */
+@media (max-width: 900px) {
+  /* format-multi-grid--3 stays 3 across (phone trio of videos with captions) */
+  .deck .slide--format-multi .format-multi-grid--3,
+  .slide--format-multi .format-multi-grid--3 {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .slide--format-multi .format-multi-grid--3 .phone-frame--lg,
+  .slide--format-multi .format-multi-grid--3 .phone-frame {
+    width: 100% !important;
+    max-width: 110px !important;
+    height: 196px !important;
+    margin: 0 auto !important;
+  }
+  .slide--format-multi .format-multi-grid--3 .format-multi-caption {
+    font-size: 10px !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    margin-top: 6px !important;
+  }
+  /* format-multi-grid--5 single column (already covered above, reassert) */
+  .deck .slide--format-multi .format-multi-grid--5,
+  .slide--format-multi .format-multi-grid--5 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* BASTILLE — fix overlap, hide raw IG mockup text behind */
+  .slide--bastille .bastille-grid > * { width: 100% !important; }
+  .slide--bastille .bastille-meta { font-size: 10px !important; margin-bottom: 14px !important; }
+  .slide--bastille .ig-mock,
+  .slide--bastille .insta-post-mock {
+    display: none !important;
+  }
+}
