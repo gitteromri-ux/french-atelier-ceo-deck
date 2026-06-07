@@ -3493,3 +3493,25 @@
     width: 100% !important;
   }
 }
+
+/* v7.9d — lever grid stack on mobile */
+@media (max-width: 900px) {
+  .lever-grid, .lever-grid--v6 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+  .lever-v6 {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 16px !important;
+  }
+  .lever-num { font-size: 22px !important; }
+  .lever-h { font-size: 16px !important; }
+  .lever-body { font-size: 12px !important; line-height: 1.45 !important; }
+  .lever-target { font-size: 26px !important; }
+  .lever-sub { font-size: 10px !important; }
+  .slide--ask .title,
+  .slide--ask .display { font-size: 32px !important; }
+}
