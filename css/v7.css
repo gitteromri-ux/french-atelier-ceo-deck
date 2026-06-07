@@ -2627,3 +2627,108 @@
   margin: 0 0 4px 0 !important;
   font-family: 'Cormorant Garamond', serif !important;
 }
+
+/* =========================================================
+   v7.8b — final overflow corrections
+   ========================================================= */
+
+/* Email pair: constrain card height so signoff stays inside */
+.slide--email-pair .slide__inner{
+  padding: 32px 56px 80px !important;
+}
+.slide--email-pair .title{
+  font-size: 28px !important;
+  margin-bottom: 8px !important;
+}
+.slide--email-pair .rule{
+  margin-bottom: 18px !important;
+}
+.email-pair-v78,
+.email-pair-v78--single{
+  max-height: calc(100vh - 200px) !important;
+  height: calc(100vh - 200px) !important;
+}
+.email-card-v78{
+  max-height: 100% !important;
+  height: 100% !important;
+}
+.email-card-v78__body{
+  font-size: 12.5px !important;
+  line-height: 1.55 !important;
+  padding: 14px 22px 18px !important;
+}
+.email-card-v78__hero{
+  padding: 16px 22px 18px !important;
+  margin: 0 22px !important;
+}
+.email-card-v78__brand{ font-size: 18px !important; }
+.email-card-v78__subj{ font-size: 18px !important; padding: 12px 22px 6px !important; }
+.email-card-v78__meta{ padding: 12px 22px 10px !important; }
+.email-card-v78__signoff{ font-size: 13px !important; margin-top: 12px !important; }
+
+/* Beauty IG: shrink to fit 4×2 inside viewport */
+.slide--beauty-ig .slide__inner{
+  padding-top: 28px !important;
+  padding-bottom: 60px !important;
+}
+.slide--beauty-ig .title{
+  font-size: 32px !important;
+  margin-bottom: 6px !important;
+}
+.slide--beauty-ig .lede{
+  font-size: 13px !important;
+  margin-bottom: 14px !important;
+}
+.slide--beauty-ig .rule{
+  margin-bottom: 18px !important;
+}
+.slide--beauty-ig .beauty-ig-grid{
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 14px 18px !important;
+  max-height: calc(100vh - 230px) !important;
+}
+.slide--beauty-ig .ig-phone,
+.slide--beauty-ig .phone-frame--ig,
+.slide--beauty-ig .beauty-ig-card .phone-frame{
+  width: 150px !important;
+  height: 268px !important;
+  border-radius: 18px !important;
+}
+.slide--beauty-ig .beauty-ig-card{
+  padding: 0 !important;
+}
+.slide--beauty-ig .beauty-ig-card__meta,
+.slide--beauty-ig .ig-meta{
+  font-size: 10px !important;
+  margin-top: 5px !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* Paid duo: shrink phone height + show captions */
+.slide--paid-duo{
+  height: 100vh;
+}
+.slide--paid-duo .slide__inner{
+  padding-top: 36px !important;
+  padding-bottom: 50px !important;
+}
+.slide--paid-duo .paid-duo-grid{
+  align-items: start !important;
+  max-height: calc(100vh - 200px) !important;
+}
+.slide--paid-duo .paid-duo-card{
+  height: auto !important;
+}
+.slide--paid-duo .paid-duo-card .phone-frame{
+  height: 520px !important;
+  max-height: 520px !important;
+}
+.slide--paid-duo .paid-duo-card .paid-duo-caption{
+  margin-top: 10px !important;
+  font-size: 14px !important;
+}
+
+/* Replace "IG REFERENCE" with format-spirit copy via CSS — keep but rename */
+.slide--beauty-ig .beauty-ig-card__meta::after,
+.slide--beauty-ig .ig-meta::after{ content: ""; }
+
