@@ -1799,3 +1799,91 @@
   max-height: calc(100vh - 120px);
 }
 
+
+/* ══════════════════════════════════════════════════════════════════
+   v7.5 — REAL FIT-TO-VIEWPORT (override transform-based shrinks)
+   The previous transform:scale(0.78) didn't actually reduce footprint.
+   This patch sets explicit smaller intrinsic sizes so grids FIT 900px.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Global slide ceiling: nothing inside .slide__inner may exceed
+   calc(100vh - 100px) (leaves room for bottom nav pill). */
+.deck .slide{ height: 100vh; overflow: hidden; }
+.deck .slide__inner{
+  max-height: calc(100vh - 100px) !important;
+  height: calc(100vh - 100px) !important;
+  overflow: hidden !important;
+  padding-top: 28px !important;
+}
+
+/* ── s3 paid-duo: smaller phones, side-by-side, nothing under nav ── */
+.slide--paid-duo .paid-phone--xl{ transform: none !important; margin-bottom: 0 !important; }
+.slide--paid-duo .paid-phone--xl,
+.slide--paid-duo .paid-phone--xl .phone-frame{
+  width: 280px !important;
+  max-height: 580px !important;
+}
+.slide--paid-duo .paid-phone--xl .phone-frame video{ height: 100% !important; }
+.slide--paid-duo .paid-duo-grid{ gap: 60px !important; align-items: center !important; }
+
+/* ── s8/s9 format-multi 3×2 phones: fit 6 in viewport ── */
+.slide--format-multi .phone-frame--lg{
+  transform: none !important;
+  width: 200px !important;
+  max-height: 360px !important;
+}
+.slide--format-multi .phone-frame--lg video,
+.slide--format-multi .phone-frame--lg img{ height: 100% !important; object-fit: cover !important; }
+.slide--format-multi .format-multi-grid,
+.slide--format-multi .multi-phone-grid{
+  grid-template-columns: repeat(3, 200px) !important;
+  gap: 14px 28px !important;
+  justify-content: center !important;
+  max-height: calc(100vh - 220px) !important;
+}
+.slide--format-multi .phone-caption{ font-size: 11px !important; margin-top: 3px !important; }
+
+/* ── s12 beauty-ig: 7 phones (4 + 3) fit in viewport ── */
+.slide--beauty-ig .slide__inner{ padding-top: 24px !important; }
+.slide--beauty-ig .beauty-ig-grid{
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 12px 18px !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+}
+.slide--beauty-ig .beauty-ig-card{ display: flex; flex-direction: column; align-items: center; }
+.slide--beauty-ig .ig-phone,
+.slide--beauty-ig .ig-phone .phone-frame{
+  width: 170px !important;
+  max-height: 302px !important;
+}
+.slide--beauty-ig .ig-phone video,
+.slide--beauty-ig .ig-phone img{ height: 100% !important; }
+.slide--beauty-ig .beauty-ig-meta{ margin-top: 6px !important; }
+.slide--beauty-ig .big-num{ font-size: 14px !important; }
+.slide--beauty-ig .big-label{ font-size: 9px !important; letter-spacing: .12em !important; }
+
+/* ── s38 site mockup ── */
+.slide--site .site-wrap,
+.slide--site .browser-mockup{ max-height: calc(100vh - 220px) !important; }
+.slide--site video{ max-height: calc(100vh - 280px) !important; }
+
+/* ── s42 Pinterest: 4-col hero+grid, must fit ── */
+.slide--platform .platform-hero{ max-height: 360px !important; overflow: hidden !important; }
+.slide--platform .platform-grid-3x3,
+.slide--platform .platform-mini-grid{
+  max-height: 380px !important;
+  overflow: hidden !important;
+}
+.slide--platform .mock-pinterest{ max-height: 380px !important; }
+.slide--platform .mock-pinterest__letter{ font-size: 60px !important; }
+.slide--platform .mock-pinterest.platform-hero .mock-pinterest__letter{ font-size: 90px !important; }
+.slide--platform .platform-mini{ max-height: 120px !important; }
+
+/* Bottom nav pill: ensure it never overlaps content */
+.nav-bar, .pill-nav{ z-index: 100; }
+
+/* Tighten ML2 email slides too — already capped but enforce */
+.slide--ml2 .ml2-body{ max-height: calc(100vh - 240px) !important; }
+
