@@ -1,0 +1,542 @@
+[
+  {
+    "code": "Q01",
+    "votes": "3,200",
+    "platform": "quora",
+    "title": "What's the best way for an adult to actually learn French in 2026?",
+    "preview": "The honest answer surprises most adults: you don't need more content \u2014 you need a structured, live environment where someone holds you accountable in real French.",
+    "persona": "Lifelong Learner",
+    "subtopic": "Learning French"
+  },
+  {
+    "code": "Q02",
+    "votes": "2,980",
+    "platform": "quora",
+    "title": "I'm 55 and want to learn French before a Paris trip \u2014 is that realistic?",
+    "preview": "Not only realistic \u2014 you're actually better positioned than a 22-year-old in many ways.",
+    "persona": "Pre-trip Traveler",
+    "subtopic": "Travel to France"
+  },
+  {
+    "code": "Q03",
+    "votes": "2,750",
+    "platform": "quora",
+    "title": "Are live online French classes worth it compared to Duolingo or Babbel?",
+    "preview": "They're solving different problems. Duolingo is a vocabulary habit. A live class is where you become a speaker.",
+    "persona": "Digital Skeptic",
+    "subtopic": "Learning French"
+  },
+  {
+    "code": "Q04",
+    "votes": "2,600",
+    "platform": "quora",
+    "title": "How do I get a real French accent as an American adult?",
+    "preview": "The French accent is not a mystery \u2014 it's a set of phonological habits you don't yet have. The good news: they're learnable.",
+    "persona": "Aspiring Fluency",
+    "subtopic": "French Language"
+  },
+  {
+    "code": "Q05",
+    "votes": "2,430",
+    "platform": "quora",
+    "title": "What's the best French course for retirees?",
+    "preview": "Retirees are, in my experience, the most rewarding students to teach \u2014 and the most underserved by standard language programs.",
+    "persona": "Retiree Francophile",
+    "subtopic": "Learning French"
+  },
+  {
+    "code": "Q06",
+    "votes": "2,290",
+    "platform": "quora",
+    "title": "How long does it really take to learn conversational French?",
+    "preview": "\"Conversational\" is doing a lot of work in that question. Let me give you three honest benchmarks.",
+    "persona": "Goal-Setter",
+    "subtopic": "Learning French"
+  },
+  {
+    "code": "Q07",
+    "votes": "2,150",
+    "platform": "quora",
+    "title": "What do CEFR levels actually mean \u2014 what's A2 in practice?",
+    "preview": "The CEFR (Common European Framework of Reference for Languages) is the international standard for language proficiency used by every serious European language institution.",
+    "persona": "Methodology-Curious",
+    "subtopic": "French Language"
+  },
+  {
+    "code": "Q08",
+    "votes": "2,020",
+    "platform": "quora",
+    "title": "How do French Atelier classes compare to Alliance Fran\u00e7aise?",
+    "preview": "Both are serious programs. The difference is architecture, and it matters for working adults.",
+    "persona": "Comparison Shopper",
+    "subtopic": "Learning French"
+  },
+  {
+    "code": "Q09",
+    "votes": "1,900",
+    "platform": "quora",
+    "title": "Can an American adult realistically become fluent in French without moving to France?",
+    "preview": "Yes \u2014 with a significant caveat about what \"fluent\" means and what \"without moving to France\" actually requires.",
+    "persona": "Long-haul Learner",
+    "subtopic": "Learning French"
+  },
+  {
+    "code": "Q10",
+    "votes": "1,780",
+    "platform": "quora",
+    "title": "I love French cinema. Can learning French actually change how I watch films?",
+    "preview": "Completely. And it's one of the most underrated reasons to learn the language.",
+    "persona": "Cin\u00e9phile",
+    "subtopic": "French Cinema"
+  },
+  {
+    "code": "Q11",
+    "votes": "1,660",
+    "platform": "quora",
+    "title": "Is French hard to learn for native English speakers?",
+    "preview": "French is genuinely one of the most accessible languages for English speakers \u2014 though it has a few specific challenges worth understanding.",
+    "persona": "First-time Language Learner",
+    "subtopic": "Learning French"
+  },
+  {
+    "code": "Q12",
+    "votes": "1,540",
+    "platform": "quora",
+    "title": "What French phrases should I know before visiting Paris?",
+    "preview": "Beyond the obvious \u2014 bonjour, merci, s'il vous pla\u00eet \u2014 the phrases that actually change your Paris experience are the ones that signal respect, not just utility.",
+    "persona": "Paris Visitor",
+    "subtopic": "Travel to France"
+  },
+  {
+    "code": "Q13",
+    "votes": "1,430",
+    "platform": "quora",
+    "title": "Why do the French appreciate it when you try to speak French, even badly?",
+    "preview": "Because language in France is not merely communication \u2014 it's a form of cultural respect.",
+    "persona": "Cultural Francophile",
+    "subtopic": "France/Culture"
+  },
+  {
+    "code": "Q14",
+    "votes": "1,310",
+    "platform": "quora",
+    "title": "What's the difference between European French and Quebec French?",
+    "preview": "Greater than British and American English, less than the gap between Portuguese and Brazilian. And fascinating in different ways.",
+    "persona": "Language Enthusiast",
+    "subtopic": "French Language"
+  },
+  {
+    "code": "Q15",
+    "votes": "1,200",
+    "platform": "quora",
+    "title": "What are the \"Six Pillars\" of French culture that every francophile should know?",
+    "preview": "I'll tell you the six pillars that, in my experience teaching adult Americans to love French, create the deepest and most durable connection to the language.",
+    "persona": "Cultural Francophile",
+    "subtopic": "France/Culture"
+  },
+  {
+    "code": "Q16",
+    "votes": "1,090",
+    "platform": "quora",
+    "title": "I studied French in high school 30 years ago. Can I get it back?",
+    "preview": "You can \u2014 and faster than you expect. Language learning research calls this \"language reactivation,\" and adults who had prior exposure progress at two to three times the rate of true beginners.",
+    "persona": "Rusty Returnee",
+    "subtopic": "Learning French"
+  },
+  {
+    "code": "Q17",
+    "votes": "980",
+    "platform": "quora",
+    "title": "Is it worth getting a French language certificate as an American adult?",
+    "preview": "For most adult learners in the USA, the value of a certificate is not professional \u2014 it's personal accountability.",
+    "persona": "Credential-Seeker",
+    "subtopic": "Learning French"
+  },
+  {
+    "code": "Q18",
+    "votes": "870",
+    "platform": "quora",
+    "title": "Can I learn French online if I live far from a French-speaking city?",
+    "preview": "This is the question that makes online instruction genuinely transformative rather than merely convenient.",
+    "persona": "Rural/Suburban American",
+    "subtopic": "Learning French"
+  },
+  {
+    "code": "Q19",
+    "votes": "760",
+    "platform": "quora",
+    "title": "What's the role of an AI tutor in language learning? Is Juliane actually useful?",
+    "preview": "AI tutors are genuinely useful for one specific thing: low-stakes practice between live sessions.",
+    "persona": "Tech-Curious Learner",
+    "subtopic": "Learning French"
+  },
+  {
+    "code": "Q20",
+    "votes": "660",
+    "platform": "quora",
+    "title": "How do I prepare for a French-immersion trip to France without expensive lessons?",
+    "preview": "Let me reframe the question first: expensive compared to what?",
+    "persona": "Budget-Conscious Traveler",
+    "subtopic": "Travel to France"
+  },
+  {
+    "code": "Q21",
+    "votes": "560",
+    "platform": "quora",
+    "title": "I'm learning French to read Proust in the original. Is that goal realistic?",
+    "preview": "It's a beautiful goal \u2014 and a demanding one. Proust is not just advanced French; he is the summit of French literary prose.",
+    "persona": "Literary Francophile",
+    "subtopic": "French Literature"
+  },
+  {
+    "code": "Q22",
+    "votes": "470",
+    "platform": "quora",
+    "title": "What is the best approach for learning French gastronomy vocabulary?",
+    "preview": "Gastronomy is one of the most rewarding domains to learn in French, because the vocabulary is embedded in a living, sensory culture.",
+    "persona": "Culinary Francophile",
+    "subtopic": "French Cuisine"
+  },
+  {
+    "code": "Q23",
+    "votes": "390",
+    "platform": "quora",
+    "title": "My daughter is studying in France next year. How can I learn enough French to visit her?",
+    "preview": "This is one of the most motivating circumstances for rapid adult French acquisition, and six months is a very workable timeline.",
+    "persona": "Family Traveler",
+    "subtopic": "Learning French / Travel"
+  },
+  {
+    "code": "Q24",
+    "votes": "310",
+    "platform": "quora",
+    "title": "Is group French instruction or 1-on-1 tutoring better for adult learners?",
+    "preview": "Research and experience both point toward small-group instruction as the superior format for most adult learners \u2014 counterintuitive as that may seem.",
+    "persona": "Learning Method Researcher",
+    "subtopic": "Learning French"
+  },
+  {
+    "code": "Q25",
+    "votes": "230",
+    "platform": "quora",
+    "title": "How important is it that my French teacher is actually from France?",
+    "preview": "It matters, and it matters more than most people expect \u2014 for reasons that go beyond \"authentic accent.\"",
+    "persona": "Quality-Seeker",
+    "subtopic": "Learning French"
+  },
+  {
+    "code": "Q26",
+    "votes": "160",
+    "platform": "quora",
+    "title": "What French books should I read as a beginner or intermediate learner?",
+    "preview": "The key is matching difficulty level to current ability \u2014 challenging enough to grow, accessible enough to stay motivated.",
+    "persona": "Literary Learner",
+    "subtopic": "French Literature"
+  },
+  {
+    "code": "Q27",
+    "votes": "110",
+    "platform": "quora",
+    "title": "Is $42/week for French classes worth it compared to free resources?",
+    "preview": "The question is not \"free vs paid\" \u2014 it's \"what does $42/week actually buy that free resources don't?\"",
+    "persona": "Value-Evaluator",
+    "subtopic": "Learning French"
+  },
+  {
+    "code": "Q28",
+    "votes": "80",
+    "platform": "quora",
+    "title": "What's the French equivalent of the Hebrew Ulpan system?",
+    "preview": "France doesn't have a single iconic equivalent to the Israeli Ulpan \u2014 but the closest parallel is the \"Alliance Fran\u00e7aise\" system internationally.",
+    "persona": "Language Method Comparator",
+    "subtopic": "Language Learning"
+  },
+  {
+    "code": "Q29",
+    "votes": "55",
+    "platform": "quora",
+    "title": "I want to retire to France. What's the French language level I need?",
+    "preview": "For daily life in France \u2014 shopping, healthcare appointments, bank accounts, neighbors \u2014 you need B1. For genuine social integration, B2.",
+    "persona": "Future Expatriate",
+    "subtopic": "Living in France"
+  },
+  {
+    "code": "Q30",
+    "votes": "40",
+    "platform": "quora",
+    "title": "What's the most romantic French phrase that goes beyond \"je t'aime\"?",
+    "preview": "\"Je t'aime\" is the declaration. The French romantic vocabulary that actually distinguishes a native speaker goes deeper.",
+    "persona": "Romantic Francophile",
+    "subtopic": "French Language"
+  },
+  {
+    "code": "R01",
+    "votes": "4,200",
+    "platform": "reddit",
+    "title": "I'm 52 and just hit A2 in French after 4 months. Here's what actually worked.",
+    "preview": "Wanted to share what worked because I wasted six months on Duolingo before figuring this out.",
+    "persona": "Adult Returnee",
+    "subtopic": "r/languagelearning"
+  },
+  {
+    "code": "R02",
+    "votes": "3,800",
+    "platform": "reddit",
+    "title": "Why learning French changed how I experience Paris (and I've been 8 times)",
+    "preview": "I've visited Paris eight times since 1998. The first seven as a competent tourist \u2014 good restaurants, the major museums, the Seine at dusk. All beautiful. All experienced at a distance.",
+    "persona": "Experienced Traveler",
+    "subtopic": "r/French"
+  },
+  {
+    "code": "R03",
+    "votes": "3,400",
+    "platform": "reddit",
+    "title": "The pronunciation problem no app will ever fix",
+    "preview": "Genuine question for this community: has anyone found an app that can actually fix pronunciation?",
+    "persona": "Pronunciation-Seeker",
+    "subtopic": "r/learnfrench"
+  },
+  {
+    "code": "R04",
+    "votes": "3,100",
+    "platform": "reddit",
+    "title": "[Trip report] Three weeks in Provence with B1 French vs zero French",
+    "preview": "Comparison is unfair because I can't split myself \u2014 but I went to Provence in 2022 with zero French and returned in 2025 with B1. I'm going to try to describe what was different.",
+    "persona": "Cultural Traveler",
+    "subtopic": "r/FrenchImmersion"
+  },
+  {
+    "code": "R05",
+    "votes": "2,900",
+    "platform": "reddit",
+    "title": "French Atelier review after 8 months \u2014 honest take for adult learners",
+    "preview": "I'm 61, retired, started French at A0 in March. Now at solid A2 going on B1. Here's my honest review.",
+    "persona": "Retiree Learner",
+    "subtopic": "r/languagelearning"
+  },
+  {
+    "code": "R06",
+    "votes": "2,700",
+    "platform": "reddit",
+    "title": "French film changed my relationship with the language \u2014 a list for different levels",
+    "preview": "Compiled this from what's worked for students and friends. French cinema is one of the best supplementary tools for adult learners.",
+    "persona": "Cin\u00e9phile",
+    "subtopic": "r/French"
+  },
+  {
+    "code": "R07",
+    "votes": "2,500",
+    "platform": "reddit",
+    "title": "For those of you who've tried both Alliance Fran\u00e7aise and live online French classes \u2014 what's different?",
+    "preview": "I took Alliance Fran\u00e7aise classes in Boston for three years. I am now in my second year with French Atelier. Some honest comparative thoughts for people trying to decide.",
+    "persona": "Method Comparator",
+    "subtopic": "r/learnfrench"
+  },
+  {
+    "code": "R08",
+    "votes": "2,300",
+    "platform": "reddit",
+    "title": "65 years old, retired professor, learning French \u2014 six months in",
+    "preview": "I taught comparative literature for thirty-five years. I have been reading French texts in translation my entire career. At 65, I finally decided to read them in the original.",
+    "persona": "Academic Francophile",
+    "subtopic": "r/languagelearning"
+  },
+  {
+    "code": "R09",
+    "votes": "2,100",
+    "platform": "reddit",
+    "title": "How small group size actually changes language learning outcomes",
+    "preview": "I've learned in classes of 20, classes of 12, and now classes of 9 (French Atelier). I want to talk about the difference because it's larger than I expected.",
+    "persona": "Methodology-Curious",
+    "subtopic": "r/FrenchImmersion"
+  },
+  {
+    "code": "R10",
+    "votes": "1,900",
+    "platform": "reddit",
+    "title": "My French learning stack after 2 years \u2014 what stayed, what I dropped",
+    "preview": "Started two years ago at 47. Here's my current stack and the reasoning.",
+    "persona": "Systematic Learner",
+    "subtopic": "r/learnfrench"
+  },
+  {
+    "code": "R11",
+    "votes": "1,750",
+    "platform": "reddit",
+    "title": "The French regional accent thing is real and nobody talks about it enough",
+    "preview": "Before I started proper French classes I thought \"French accent\" was one thing. The Parisian accent I heard in films.",
+    "persona": "Cultural Explorer",
+    "subtopic": "r/French"
+  },
+  {
+    "code": "R12",
+    "votes": "1,600",
+    "platform": "reddit",
+    "title": "What the \"Six Pillars\" framework actually means for French learning",
+    "preview": "I've been asked to explain what French Atelier's \"Six Pillars\" approach is, since I mention it when people ask about my program.",
+    "persona": "Methodology Advocate",
+    "subtopic": "r/languagelearning"
+  },
+  {
+    "code": "R13",
+    "votes": "1,450",
+    "platform": "reddit",
+    "title": "Is Juliane (French Atelier's AI tutor) actually useful or is it a gimmick?",
+    "preview": "Genuinely curious question before I joined; want to give an honest answer now that I've used it for four months.",
+    "persona": "Tech Evaluator",
+    "subtopic": "r/FrenchImmersion"
+  },
+  {
+    "code": "R14",
+    "votes": "1,300",
+    "platform": "reddit",
+    "title": "French for retirees \u2014 what to look for in a program",
+    "preview": "I'm 68 and have been learning French for 14 months. Some things I've noticed about what works for learners in our demographic, for anyone else in the \"retired francophile\" category.",
+    "persona": "Retiree Advisor",
+    "subtopic": "r/learnfrench"
+  },
+  {
+    "code": "R15",
+    "votes": "1,150",
+    "platform": "reddit",
+    "title": "Why \"I lived in Paris for a year and my French barely improved\" is actually common",
+    "preview": "I see this post-mortem a lot and I want to explain what's actually happening, because it mystifies people who haven't experienced it.",
+    "persona": "Experienced Traveler",
+    "subtopic": "r/French"
+  },
+  {
+    "code": "R16",
+    "votes": "1,000",
+    "platform": "reddit",
+    "title": "What 35-year-olds, 50-year-olds, and 70-year-olds have in common as French learners",
+    "preview": "I've been in French Atelier cohorts with students ranging from 35 to 72. Some patterns I've observed from the student side.",
+    "persona": "All Demographics",
+    "subtopic": "r/languagelearning"
+  },
+  {
+    "code": "R17",
+    "votes": "870",
+    "platform": "reddit",
+    "title": "CEFR explained in plain English for American learners",
+    "preview": "A lot of American students haven't encountered CEFR (Common European Framework of Reference for Languages) before. Quick explainer from someone who researched this before choosing a program.",
+    "persona": "Methodology Researcher",
+    "subtopic": "r/FrenchImmersion"
+  },
+  {
+    "code": "R18",
+    "votes": "740",
+    "platform": "reddit",
+    "title": "The accents of France \u2014 what you need to know as a learner",
+    "preview": "French regional accents are fascinating and underexplored in most American French education. A primer from someone who's had teachers from four different French regions.",
+    "persona": "Linguistics Enthusiast",
+    "subtopic": "r/learnfrench"
+  },
+  {
+    "code": "R19",
+    "votes": "620",
+    "platform": "reddit",
+    "title": "What I've learned about French food vocabulary after 18 months of French Atelier",
+    "preview": "Food is one of the most rewarding vocabulary domains in French because it's so deeply embedded in cultural life. Some things I've learned that are actually useful for visitors to France.",
+    "persona": "Culinary Traveler",
+    "subtopic": "r/French"
+  },
+  {
+    "code": "R20",
+    "votes": "510",
+    "platform": "reddit",
+    "title": "Honest review: learning French at 58 with French Atelier \u2014 12 months in",
+    "preview": "This is the review I wish I'd found before starting. I'm 58, had a semester of French in college in 1988, started fresh with French Atelier a year ago.",
+    "persona": "Adult Returnee",
+    "subtopic": "r/languagelearning"
+  },
+  {
+    "code": "R21",
+    "votes": "400",
+    "platform": "reddit",
+    "title": "Tips for making the most of live French classes as a working adult",
+    "preview": "I work full-time, so my study time outside class is limited. Things that have maximized my progress with the time I actually have.",
+    "persona": "Busy Professional",
+    "subtopic": "r/FrenchImmersion"
+  },
+  {
+    "code": "R22",
+    "votes": "310",
+    "platform": "reddit",
+    "title": "What \"live from France\" actually means for your learning experience",
+    "preview": "This was a key selling point for French Atelier but I was skeptical about whether it was meaningful in practice. After two years, my take:",
+    "persona": "Cultural Immersion Seeker",
+    "subtopic": "r/learnfrench"
+  },
+  {
+    "code": "R23",
+    "votes": "240",
+    "platform": "reddit",
+    "title": "French for the serious foodie \u2014 a deeper vocabulary list",
+    "preview": "Beyond the standard \"food vocabulary\" lists, some terms that mark the difference between tourist French and genuine gastronomic French.",
+    "persona": "Serious Foodie",
+    "subtopic": "r/French"
+  },
+  {
+    "code": "R24",
+    "votes": "170",
+    "platform": "reddit",
+    "title": "The case for learning French in your 60s (from someone who did it)",
+    "preview": "I am 67. I started learning French at 63 with zero background. I'm going to make the case.",
+    "persona": "Senior Advocate",
+    "subtopic": "r/languagelearning"
+  },
+  {
+    "code": "R25",
+    "votes": "120",
+    "platform": "reddit",
+    "title": "French music as a learning tool \u2014 what's actually useful",
+    "preview": "I've been incorporating French music into my learning for 18 months. What's actually worked for language acquisition vs what's just enjoyable.",
+    "persona": "Music Enthusiast",
+    "subtopic": "r/FrenchImmersion"
+  },
+  {
+    "code": "R26",
+    "votes": "85",
+    "platform": "reddit",
+    "title": "French poetry as a language learning tool \u2014 unexpected but effective",
+    "preview": "I started including French poetry in my study at the suggestion of my French Atelier teacher, who is from Brittany and recommended Jacques Pr\u00e9vert.",
+    "persona": "Literary Learner",
+    "subtopic": "r/learnfrench"
+  },
+  {
+    "code": "R27",
+    "votes": "60",
+    "platform": "reddit",
+    "title": "What I've learned about French fashion vocabulary (and why it matters for travelers)",
+    "preview": "Fashion vocabulary is practically useful in France in ways Americans don't anticipate, because French retail culture is different from American.",
+    "persona": "Cultural Sophisticate",
+    "subtopic": "r/French"
+  },
+  {
+    "code": "R28",
+    "votes": "45",
+    "platform": "reddit",
+    "title": "The lifetime recordings feature saved my French learning",
+    "preview": "I travel frequently for work (or did, before retirement). The number of live French classes I've missed due to travel, illness, or family commitments in 18 months: 11. The number of those lessons I've actually done: 11.",
+    "persona": "Busy Learner",
+    "subtopic": "r/languagelearning"
+  },
+  {
+    "code": "R29",
+    "votes": "30",
+    "platform": "reddit",
+    "title": "Planning a Loire Valley trip \u2014 asking for input from people who know the region",
+    "preview": "Context: I've been studying French at French Atelier for 14 months with a teacher who lives in the Loire. I'm finally going to visit her region in May.",
+    "persona": "Prepared Traveler",
+    "subtopic": "r/FrenchImmersion"
+  },
+  {
+    "code": "R30",
+    "votes": "20",
+    "platform": "reddit",
+    "title": "After two years of French Atelier \u2014 where I am and what's next",
+    "preview": "Started at A0. Now at B2. Two years of weekly classes from France, Juliane AI between sessions, daily vocabulary review.",
+    "persona": "Advanced Returnee",
+    "subtopic": "r/learnfrench"
+  }
+]
