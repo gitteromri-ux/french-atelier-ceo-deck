@@ -4202,3 +4202,252 @@
     padding: 3px 6px !important;
   }
 }
+
+/* ============================================================
+   v7.21 — MOBILE FINAL FIXES
+   1) Phones 2x larger (real device size)
+   2) Sound toggle out of video frame (top-right corner, smaller, transparent)
+   3) Thumbnail/post text legible (no smear, no overflow)
+   ============================================================ */
+@media (max-width: 768px) {
+
+  /* --- 1) PHONES 2X LARGER --- */
+
+  /* Paid duo (2 phones) — biggest, fill width */
+  .deck .slide--paid-duo .phone-frame,
+  .slide--paid-duo .phone-frame,
+  .slide--paid-duo .paid-duo-card .phone-frame,
+  .slide--paid-duo .paid-phone,
+  .slide--paid-duo .paid-phone--xl {
+    width: 88vw !important;
+    max-width: 340px !important;
+    height: auto !important;
+    aspect-ratio: 9/16 !important;
+    margin: 0 auto !important;
+  }
+  .slide--paid-duo .paid-duo-card,
+  .slide--paid-duo .paid-duo-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+    align-items: center !important;
+  }
+
+  /* Phone trio (formal/spoken, homonyms) — 3 phones, stacked vertically */
+  .deck .phone-trio-grid,
+  .deck .phones-3,
+  .phone-trio-grid,
+  .phones-3 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    align-items: center !important;
+    grid-template-columns: none !important;
+  }
+  .phone-trio-grid .phone-frame,
+  .phones-3 .phone-frame,
+  .slide--format-multi .format-multi-grid--3 .phone-frame,
+  .slide--format-multi .format-multi-grid--3 .phone-frame--lg {
+    width: 78vw !important;
+    max-width: 300px !important;
+    height: auto !important;
+    aspect-ratio: 9/16 !important;
+    margin: 0 auto !important;
+  }
+
+  /* Beauty IG — stacked, big */
+  .slide--beauty-ig .beauty-ig-card,
+  .slide--beauty-ig .beauty-ig-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+    align-items: center !important;
+    grid-template-columns: none !important;
+  }
+  .slide--beauty-ig .phone-frame,
+  .slide--beauty-ig .phone-frame--ig,
+  .slide--beauty-ig .beauty-ig-card .phone-frame {
+    width: 78vw !important;
+    max-width: 300px !important;
+    height: auto !important;
+    aspect-ratio: 9/16 !important;
+    margin: 0 auto !important;
+  }
+
+  /* Format multi (5 formats) — stacked */
+  .slide--format-multi .format-multi-grid,
+  .slide--format-multi .format-multi-grid--5 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+    align-items: center !important;
+    grid-template-columns: none !important;
+  }
+  .slide--format-multi .format-multi-grid--5 .phone-frame,
+  .slide--format-multi .format-multi-grid--5 .phone-frame--lg {
+    width: 78vw !important;
+    max-width: 300px !important;
+    height: auto !important;
+    aspect-ratio: 9/16 !important;
+  }
+
+  /* Make sure video FILLS the phone */
+  .phone-frame,
+  .paid-phone,
+  .ig-phone {
+    position: relative !important;
+    background: #000 !important;
+    overflow: hidden !important;
+    border-radius: 22px !important;
+  }
+  .phone-frame video,
+  .paid-phone video,
+  .ig-phone video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+
+  /* --- 2) SOUND TOGGLE — OUT OF THE WAY --- */
+  /* Position top-right corner, small, semi-transparent, NEVER over center */
+  .phone-frame .sound-toggle,
+  .paid-phone .sound-toggle,
+  .ig-phone .sound-toggle,
+  .slide--paid-duo .sound-toggle,
+  .phone-trio-grid .sound-toggle,
+  .phones-3 .sound-toggle,
+  .slide--beauty-ig .sound-toggle,
+  .slide--format-multi .sound-toggle {
+    position: absolute !important;
+    top: 8px !important;
+    right: 8px !important;
+    left: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    background: rgba(10, 17, 40, 0.55) !important;
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+    border: 1px solid rgba(255,255,255,0.25) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 10 !important;
+    box-shadow: none !important;
+  }
+  .phone-frame .sound-toggle svg,
+  .paid-phone .sound-toggle svg,
+  .ig-phone .sound-toggle svg,
+  .slide--paid-duo .sound-toggle svg,
+  .phone-trio-grid .sound-toggle svg,
+  .phones-3 .sound-toggle svg,
+  .slide--beauty-ig .sound-toggle svg,
+  .slide--format-multi .sound-toggle svg {
+    width: 16px !important;
+    height: 16px !important;
+    color: #fff !important;
+    fill: #fff !important;
+  }
+
+  /* Hide TAP HINT label (it's the big blocking pill); keep only icon */
+  .tap-hint,
+  .phone-trio-grid .tap-hint,
+  .phones-3 .tap-hint,
+  .slide--paid-duo .tap-hint,
+  .slide--beauty-ig .tap-hint,
+  .slide--format-multi .tap-hint {
+    display: none !important;
+  }
+
+  /* --- 3) THUMBNAILS / POST TEXT — LEGIBLE --- */
+  .post-card-mockup,
+  .mock-reddit,
+  .mock-pinterest,
+  .mock-quora,
+  .mock-medium,
+  .mock-stack,
+  .mock-telegram {
+    width: 100% !important;
+    max-width: 92vw !important;
+    box-sizing: border-box !important;
+    padding: 14px !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    overflow: visible !important;
+  }
+  .post-card-mockup *,
+  .mock-reddit *,
+  .mock-pinterest *,
+  .mock-quora *,
+  .mock-medium *,
+  .mock-stack *,
+  .mock-telegram * {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+    text-overflow: clip !important;
+    -webkit-line-clamp: unset !important;
+  }
+  .mock-reddit__title,
+  .mock-pinterest__pin-title,
+  .mock-quora__title,
+  .mock-medium__title,
+  .mock-stack__title,
+  .mock-telegram__title {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+  .mock-reddit__body,
+  .mock-pinterest__topic,
+  .mock-quora__body,
+  .mock-medium__body,
+  .mock-stack__body,
+  .mock-telegram__body {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+  }
+  .mock-reddit__meta,
+  .mock-reddit__bar,
+  .mock-pinterest__user,
+  .mock-pinterest__bottom {
+    font-size: 11px !important;
+  }
+
+  /* Grids of post cards — single column on mobile so text isn't smashed */
+  .post-grid,
+  .platform-grid,
+  .tl-grid,
+  .forum-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+    grid-template-columns: none !important;
+  }
+
+  /* Captions under phones (formal vs spoken etc.) — readable */
+  .phone-trio-grid .caption,
+  .phones-3 .caption,
+  .phone-frame + .caption,
+  .phone-frame + p,
+  .phone-trio-grid p {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+    margin-top: 8px !important;
+    text-align: center !important;
+  }
+
+  /* Slide inner padding — give content room */
+  .slide__inner {
+    padding: 24px 16px !important;
+  }
+}
