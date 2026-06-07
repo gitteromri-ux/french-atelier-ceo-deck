@@ -3887,3 +3887,41 @@
   /* EMAIL: ensure paragraphs don't clip */
   .slide--email-pair .email-card-v78 .email-body p { word-break: break-word !important; }
 }
+
+/* v7.13 — CRITICAL: flip deck from horizontal pager to vertical scroll on mobile */
+@media (max-width: 900px) {
+  html, body { overflow-x: hidden !important; overflow-y: auto !important; height: auto !important; }
+  .deck {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    scroll-snap-type: y mandatory !important;
+    padding-top: 0 !important;
+  }
+  .deck .slide,
+  .slide {
+    width: 100% !important;
+    min-width: 100% !important;
+    flex: 0 0 auto !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    max-height: none !important;
+    overflow: visible !important;
+    scroll-snap-align: start !important;
+    padding: 0 !important;
+  }
+  .deck .slide__inner,
+  .slide__inner {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    padding: 28px 16px 80px !important;
+    overflow: visible !important;
+  }
+  /* hide horizontal-only nav dots if any */
+  .dot-nav { display: none !important; }
+}
