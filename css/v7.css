@@ -4621,3 +4621,21 @@
     height: auto !important;
   }
 }
+
+/* ============================================================
+   v7.24 — Mobile: hide cluttered mini 3x3 platform grids.
+   Hero card already conveys the platform; mini grid is unreadable
+   at mobile width. Keep hero only.
+   ============================================================ */
+@media (max-width: 768px) {
+  .platform-grid-3x3,
+  [class*="platform-grid-3"],
+  [class*="platform-grid-4"],
+  .platform-mini-grid {
+    display: none !important;
+  }
+  /* Show "60 posts across platform" stat in place if exists */
+  .platform-hero {
+    margin-bottom: 24px !important;
+  }
+}
