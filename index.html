@@ -2192,34 +2192,43 @@ window.toggleVideoSound = toggleVideoSound;
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('video').forEach(v => {
     v.muted = true;
-    v.autoplay = true;
+    v.autoplay = false; // do NOT autoplay everything—observer handles it
     v.loop = true;
     v.playsInline = true;
     v.setAttribute('playsinline', '');
     v.setAttribute('webkit-playsinline','');
-    v.play().catch(()=>{});
+    v.removeAttribute('autoplay');
+    try { v.pause(); } catch(e){}
   });
   // Per-slide autoplay observer for smooth, on-demand playback
+  // On mobile (max-width:900), deck is vertical → use window as root
+  // On desktop, deck is horizontal → use deck as root
   const deckEl2 = document.querySelector('.deck');
   if (deckEl2 && 'IntersectionObserver' in window) {
     const slides2 = Array.from(deckEl2.querySelectorAll('.slide'));
+    const isMobile = window.matchMedia('(max-width: 900px)').matches;
+    // First, PAUSE every video so only the active slide can play
+    document.querySelectorAll('video').forEach(v => { try { v.pause(); } catch(e){} });
     const ioPlay = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const vids = entry.target.querySelectorAll('video');
         if (entry.isIntersecting && entry.intersectionRatio >= 0.35) {
           vids.forEach(v => { try { v.muted = true; v.play().catch(()=>{}); } catch(e){} });
-        } else if (entry.intersectionRatio < 0.1) {
+        } else if (entry.intersectionRatio < 0.15) {
           vids.forEach(v => { try { v.pause(); } catch(e){} });
         }
       });
-    }, { root: deckEl2, threshold: [0, 0.1, 0.35, 0.5] });
+    }, { root: isMobile ? null : deckEl2, threshold: [0, 0.15, 0.35, 0.6] });
     slides2.forEach(s => ioPlay.observe(s));
-    // Kick first slide explicitly after a small delay
+    // Kick the slide currently in viewport explicitly
     setTimeout(() => {
+      const vw = window.innerWidth, vh = window.innerHeight;
       slides2.forEach(s => {
         const r = s.getBoundingClientRect();
-        if (r.left < window.innerWidth && r.right > 0) {
-          s.querySelectorAll('video').forEach(v => { try { v.play().catch(()=>{}); } catch(e){} });
+        const inX = isMobile ? true : (r.left < vw && r.right > 0);
+        const inY = isMobile ? (r.top < vh * 0.65 && r.bottom > vh * 0.35) : true;
+        if (inX && inY) {
+          s.querySelectorAll('video').forEach(v => { try { v.muted = true; v.play().catch(()=>{}); } catch(e){} });
         }
       });
     }, 300);
