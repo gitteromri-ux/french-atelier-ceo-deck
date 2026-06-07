@@ -3797,3 +3797,93 @@
     display: none !important;
   }
 }
+
+/* v7.12 — STOP CLIPPING: let each slide grow to its content */
+@media (max-width: 900px) {
+  .deck .slide,
+  .slide {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: block !important;
+    padding: 0 !important;
+  }
+  .deck .slide__inner,
+  .slide__inner {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 28px 16px 100px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  /* Snap scroll: snap by slide top */
+  .deck { scroll-snap-type: y mandatory; }
+  .deck .slide { scroll-snap-align: start; scroll-snap-stop: always; }
+
+  /* Force the global stage container that locks 100vh to release */
+  body, html { height: auto !important; overflow-y: auto !important; }
+
+  /* Tablet slides — let tablet card auto-size */
+  .deck .slide--format-large .format-large-grid,
+  .slide--format-large .format-large-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  .slide--format-large .tablet-frame,
+  .slide--format-large .format-large-tablet {
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+  }
+  .slide--format-large .format-large-meta { width: 100% !important; }
+  .slide--format-large .format-large-meta .title--lg { font-size: 26px !important; }
+  .slide--format-large .format-large-stats { display: flex; flex-wrap: wrap; gap: 8px !important; }
+
+  /* PLATFORM 3x3 GRID — give a real grid layout, no clipping */
+  .deck .slide--platform .platform-grid-3x3,
+  .slide--platform .platform-grid-3x3 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .slide--platform .platform-mini,
+  .slide--platform .platform-hero {
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none !important;
+    margin: 0 !important;
+  }
+  /* limit mini count to keep slide reasonable */
+  .slide--platform .platform-grid-3x3 > *:nth-child(n+5) { display: none !important; }
+
+  /* QUORA author row: don't let it overflow */
+  .mock-quora__author-row { flex-wrap: wrap !important; }
+  .mock-quora__author-info { max-width: calc(100% - 50px) !important; }
+  .mock-quora__author-name,
+  .mock-quora__author-bio { word-break: break-word !important; }
+
+  /* BASTILLE: stack mechanics and IG mock properly */
+  .deck .slide--bastille .bastille-campaign-grid,
+  .slide--bastille .bastille-campaign-grid,
+  .slide--bastille .bastille-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+  }
+  .slide--bastille .bastille-campaign-left,
+  .slide--bastille .bastille-campaign-right { width: 100% !important; }
+  .slide--bastille .bastille-mechanics .bm-row { font-size: 12px !important; padding: 8px 0 !important; }
+  .slide--bastille .bastille-campaign-headline { font-size: 26px !important; margin-top: 0 !important; }
+
+  /* LEVER (closing) - ensure column flow */
+  .deck .lever-grid--v6, .lever-grid--v6 { gap: 14px !important; }
+  .lever-v6 .lever-bottom { font-size: 12px !important; }
+
+  /* EMAIL: ensure paragraphs don't clip */
+  .slide--email-pair .email-card-v78 .email-body p { word-break: break-word !important; }
+}
