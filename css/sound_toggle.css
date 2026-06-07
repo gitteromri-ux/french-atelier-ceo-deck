@@ -1,66 +1,47 @@
-/* ===================================================
-   Sound Toggle Button — French Atelier Deck
-   =================================================== */
+.video-wrap, .phone-frame, .browser-body--video { position: relative; }
 
-/* Anchor button inside each video wrapper */
-.video-wrap {
-  position: relative;
-}
-
-/* Button base */
 .sound-toggle {
   position: absolute;
   bottom: 12px;
   right: 12px;
-  z-index: 50;
-
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-
-  background-color: #C9A961;     /* gold */
-  color: #0A1128;                 /* navy icon */
-  border: 2px solid rgba(245, 239, 230, 0.4);
-
-  box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.45),
-    0 1px 3px rgba(0, 0, 0, 0.30);
-
+  background: #C9A961;
+  border: 2px solid #F5EFE6;
+  color: #0A1128;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  z-index: 50;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.45), 0 0 0 1px rgba(10,17,40,0.2);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
   padding: 0;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-  outline: none;
 }
-
 .sound-toggle:hover {
-  transform: scale(1.08);
-  box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.55),
-    0 2px 4px rgba(0, 0, 0, 0.35);
+  transform: scale(1.12);
+  box-shadow: 0 6px 20px rgba(201,169,97,0.5), 0 0 0 1px rgba(10,17,40,0.3);
 }
-
-.sound-toggle:focus-visible {
-  outline: 2px solid rgba(201, 169, 97, 0.8);
-  outline-offset: 2px;
+.sound-toggle svg { width: 20px; height: 20px; display: block; }
+.sound-toggle::after {
+  content: "TAP FOR SOUND";
+  position: absolute;
+  bottom: 52px;
+  right: 0;
+  background: rgba(10,17,40,0.92);
+  color: #F5EFE6;
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  padding: 5px 9px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
-
-/* Icon visibility logic */
-.sound-toggle .icon-on {
-  display: none;
-}
-
-.sound-toggle .icon-mute {
-  display: inline;
-}
-
-/* When active (unmuted) */
-.sound-toggle.is-on .icon-mute {
-  display: none;
-}
-
-.sound-toggle.is-on .icon-on {
-  display: inline;
-}
+.sound-toggle:hover::after { opacity: 1; transform: translateY(0); }
+.sound-toggle.is-on { background: #F5EFE6; }
+.sound-toggle.is-on::after { content: "SOUND ON · CLICK TO MUTE"; }

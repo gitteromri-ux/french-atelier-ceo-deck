@@ -49,40 +49,77 @@
 }
 
 /* ──────────────────────────────────────────────────────────────
-   SOUND TOGGLE BUTTON
+   SOUND TOGGLE BUTTON — 44px, gold, always visible
    ────────────────────────────────────────────────────────────── */
+.video-wrap, .phone-frame, .browser-body--video { position: relative; }
+
 .sound-toggle {
   position: absolute;
-  bottom: 8px;
-  right: 8px;
-  width: 32px;
-  height: 32px;
+  bottom: 12px;
+  right: 12px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: rgba(201, 169, 97, 0.92);
-  border: none;
-  cursor: pointer;
+  background: #C9A961;
+  border: 2px solid #F5EFE6;
+  color: #0A1128;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0A1128;
+  cursor: pointer;
   z-index: 50;
-  transition: background 0.15s, transform 0.12s;
-  box-shadow: 0 2px 8px rgba(0,0,0,.35);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.45), 0 0 0 1px rgba(10,17,40,0.2);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
   padding: 0;
   flex-shrink: 0;
 }
 .sound-toggle:hover {
-  background: #C9A961;
-  transform: scale(1.1);
-}
-.sound-toggle--on {
-  background: #C9A961;
+  transform: scale(1.12);
+  box-shadow: 0 6px 20px rgba(201,169,97,0.5), 0 0 0 1px rgba(10,17,40,0.3);
 }
 .sound-toggle svg {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   display: block;
   pointer-events: none;
+}
+.sound-toggle::after {
+  content: "TAP FOR SOUND";
+  position: absolute;
+  bottom: 52px;
+  right: 0;
+  background: rgba(10,17,40,0.92);
+  color: #F5EFE6;
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  padding: 5px 9px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.sound-toggle:hover::after { opacity: 1; transform: translateY(0); }
+.sound-toggle.is-on { background: #F5EFE6; }
+.sound-toggle.is-on::after { content: "SOUND ON \00B7 CLICK TO MUTE"; }
+/* legacy class alias */
+.sound-toggle--on { background: #F5EFE6; }
+
+/* Browser-body-video toggle: pin to top-right so it's always in the visible area
+   (the 16/9 browser body extends below viewport on 1440×900) */
+.browser-body--video .sound-toggle {
+  top: 12px;
+  bottom: auto;
+}
+.browser-body--video .sound-toggle::after {
+  bottom: auto;
+  top: 52px;
+  transform: translateY(-4px);
+}
+.browser-body--video .sound-toggle:hover::after {
+  transform: translateY(0);
 }
 
 /* Ensure phone-frame is position:relative for absolute sound toggle */
@@ -726,3 +763,119 @@
 .paid-row {
   margin-top: 20px;
 }
+
+/* ──────────────────────────────────────────────────────────────
+   PAID DUO — Philippe + Charline side by side
+   ────────────────────────────────────────────────────────────── */
+.slide--paid-duo .slide__inner { display: flex; flex-direction: column; padding: 80px 100px; }
+.paid-duo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 40px; align-items: start; justify-items: center; }
+.paid-duo-card { display: flex; flex-direction: column; align-items: center; max-width: 380px; }
+.paid-phone.paid-phone--xl { width: 320px; }
+.paid-phone--xl .phone-frame { aspect-ratio: 9/16; border-radius: 32px; }
+.paid-duo-meta { margin-top: 28px; text-align: center; }
+.paid-duo-name { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: #0A1128; margin-bottom: 8px; }
+.paid-duo-desc { font-family: 'Inter', sans-serif; font-size: 14px; color: #0A1128; opacity: 0.75; line-height: 1.5; max-width: 320px; margin-bottom: 12px; }
+.paid-duo-tag { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #C9A961; padding: 6px 14px; border: 1px solid rgba(201,169,97,0.4); border-radius: 100px; display: inline-block; }
+
+/* ──────────────────────────────────────────────────────────────
+   FORMAT-LARGE — One big phone per slide, organic chapter
+   ────────────────────────────────────────────────────────────── */
+.slide--format-large .slide__inner { padding: 80px 100px; }
+.format-large-grid { display: grid; grid-template-columns: 360px 1fr; gap: 80px; margin-top: 32px; align-items: center; }
+.format-large-phone { display: flex; justify-content: center; }
+.phone-frame.phone-frame--xl { width: 340px; aspect-ratio: 9/16; border-radius: 36px; border: 8px solid #0A1128; position: relative; overflow: hidden; background: #000; }
+.phone-frame--xl video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.phone-frame--xl .sound-toggle { position: absolute; bottom: 12px; right: 12px; width: 44px; height: 44px; border-radius: 50%; background: #C9A961; border: 2px solid #F5EFE6; color: #0A1128; z-index: 50; box-shadow: 0 4px 16px rgba(0,0,0,0.45); }
+.phone-frame--xl .sound-toggle:hover { background: #C9A961; transform: scale(1.12); }
+.phone-frame--xl .sound-toggle.is-on { background: #F5EFE6; }
+.format-large-meta { display: flex; flex-direction: column; gap: 18px; }
+.format-large-meta .title--lg { font-size: 56px; line-height: 1.05; }
+.format-large-meta .lead { font-size: 18px; line-height: 1.5; color: #0A1128; opacity: 0.8; max-width: 520px; }
+.format-large-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 8px; max-width: 480px; }
+.fls { }
+.fls-n { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #0A1128; font-weight: 600; }
+.fls-l { font-size: 11px; letter-spacing: 0.08em; color: #0A1128; opacity: 0.5; text-transform: uppercase; margin-top: 2px; }
+.format-large-vocab { margin-top: 16px; padding: 20px; background: rgba(10,17,40,0.04); border-left: 3px solid #C9A961; max-width: 520px; }
+.flv { display: flex; gap: 12px; align-items: baseline; margin-bottom: 6px; }
+.flv-tag { font-size: 10px; letter-spacing: 0.1em; color: #C9A961; font-weight: 600; min-width: 56px; }
+.flv-fr { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #0A1128; font-style: italic; }
+.flv-tr { font-size: 14px; color: #0A1128; opacity: 0.7; margin-top: 8px; padding-top: 8px; border-top: 1px dashed rgba(10,17,40,0.15); }
+
+/* ── Bastille Campaign Promo ─────────────────────────────────────────── */
+.slide--bastille-campaign { background: #0A1128 !important; }
+.bastille-inner { padding: 60px 80px; height: 100%; display: flex; flex-direction: column; }
+.bastille-eyebrow { margin-bottom: 0; }
+.bastille-campaign-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; padding-top: 32px; flex: 1; }
+.bastille-campaign-headline { font-family: 'Cormorant Garamond', serif; font-size: 72px; line-height: 1.05; color: #F5EFE6; margin: 0; }
+.bastille-rule { width: 56px; height: 2px; background: #C9A961; margin: 24px 0; }
+.bastille-campaign-lead { font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.6; color: #F5EFE6; opacity: 0.82; max-width: 560px; margin-top: 0; margin-bottom: 0; }
+.bastille-mechanics { margin-top: 36px; display: grid; gap: 16px; max-width: 560px; }
+.bm-row { display: grid; grid-template-columns: 120px 1fr; gap: 20px; padding-bottom: 14px; border-bottom: 1px solid rgba(201,169,97,0.18); }
+.bm-row:last-child { border-bottom: none; }
+.bm-label { font-size: 11px; letter-spacing: 0.1em; color: #C9A961; font-weight: 600; }
+.bm-value { font-size: 14px; color: #F5EFE6; opacity: 0.92; line-height: 1.5; }
+.bastille-campaign-card { background: #F5EFE6; border-radius: 12px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.4); }
+.bcc-tag { padding: 12px 20px; font-size: 10px; letter-spacing: 0.1em; color: #C9A961; border-bottom: 1px solid rgba(10,17,40,0.1); }
+.bcc-image { aspect-ratio: 1 / 1; background: linear-gradient(135deg, #0A1128 0%, #1a2754 50%, #C9A961 200%); position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #F5EFE6; text-align: center; padding: 40px; }
+.bcc-image-headline { font-family: 'Cormorant Garamond', serif; font-size: 38px; line-height: 1.1; }
+.bcc-image-sub { margin-top: 16px; font-size: 14px; letter-spacing: 0.05em; color: #C9A961; }
+.bcc-image-arrow { position: absolute; bottom: 24px; right: 24px; font-size: 32px; color: #C9A961; }
+.bcc-meta { padding: 20px 24px; }
+.bcc-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #0A1128; margin: 0 0 10px; line-height: 1.3; }
+.bcc-body { font-family: 'Inter', sans-serif; font-size: 13px; color: #0A1128; opacity: 0.78; line-height: 1.5; margin: 0; }
+.bcc-engagement { margin-top: 14px; display: flex; gap: 16px; font-size: 12px; color: #0A1128; opacity: 0.7; align-items: center; }
+.bcc-reach { margin-left: auto; font-size: 10px; letter-spacing: 0.08em; color: #C9A961; opacity: 1; }
+
+/* ── Beauty IG References Slide ─────────────────────────────── */
+.slide--beauty-ig .slide__inner { padding: 48px 80px 56px; }
+.slide--beauty-ig .sub-lead {
+  font-size: 14px; color: #0A1128; opacity: 0.65;
+  max-width: 680px; margin: 12px 0 0; line-height: 1.55;
+}
+.beauty-ig-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 28px;
+}
+/* Row 2: 3 cards centered via auto margins on the row */
+.beauty-ig-grid .beauty-ig-card:nth-child(5) { grid-column: 1; }
+.beauty-ig-grid .beauty-ig-card:nth-child(6) { grid-column: 2; }
+.beauty-ig-grid .beauty-ig-card:nth-child(7) { grid-column: 3; }
+
+.beauty-ig-card {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.ig-phone { width: 160px; }
+.ig-phone .phone-frame {
+  aspect-ratio: 9/16;
+  border-radius: 20px;
+  border: 5px solid #0A1128;
+  position: relative;
+  overflow: hidden;
+  background: #0A1128;
+}
+.ig-phone .phone-frame video {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.phone-frame--empty {
+  display: flex; align-items: center; justify-content: center;
+  background: #e8e4db;
+}
+.phone-unavailable {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; color: #0A1128; opacity: 0.2;
+}
+.beauty-ig-meta {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+}
+.big-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; color: #C9A961; line-height: 1;
+}
+.big-label {
+  font-size: 9px; letter-spacing: 0.12em;
+  color: #0A1128; opacity: 0.55; margin-top: 2px;
+}
+.beauty-ig-card--unavailable .big-num { opacity: 0.3; }
+.beauty-ig-card--unavailable .big-label { opacity: 0.3; }

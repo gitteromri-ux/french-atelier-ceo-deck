@@ -2,14 +2,15 @@
    Sound Toggle Module — French Atelier Deck
    =================================================== */
 
-window.toggleVideoSound = function(btn) {
-  const wrap = btn.closest('.video-wrap');
+function toggleVideoSound(btn) {
+  const wrap = btn.closest('.phone-frame') || btn.closest('.browser-body--video') || btn.closest('.video-wrap') || btn.parentElement;
   const vid = wrap.querySelector('video');
   if (!vid) return;
   vid.muted = !vid.muted;
   btn.classList.toggle('is-on', !vid.muted);
-  if (!vid.muted) { vid.play().catch(()=>{}); }
-};
+  vid.play().catch(()=>{});
+}
+window.toggleVideoSound = toggleVideoSound;
 
 // On load, ensure all videos are muted + autoplay + loop + playsinline
 document.addEventListener('DOMContentLoaded', () => {
