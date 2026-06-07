@@ -4539,3 +4539,85 @@
     grid-template-columns: 1fr !important;
   }
 }
+
+/* ============================================================
+   v7.23 — Platform mini grids (Reddit/Quora/Pinterest/Medium/Stack/Telegram)
+   The mini 3x3/2xN grids were still showing tiny cards with smeared text.
+   Force readable mini cards on mobile.
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Mini grids: 3x3 of small posts → 2 columns on mobile, decent size */
+  .platform-grid-3x3,
+  .platform-grid,
+  [class*="platform-grid"] {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .platform-mini,
+  .mock-reddit.platform-mini,
+  .mock-quora.platform-mini,
+  .mock-pinterest.platform-mini,
+  .mock-medium.platform-mini,
+  .mock-stack.platform-mini,
+  .mock-telegram.platform-mini {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 8px !important;
+    font-size: 10px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    grid-template-columns: none !important;
+  }
+  .platform-mini *,
+  [class*="platform-mini"] * {
+    font-size: inherit !important;
+    line-height: 1.3 !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+    white-space: normal !important;
+    min-width: 0 !important;
+  }
+  .platform-mini .mock-reddit__title,
+  .platform-mini .mock-quora__title,
+  .platform-mini .mock-pinterest__pin-title,
+  .platform-mini .mock-medium__title,
+  .platform-mini .mock-stack__title,
+  .platform-mini .mock-telegram__title,
+  .platform-mini [class*="__title"] {
+    font-size: 11px !important;
+    line-height: 1.25 !important;
+    font-weight: 700 !important;
+    -webkit-line-clamp: unset !important;
+  }
+  .platform-mini .mock-pinterest__letter,
+  .platform-mini [class*="__letter"] {
+    font-size: 28px !important;
+  }
+  .platform-mini .mock-pinterest__pin,
+  .platform-mini [class*="__pin"],
+  .platform-mini [class*="__visual"] {
+    width: 100% !important;
+    aspect-ratio: 1/1 !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  .platform-mini .mock-pinterest__overlay,
+  .platform-mini [class*="__overlay"] {
+    padding: 6px !important;
+  }
+  .platform-mini .mock-pinterest__topic,
+  .platform-mini [class*="__topic"],
+  .platform-mini [class*="__meta"] {
+    font-size: 9px !important;
+  }
+  /* Hide images that won't render at this size if any */
+  .platform-mini img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
