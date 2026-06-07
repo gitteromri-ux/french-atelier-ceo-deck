@@ -4013,3 +4013,127 @@
     box-sizing: border-box !important;
   }
 }
+
+/* v7.18 — video fills the device screen on mobile, frame ditches its decorative chrome */
+@media (max-width: 900px) {
+  /* PAID DUO — single phone per slide-section, video fills viewport-width */
+  .slide--paid-duo .paid-duo-grid { gap: 32px !important; }
+  .slide--paid-duo .paid-phone,
+  .slide--paid-duo .paid-phone--xl,
+  .slide--paid-duo .phone-frame {
+    width: 100% !important;
+    max-width: 320px !important;
+    height: auto !important;
+    aspect-ratio: 9 / 16 !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background: #000 !important;
+    border: none !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+  }
+  .slide--paid-duo .phone-frame video,
+  .slide--paid-duo .paid-phone video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+  .slide--paid-duo .phone-notch { display: none !important; }
+
+  /* PHONE TRIO (formal vs spoken / homonyms) — fill the cell */
+  .phone-trio-grid .phone-frame,
+  .phones-3 .phone-frame,
+  .slide--format-multi .format-multi-grid--3 .phone-frame,
+  .slide--format-multi .format-multi-grid--3 .phone-frame--lg {
+    width: 100% !important;
+    max-width: 110px !important;
+    height: auto !important;
+    aspect-ratio: 9 / 16 !important;
+    background: #000 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+  }
+  .phone-trio-grid .phone-frame video,
+  .phones-3 .phone-frame video,
+  .slide--format-multi .format-multi-grid--3 video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  .phone-trio-grid .phone-notch,
+  .phones-3 .phone-notch,
+  .slide--format-multi .format-multi-grid--3 .phone-notch { display: none !important; }
+
+  /* BEAUTY IG — phones fill their grid cell */
+  .slide--beauty-ig .phone-frame,
+  .slide--beauty-ig .phone-frame--ig,
+  .slide--beauty-ig .ig-phone {
+    width: 100% !important;
+    max-width: 150px !important;
+    height: auto !important;
+    aspect-ratio: 9 / 16 !important;
+    background: #000 !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+  }
+  .slide--beauty-ig video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  .slide--beauty-ig .phone-notch { display: none !important; }
+
+  /* FORMAT MULTI 5-card — full-width cards */
+  .slide--format-multi .format-multi-grid--5 .phone-frame,
+  .slide--format-multi .format-multi-grid--5 .phone-frame--lg {
+    width: 100% !important;
+    max-width: 320px !important;
+    height: auto !important;
+    aspect-ratio: 9 / 16 !important;
+    background: #000 !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+  }
+  .slide--format-multi .format-multi-grid--5 video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  .slide--format-multi .format-multi-grid--5 .phone-notch { display: none !important; }
+
+  /* TABLET formats (french tourism / history) — fill width */
+  .slide--format-large .tablet-frame,
+  .slide--format-large .format-large-tablet,
+  .slide--format-large .format-large-frame {
+    width: 100% !important;
+    max-width: 340px !important;
+    aspect-ratio: 4 / 3 !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    background: #000 !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+  }
+  .slide--format-large video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* SOUND TOGGLE button stays inside frame */
+  .phone-frame .sound-toggle,
+  .paid-phone .sound-toggle,
+  .ig-phone .sound-toggle {
+    position: absolute !important;
+    bottom: 12px !important;
+    right: 12px !important;
+    z-index: 5 !important;
+  }
+  .phone-frame, .paid-phone, .ig-phone { position: relative !important; }
+}
