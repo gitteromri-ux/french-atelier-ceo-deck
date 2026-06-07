@@ -879,3 +879,7 @@
 }
 .beauty-ig-card--unavailable .big-num { opacity: 0.3; }
 .beauty-ig-card--unavailable .big-label { opacity: 0.3; }
+
+/* v7.3 fixes */
+.paid-duo-card video, .ig-phone video { width:100% !important; height:100% !important; object-fit:cover !important; }
+.phone-frame video, .phone-frame--xl video { object-fit:cover !important; }
