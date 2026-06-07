@@ -437,18 +437,67 @@ slides.append('''<section class="slide slide--cream"><div class="slide__inner">
   <p class="lead lead--dark">Email is the cheapest ROI lever we have. We're launching 4 flows targeting the four highest-leverage moments: first touch, free-assessment follow-up, 60-day dormants, and the Bastille campaign.</p>
 </div></section>''')
 
-# Email mockups (1 per slide, mac mail style)
-emails = [
-  ("Welcome — Day 0","French Atelier <bonjour@frenchatelier.com>","Welcome to French Atelier — your French starts here","Bienvenue,\n\nYou just took a step most adults never take: you decided to actually speak French. Not study it. Speak it. Live, with a native teacher, in real conversations.\n\nHere's what happens next:\n\n• Tomorrow you'll receive a 4-minute CEFR placement test\n• 24 hours later, a free 20-minute call with a French Atelier advisor\n• You'll meet your teacher · live from France · and choose your cohort\n\nNo apps. No grammar drills. Real French, broadcast from France.\n\nÀ très vite,\nThe French Atelier team","Welcome (Day 0–7)"),
-  ("Trial Nurture — Day 10","Charline <charline@frenchatelier.com>","Why our students learn faster in Bordeaux than in Paris","Hi —\n\nA student asked me this week: \"Why does French feel so different when you're actually in France?\"\n\nIt's because language and place are the same thing. Our teachers in Bordeaux teach French the way Bordeaux speaks it — slower, rounder vowels, the sing-song of the southwest. Our Paris teachers speak the elision-heavy, fast-clipped Paris dialect.\n\nThat's why our Six Pillars curriculum is structured around regions, not chapters. You don't learn 'French' — you learn the France that matches your goal.\n\nReady to pick your region?\n\n— Charline, Paris","Trial nurture (Day 8–21)"),
-  ("Reactivation — Day 60","French Atelier <bonjour@frenchatelier.com>","Your French is still here. We saved your seat.","Hi —\n\nIt's been 60 days. Life happens. We get it.\n\nHere's what we want you to know: the French you started building is still in you. The neural pathways are warm for another 30–45 days. After that, they cool — and starting over feels twice as hard as starting fresh.\n\nWe'd like to invite you back with a $100 credit toward your next 4-week cohort. No questions, no upsell call. Just a reminder that your French is closer than you think.\n\nClaim your $100 →\n\n— French Atelier","Reactivation (60-day dormant)"),
-  ("Bastille Day — Win a Trip","French Atelier <bonjour@frenchatelier.com>","Win a long weekend in Paris · drawn live July 14","Hi —\n\nFor Bastille Day, we're sending one student to Paris.\n\nFlights · 3 nights · a private French lesson on-site with one of our Paris teachers · a long weekend in the city that makes our work make sense.\n\nTo enter:\n\n1. Follow @frenchatelier on Instagram\n2. Tag 2 friends in our Bastille post\n3. Share the post to your story\n\nWe draw live on July 14 at 8pm Paris time.\n\nBonne chance —\nFrench Atelier","Bastille campaign (4 emails)"),
+# ===== 30 EMAILS — full sequence map + inbox mockups =====
+from emails_30 import EMAILS_30
+
+# Overview slide — full 30-email sequence table
+overview_rows = "".join([
+  f'<tr><td class="em-num">#{e["num"]}</td><td class="em-day">Day {e["day"]}</td><td><span class="em-cat em-cat--{e["category"].lower().replace(" ","-")}">{e["category"]}</span></td><td class="em-subj">{e["subject"]}</td>{"<td class=\"em-real\">\u2713 sent</td>" if e.get("real") else "<td class=\"em-draft\">draft</td>"}</tr>'
+  for e in EMAILS_30
+])
+slides.append(f'''<section class="slide slide--cream"><div class="slide__inner">
+  <div class="eyebrow eyebrow--gold">SECTION 06 · FULL 30-EMAIL SEQUENCE MAP</div>
+  <h2 class="title">All 30 emails · 90-day flow</h2><div class="rule"></div>
+  <table class="em-table">
+    <thead><tr><th>#</th><th>Day</th><th>Pillar</th><th>Subject line</th><th>Status</th></tr></thead>
+    <tbody>{overview_rows}</tbody>
+  </table>
+</div></section>''')
+
+# Inbox-style preview — 5 emails per slide
+def inbox_row(e):
+  real_badge = '<span class="em-badge em-badge--sent">SENT</span>' if e.get("real") else '<span class="em-badge em-badge--draft">DRAFT</span>'
+  return f'''<div class="inbox-row">
+    <div class="inbox-avatar"><span>FA</span></div>
+    <div class="inbox-body">
+      <div class="inbox-line1"><span class="inbox-from">French Atelier</span><span class="inbox-meta">Day {e["day"]} · {e["category"]}</span></div>
+      <div class="inbox-subj">#{e["num"]:02d} — {e["subject"]}</div>
+      <div class="inbox-preview">{e["preview"]}</div>
+    </div>
+    <div class="inbox-side">{real_badge}</div>
+  </div>'''
+
+for i in range(0, len(EMAILS_30), 5):
+  chunk = EMAILS_30[i:i+5]
+  rows = "".join([inbox_row(e) for e in chunk])
+  slides.append(f'''<section class="slide slide--cream"><div class="slide__inner">
+    <div class="eyebrow eyebrow--gold">SECTION 06 · INBOX VIEW · EMAILS {i+1}–{i+len(chunk)} OF 30</div>
+    <h2 class="title title--md">Gmail inbox — as the subscriber sees it</h2><div class="rule"></div>
+    <div class="inbox-frame">
+      <div class="inbox-chrome"><span class="inbox-logo">M</span><span class="inbox-app-name">Inbox — you@gmail.com</span></div>
+      <div class="inbox-list">{rows}</div>
+    </div>
+  </div></section>''')
+
+# Full email mockups for the 5 REAL emails we have full copy on (8–12)
+real_emails_full = [
+  ("Email 8 · Day 25 · SOUL", "Vincent <vincent@frenchatelier.com>", "The French don't say \"I miss you\"",
+   "The French don't say \"I miss you.\"\n\nThey say <em>tu me manques</em> — <em>you are missing from me.</em>\n\nRead that again. The English version puts you in charge of the feeling. The French version says the feeling arrives on its own, and the other person is the cause of it. One is an action. The other is a quiet admission.\n\nThat single grammatical flip changes how love is spoken.\n\nThere are more.\n\n<em>Avoir le cafard</em> — to have the cockroach. It means to be quietly down, the kind of mood that crawls into a corner of your day and stays there.\n\n<em>Dépaysement</em> — the feeling of being pleasantly unmoored. There is no English word for it because English-speaking life rarely names the in-between.\n\nThis is what we teach at French Atelier. Not vocabulary lists. The shape of a worldview.\n\nYou stop translating. You start thinking in French.\n\nÀ bientôt,\nThe French Atelier"),
+  ("Email 9 · Day 28 · TASTE", "Vincent <vincent@frenchatelier.com>", "How to order a coffee in Paris (without embarrassing yourself)",
+   "There's a way Parisians order coffee that has nothing to do with the menu — and everything to do with rhythm.\n\n\"Un café, s'il vous plaît\" — gets you the same espresso a tourist gets.\n\n\"Je prendrais un café\" — sounds slightly off.\n\n\"Un petit café — merci\" — lands you in the Paris of locals.\n\nThe trick isn't vocabulary. It's the diminutive — <em>un petit</em> — the French way of making any request smaller, softer, less imposing. It signals you understand the room.\n\nThree more phrases inside that mark you as someone who lives here — not someone passing through.\n\nÀ bientôt,\nThe French Atelier"),
+  ("Email 10 · Day 32 · STYLE", "Vincent <vincent@frenchatelier.com>", "What French cinema taught us about silence",
+   "A single scene from a 1960s film changed how generations of French people understand love.\n\n<em>Pierrot le Fou</em>, 1965. Belmondo and Karina are in a car, in silence, for almost a full minute. They say nothing. The French audience hears everything.\n\nWe translated the scene. The English barely survives — because English fills silence with words, and French lets silence say what words can't.\n\nThis is what we teach. Not just the language. The cultural permission to leave things unsaid.\n\nWatch the scene inside.\n\nÀ bientôt,\nThe French Atelier"),
+  ("Email 11 · Day 35 · SOUL", "Vincent <vincent@frenchatelier.com>", "On June 21st, all of France sings",
+   "<em>La Fête de la Musique</em> — the one night a year when every street, every doorway, every café in France becomes a stage.\n\nIt's not a festival. It's a national agreement to play music for free, anywhere, all night.\n\nHere is the thing French Atelier teaches that nobody tells you about France: the language was built for nights like this. <em>Faire la fête</em>. <em>Tomber sur quelqu'un</em>. <em>L'ambiance</em>. There are words for every texture of a shared evening.\n\nThree of them inside — with the French you'll need to be part of the night, not a tourist watching it.\n\nÀ bientôt,\nThe French Atelier"),
+  ("Email 12 · Day 39 · ART", "Vincent <vincent@frenchatelier.com>", "You already speak more French than you think",
+   "Rendezvous. Café. Résumé. Boutique. Cliché. Déjà vu. Genre. Critique. Souvenir. Bouquet. Brunette. Avant-garde. Boutique. Couture. Bourgeois. Entrepreneur. Fiancé. Naive. Premier. Risqué.\n\nTwenty English words you use weekly that are pure French.\n\nWhat this means is simple: your ear is already tuned to French rhythm. Your tongue knows the soft vowels. The work isn't starting from zero. The work is recognising what's already there — and giving it the structure to grow.\n\nThat's what live classes do. That's why we teach French this way.\n\nÀ bientôt,\nThe French Atelier"),
 ]
-for subj_short, sender, subject, body, flow in emails:
+
+for short_title, sender, subject, body in real_emails_full:
   body_html = body.replace("\n","<br>")
   slides.append(f'''<section class="slide slide--cream"><div class="slide__inner">
-    <div class="eyebrow eyebrow--gold">SECTION 06 · EMAIL · {flow.upper()}</div>
-    <h2 class="title title--md">{subj_short}</h2><div class="rule"></div>
+    <div class="eyebrow eyebrow--gold">SECTION 06 · {short_title.upper()} · LIVE SENT</div>
+    <h2 class="title title--md">{subject}</h2><div class="rule"></div>
     <div class="email-mock">
       <div class="email-chrome"><div class="email-dots"><span></span><span></span><span></span></div><div class="email-app">Mail</div></div>
       <div class="email-head">
@@ -457,7 +506,7 @@ for subj_short, sender, subject, body, flow in emails:
       </div>
       <div class="email-subject">{subject}</div>
       <div class="email-body">{body_html}</div>
-      <div class="email-cta-row"><a class="email-cta" href="#">View in browser</a><a class="email-cta email-cta--ghost" href="#">Unsubscribe</a></div>
+      <div class="email-cta-row"><a class="email-cta" href="#">Read on web</a><a class="email-cta email-cta--ghost" href="#">Unsubscribe</a></div>
     </div>
   </div></section>''')
 
