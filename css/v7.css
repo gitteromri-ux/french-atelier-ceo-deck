@@ -1887,3 +1887,38 @@
 /* Tighten ML2 email slides too — already capped but enforce */
 .slide--ml2 .ml2-body{ max-height: calc(100vh - 240px) !important; }
 
+
+/* ══════════════════════════════════════════════════════════════════
+   v7.6 — tighten 6-phone grids and 7-phone beauty row
+   ══════════════════════════════════════════════════════════════════ */
+.slide--format-multi .phone-frame--lg{
+  width: 170px !important;
+  max-height: 302px !important;
+}
+.slide--format-multi .format-multi-grid,
+.slide--format-multi .multi-phone-grid{
+  grid-template-columns: repeat(3, 170px) !important;
+  gap: 10px 22px !important;
+  max-height: calc(100vh - 200px) !important;
+}
+.slide--format-multi .phone-caption{ font-size: 10px !important; }
+.slide--format-multi .slide__inner{ padding-top: 20px !important; }
+
+/* Beauty IG — 7 cards in single 4-col row works only if smaller.
+   Force 4+3 layout that fits, with explicit max-height per card */
+.slide--beauty-ig .beauty-ig-grid{
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 8px 14px !important;
+}
+.slide--beauty-ig .ig-phone,
+.slide--beauty-ig .ig-phone .phone-frame{
+  width: 145px !important;
+  max-height: 258px !important;
+}
+.slide--beauty-ig .beauty-ig-meta{ margin-top: 4px !important; }
+.slide--beauty-ig .big-num{ font-size: 11px !important; }
+.slide--beauty-ig .big-label{ font-size: 8px !important; }
+.slide--beauty-ig .slide__inner{ padding-top: 16px !important; }
+.slide--beauty-ig h2, .slide--beauty-ig .slide-title{ font-size: 1.4rem !important; margin-bottom: 6px !important; }
+.slide--beauty-ig p, .slide--beauty-ig .lede{ font-size: 12px !important; margin-bottom: 10px !important; }
+
