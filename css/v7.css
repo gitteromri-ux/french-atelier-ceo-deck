@@ -4451,3 +4451,91 @@
     padding: 24px 16px !important;
   }
 }
+
+/* ============================================================
+   v7.22 — FORCE single-column on real grid containers (mobile)
+   Previous v7.21 used flex overrides but grids stayed grid.
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Format-multi (slides 5, 6, 7, 8, 12) — kill the multi-column grid */
+  .deck .slide--format-multi .format-multi-grid,
+  .deck .slide--format-multi .format-multi-grid--3,
+  .deck .slide--format-multi .format-multi-grid--5,
+  .slide--format-multi .format-multi-grid,
+  .slide--format-multi .format-multi-grid--3,
+  .slide--format-multi .format-multi-grid--5 {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: none !important;
+    grid-auto-columns: auto !important;
+    grid-auto-flow: row !important;
+    gap: 20px !important;
+    width: 100% !important;
+    align-items: center !important;
+    justify-items: center !important;
+  }
+  .slide--format-multi .format-multi-card {
+    width: 100% !important;
+    max-width: 320px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .slide--format-multi .format-multi-card .phone-frame,
+  .slide--format-multi .format-multi-card .phone-frame--lg {
+    width: 80vw !important;
+    max-width: 300px !important;
+    aspect-ratio: 9/16 !important;
+    height: auto !important;
+  }
+
+  /* Beauty IG grid — single column */
+  .deck .slide--beauty-ig .beauty-ig-grid,
+  .deck .slide--beauty-ig .beauty-ig-card,
+  .slide--beauty-ig .beauty-ig-grid,
+  .slide--beauty-ig .beauty-ig-card {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: none !important;
+    gap: 20px !important;
+    width: 100% !important;
+    align-items: center !important;
+    justify-items: center !important;
+  }
+  .slide--beauty-ig .ig-phone {
+    width: 80vw !important;
+    max-width: 300px !important;
+    aspect-ratio: 9/16 !important;
+    height: auto !important;
+    display: block !important;
+    position: relative !important;
+  }
+  .slide--beauty-ig .ig-phone .phone-frame,
+  .slide--beauty-ig .ig-phone .phone-frame--ig {
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: 9/16 !important;
+  }
+
+  /* Paid duo (slide 3) — column stack */
+  .deck .slide--paid-duo .paid-duo-card,
+  .deck .slide--paid-duo .paid-duo-grid,
+  .slide--paid-duo .paid-duo-card,
+  .slide--paid-duo .paid-duo-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    align-items: center !important;
+  }
+
+  /* General safety: any 2/3-column grid inside a slide becomes 1 col */
+  .slide [class*="-grid--2"],
+  .slide [class*="-grid--3"],
+  .slide [class*="-grid--4"],
+  .slide [class*="-grid--5"] {
+    grid-template-columns: 1fr !important;
+  }
+}
