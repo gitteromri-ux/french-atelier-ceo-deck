@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Platform UI Components — French Atelier</title>
+<link rel="stylesheet" href="css/platforms.css">
+<style>
+  body {
+    background: #111;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 48px;
+    padding: 48px 32px;
+    font-family: -apple-system, "Segoe UI", Inter, sans-serif;
+  }
+  .platform-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  .platform-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     INSTAGRAM REELS
+════════════════════════════════════════════════ -->
+<div class="platform-col">
+  <div class="platform-label">Instagram Reels</div>
+  <div class="phone phone--reels">
+    <video src="videos/demo.mp4" autoplay muted loop playsinline></video>
+
+    <!-- Dynamic Island -->
+    <div class="dynamic-island"></div>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <span class="time">9:41</span>
+      <div class="icons">
+        <!-- Signal -->
+        <svg width="17" height="12" viewBox="0 0 17 12" fill="none">
+          <rect x="0" y="7" width="3" height="5" rx="0.5" fill="white"/>
+          <rect x="4.5" y="5" width="3" height="7" rx="0.5" fill="white"/>
+          <rect x="9" y="2.5" width="3" height="9.5" rx="0.5" fill="white"/>
+          <rect x="13.5" y="0" width="3" height="12" rx="0.5" fill="white"/>
+        </svg>
+        <!-- WiFi -->
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+          <path d="M8 9.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z" fill="white"/>
+          <path d="M3.5 6.5A6.5 6.5 0 0 1 8 4.8a6.5 6.5 0 0 1 4.5 1.7" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M1 4A9.5 9.5 0 0 1 8 1.5 9.5 9.5 0 0 1 15 4" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        </svg>
+        <!-- Battery -->
+        <svg width="25" height="12" viewBox="0 0 25 12" fill="none">
+          <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="white" stroke-opacity="0.35"/>
+          <rect x="2" y="2" width="16" height="8" rx="2" fill="white"/>
+          <path d="M23 4v4a2 2 0 0 0 0-4z" fill="white" fill-opacity="0.4"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Reels UI overlay -->
+    <div class="reels-ui">
+      <!-- Top header -->
+      <div class="reels-header">
+        <span class="reels-header-title">Reels</span>
+        <div class="reels-header-cam">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 7l-7 5 7 5V7z"/>
+            <rect x="1" y="5" width="15" height="14" rx="2"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="reels-right">
+        <!-- Profile bubble -->
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div class="reels-profile-bubble"><span class="initials">FA</span></div>
+          <div class="reels-follow-badge">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="white"><path d="M5 2v6M2 5h6" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <!-- Heart -->
+        <div class="reels-action">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          <span>48.2K</span>
+        </div>
+        <!-- Comment -->
+        <div class="reels-action">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          <span>1,243</span>
+        </div>
+        <!-- Share -->
+        <div class="reels-action">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+          <span>Share</span>
+        </div>
+        <!-- More -->
+        <div class="reels-action">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+            <circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/>
+          </svg>
+        </div>
+        <!-- Audio disc -->
+        <div class="reels-disc"><div class="reels-disc-inner"></div></div>
+      </div>
+
+      <!-- Bottom left -->
+      <div class="reels-bottom">
+        <div class="reels-user-row">
+          <span class="reels-username">@frenchatelier</span>
+          <span class="reels-follow-pill">Follow</span>
+        </div>
+        <div class="reels-caption">
+          French homonyms that trip up even advanced learners 🇫🇷
+          <span class="more"> … more</span>
+        </div>
+        <div class="reels-audio-row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+            <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+          </svg>
+          <span class="reels-audio-text">Originalton · French Atelier</span>
+        </div>
+      </div>
+    </div><!-- /reels-ui -->
+  </div><!-- /phone -->
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     TIKTOK FOR YOU
+════════════════════════════════════════════════ -->
+<div class="platform-col">
+  <div class="platform-label">TikTok For You</div>
+  <div class="phone phone--tiktok">
+    <video src="videos/demo.mp4" autoplay muted loop playsinline></video>
+
+    <!-- Dynamic Island -->
+    <div class="dynamic-island"></div>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <span class="time">9:41</span>
+      <div class="icons">
+        <svg width="17" height="12" viewBox="0 0 17 12" fill="none">
+          <rect x="0" y="7" width="3" height="5" rx="0.5" fill="white"/>
+          <rect x="4.5" y="5" width="3" height="7" rx="0.5" fill="white"/>
+          <rect x="9" y="2.5" width="3" height="9.5" rx="0.5" fill="white"/>
+          <rect x="13.5" y="0" width="3" height="12" rx="0.5" fill="white"/>
+        </svg>
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+          <path d="M8 9.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z" fill="white"/>
+          <path d="M3.5 6.5A6.5 6.5 0 0 1 8 4.8a6.5 6.5 0 0 1 4.5 1.7" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M1 4A9.5 9.5 0 0 1 8 1.5 9.5 9.5 0 0 1 15 4" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        </svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" fill="none">
+          <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="white" stroke-opacity="0.35"/>
+          <rect x="2" y="2" width="16" height="8" rx="2" fill="white"/>
+          <path d="M23 4v4a2 2 0 0 0 0-4z" fill="white" fill-opacity="0.4"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- TikTok UI overlay -->
+    <div class="tiktok-ui">
+      <!-- Top nav -->
+      <div class="tiktok-header">
+        <span class="tiktok-tab">Following</span>
+        <span class="tiktok-tab active">For You</span>
+      </div>
+      <!-- Search icon top-right -->
+      <div class="tiktok-search">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </div>
+
+      <!-- Right column -->
+      <div class="tiktok-right">
+        <!-- Profile -->
+        <div class="tiktok-profile-wrap">
+          <div class="tiktok-profile-circle"><span class="initials">FA</span></div>
+          <div class="tiktok-follow-btn">
+            <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+              <path d="M5.5 2v7M2 5.5h7" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+        <!-- Heart -->
+        <div class="tiktok-action">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          <span>24.5K</span>
+        </div>
+        <!-- Comment -->
+        <div class="tiktok-action">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+          <span>892</span>
+        </div>
+        <!-- Save/Bookmark -->
+        <div class="tiktok-action">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+          </svg>
+          <span>Save</span>
+        </div>
+        <!-- Share -->
+        <div class="tiktok-action">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+          </svg>
+          <span>Share</span>
+        </div>
+        <!-- Disc -->
+        <div class="tiktok-disc"><div class="tiktok-disc-center"></div></div>
+      </div>
+
+      <!-- Bottom left -->
+      <div class="tiktok-bottom">
+        <div class="tiktok-username">@frenchatelier</div>
+        <div class="tiktok-caption">
+          French words that sound identical but mean totally different things 😱
+          <span class="hashtag">#LearnFrench</span> <span class="hashtag">#FrenchTips</span> <span class="hashtag">#LanguageLearning</span>
+        </div>
+        <div class="tiktok-sound-row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+            <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+          </svg>
+          <span class="tiktok-sound-text">original sound · French Atelier · French Atelier</span>
+        </div>
+      </div>
+
+      <!-- Bottom Nav -->
+      <div class="tiktok-nav">
+        <div class="tiktok-nav-item active">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22" fill="white"/></svg>
+          <span class="tiktok-nav-label">Home</span>
+        </div>
+        <div class="tiktok-nav-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span class="tiktok-nav-label">Discover</span>
+        </div>
+        <!-- Create -->
+        <div class="tiktok-nav-item" style="opacity:1;">
+          <div class="tiktok-create-btn">
+            <div class="tiktok-create-bg"></div>
+            <div class="tiktok-create-bg-2"></div>
+            <div class="tiktok-create-inner">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="tiktok-nav-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span class="tiktok-nav-label">Inbox</span>
+        </div>
+        <div class="tiktok-nav-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="tiktok-nav-label">Profile</span>
+        </div>
+      </div>
+    </div><!-- /tiktok-ui -->
+  </div><!-- /phone -->
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     META / FACEBOOK FEED AD
+════════════════════════════════════════════════ -->
+<div class="platform-col">
+  <div class="platform-label">Meta · Facebook Feed</div>
+  <div class="meta-card">
+    <!-- Header -->
+    <div class="meta-header">
+      <div class="meta-avatar"><span>FA</span></div>
+      <div class="meta-header-info">
+        <div class="meta-page-name">French Atelier</div>
+        <div class="meta-sponsored">
+          Sponsored <span class="meta-sponsored-dot">·</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#65676b" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+      </div>
+      <div class="meta-more">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#65676b"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+      </div>
+    </div>
+
+    <!-- Caption -->
+    <div class="meta-caption">
+      Think you know French? These homonyms will surprise you! 🇫🇷<br>
+      Master the nuances of spoken French — <span class="hashtag">#LearnFrench</span> <span class="hashtag">#FrenchLanguage</span>
+    </div>
+
+    <!-- Video (letterboxed) -->
+    <div class="meta-video-wrap">
+      <div class="meta-video-inner">
+        <video src="videos/demo.mp4" autoplay muted loop playsinline></video>
+        <div class="meta-play-overlay">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Link card -->
+    <div class="meta-link-card">
+      <div class="meta-link-info">
+        <div class="meta-link-domain">frenchatelier.com</div>
+        <div class="meta-link-title">MASTER THE ART OF FRENCH</div>
+      </div>
+      <div class="meta-cta-btn">Learn More</div>
+    </div>
+
+    <!-- Reactions -->
+    <div class="meta-reactions">
+      <div style="display:flex;align-items:center;">
+        <div class="meta-reaction-emojis">
+          <div class="meta-reaction-emoji">👍</div>
+          <div class="meta-reaction-emoji">❤️</div>
+          <div class="meta-reaction-emoji">🥰</div>
+        </div>
+        <span class="meta-reaction-count">312</span>
+      </div>
+      <div class="meta-comments-shares">24 comments · 8 shares</div>
+    </div>
+
+    <!-- Action row -->
+    <div class="meta-actions">
+      <div class="meta-action-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#65676b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/>
+          <path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>
+        </svg>
+        Like
+      </div>
+      <div class="meta-divider"></div>
+      <div class="meta-action-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#65676b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        Comment
+      </div>
+      <div class="meta-divider"></div>
+      <div class="meta-action-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#65676b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+        </svg>
+        Share
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
