@@ -4639,3 +4639,22 @@
     margin-bottom: 24px !important;
   }
 }
+
+/* ============================================================
+   v7.25 — Stronger override: hide platform mini grids on mobile
+   The .slide--platform .platform-grid-3x3 rule has higher specificity.
+   ============================================================ */
+@media (max-width: 768px) {
+  .deck .slide--platform .platform-grid-3x3,
+  .deck .slide--platform .platform-mini-grid,
+  .deck .slide .platform-grid-3x3,
+  body .slide--platform .platform-grid-3x3,
+  body .slide .platform-grid-3x3 {
+    display: none !important;
+  }
+  .deck .slide--platform .platform-mini,
+  .deck .slide .platform-mini,
+  body .slide .platform-mini {
+    display: none !important;
+  }
+}
