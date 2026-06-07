@@ -3515,3 +3515,247 @@
   .slide--ask .title,
   .slide--ask .display { font-size: 32px !important; }
 }
+
+/* ========================================================================
+   v7.10 — DEFINITIVE MOBILE OVERRIDES — beat .deck specificity everywhere
+   ======================================================================== */
+@media (max-width: 900px) {
+  /* SLIDE SHELL — make slides scroll-friendly */
+  html, body { overflow-x: hidden !important; }
+  .deck { width: 100% !important; }
+  .deck .slide,
+  .slide {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+  .deck .slide__inner,
+  .slide__inner {
+    padding: 28px 16px 100px !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    overflow: visible !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* TYPOGRAPHY — kill every oversized title */
+  .deck .eyebrow,
+  .deck .chapter-num,
+  .eyebrow,
+  .chapter-num {
+    font-size: 10px !important;
+    letter-spacing: 1.4px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 10px !important;
+  }
+  .deck .title,
+  .deck .title.title--md,
+  .deck h2.title,
+  .deck h1, .deck h2,
+  .deck .title--md,
+  .deck .title--lg,
+  .deck .title--xl,
+  .title, h1, h2,
+  .title--md, .title--lg, .title--xl {
+    font-size: 26px !important;
+    line-height: 1.15 !important;
+    margin: 0 0 10px 0 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  .deck .title--xl, .title--xl { font-size: 30px !important; }
+  .deck .display, .deck .display--md, .deck .display--lg,
+  .display, .display--md, .display--lg {
+    font-size: 30px !important;
+    line-height: 1.15 !important;
+    margin: 0 0 10px 0 !important;
+  }
+  .deck .divider-title,
+  .divider-title {
+    font-size: 36px !important;
+    line-height: 1.05 !important;
+  }
+  .deck .divider-sub,
+  .divider-sub { font-size: 14px !important; margin-top: 10px !important; }
+  .deck .cover-h1,
+  .cover-h1 { font-size: 38px !important; line-height: 1.1 !important; }
+  .deck .ch-title, .ch-title { font-size: 28px !important; line-height: 1.12 !important; }
+  .deck .title-sub, .title-sub { font-size: 13px !important; margin-top: 6px !important; }
+  .deck .lede, .deck p.lede, .deck .lead, .deck .slide__lead,
+  .lede, p.lede, .sub-lead, p.sub-lead {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    margin: 0 0 12px 0 !important;
+  }
+  .deck .rule, .rule { margin: 8px 0 14px 0 !important; width: 56px !important; }
+
+  /* PAID DUO — stack, smaller phones */
+  .deck .slide--paid-duo .paid-duo-grid,
+  .slide--paid-duo .paid-duo-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  .deck .slide--paid-duo .phone-frame,
+  .slide--paid-duo .phone-frame,
+  .slide--paid-duo .paid-duo-card .phone-frame {
+    width: 180px !important;
+    height: 320px !important;
+    max-height: 320px !important;
+    margin: 0 auto !important;
+  }
+  .deck .slide--paid-duo .title,
+  .slide--paid-duo .title { font-size: 24px !important; margin-bottom: 6px !important; }
+  .slide--paid-duo .paid-duo-card { gap: 6px !important; }
+
+  /* PHONE TRIO (formal vs spoken / homonyms) */
+  .deck .phone-trio-grid,
+  .deck .phones-3,
+  .phone-trio-grid,
+  .phones-3 {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+  .phone-trio-grid .phone-frame,
+  .phones-3 .phone-frame {
+    width: 100% !important;
+    max-width: 110px !important;
+    height: 196px !important;
+    margin: 0 auto !important;
+  }
+
+  /* BEAUTY IG — 2 cols, 4 rows */
+  .deck .slide--beauty-ig .beauty-ig-grid,
+  .slide--beauty-ig .beauty-ig-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px 10px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: none !important;
+  }
+  .slide--beauty-ig .phone-frame--ig,
+  .slide--beauty-ig .ig-phone,
+  .slide--beauty-ig .beauty-ig-card .phone-frame {
+    width: 100% !important;
+    max-width: 150px !important;
+    height: 266px !important;
+    margin: 0 auto !important;
+  }
+  .deck .slide--beauty-ig .title,
+  .slide--beauty-ig .title { font-size: 22px !important; }
+  .slide--beauty-ig .fa-brand-badge { width: 20px !important; height: 20px !important; font-size: 6px !important; }
+
+  /* FORMAT MULTI — single column */
+  .deck .slide--format-multi .format-multi-grid,
+  .deck .slide--format-multi .format-multi-grid--5,
+  .slide--format-multi .format-multi-grid,
+  .slide--format-multi .format-multi-grid--5 {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+  .slide--format-multi .format-card { width: 100% !important; max-width: 100% !important; }
+
+  /* EMAIL PAIR — stack vertically, full width */
+  .deck .slide--email-pair .slide__inner,
+  .slide--email-pair .slide__inner {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+  }
+  .deck .slide--email-pair .email-pair-grid,
+  .slide--email-pair .email-pair-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+  .deck .slide--email-pair .email-card-v78,
+  .slide--email-pair .email-card-v78 {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+  .slide--email-pair .email-card-v78 .email-body { max-height: 320px !important; overflow-y: auto !important; }
+  .deck .slide--email-pair .title,
+  .slide--email-pair .title { font-size: 20px !important; margin-bottom: 8px !important; }
+
+  /* PLATFORM MOCKS — single column, no 3D, larger and readable */
+  .deck .slide--platform .slide__inner--platform-body,
+  .slide--platform .slide__inner--platform-body {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+  .deck .slide--platform .platform-hero,
+  .slide--platform .platform-hero {
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .deck .slide--platform .platform-mini,
+  .slide--platform .platform-mini {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .slide--platform .platform-mini > *:nth-child(n+5) { display: none !important; }
+  .deck .slide--platform .title,
+  .slide--platform .title { font-size: 26px !important; }
+
+  /* LEVER GRID (closing slide) */
+  .deck .lever-grid--v6,
+  .lever-grid--v6 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+  .lever-grid--v6 .lever-card { width: 100% !important; }
+
+  /* STAT GRID — 2x2 not 4-across */
+  .deck .stat-grid,
+  .stat-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+  .stat-n { font-size: 26px !important; }
+  .stat-l, .stat-s { font-size: 10px !important; }
+
+  /* BASTILLE CAMPAIGN */
+  .deck .slide--bastille .bastille-campaign-headline,
+  .slide--bastille .bastille-campaign-headline { font-size: 28px !important; line-height: 1.1 !important; }
+  .slide--bastille .bastille-grid { display: flex !important; flex-direction: column !important; gap: 16px !important; }
+
+  /* NAV BAR */
+  .nav-bar { transform: scale(0.8); transform-origin: bottom center; bottom: 10px !important; }
+  .nav-hint { display: none !important; }
+}
+
+@media (max-width: 480px) {
+  .deck .title, .deck h1, .deck h2, .deck .title--md, .deck .title--lg, .title, h1, h2 { font-size: 22px !important; }
+  .deck .title--xl, .title--xl { font-size: 26px !important; }
+  .deck .cover-h1, .cover-h1 { font-size: 32px !important; }
+  .deck .divider-title, .divider-title { font-size: 30px !important; }
+  .deck .display, .deck .display--md, .display, .display--md { font-size: 26px !important; }
+  .slide--paid-duo .phone-frame { width: 170px !important; height: 302px !important; }
+  .phone-trio-grid .phone-frame, .phones-3 .phone-frame { max-width: 100px !important; height: 178px !important; }
+  .slide--beauty-ig .phone-frame--ig { max-width: 140px !important; height: 250px !important; }
+}
