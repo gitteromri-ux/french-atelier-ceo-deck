@@ -4168,3 +4168,37 @@
     position: relative !important;
   }
 }
+
+/* v7.20 — shrink sound toggle on phone-trio + ig phones */
+@media (max-width: 900px) {
+  .phone-trio-grid .sound-toggle,
+  .phones-3 .sound-toggle,
+  .slide--format-multi .format-multi-grid--3 .sound-toggle {
+    width: 28px !important;
+    height: 28px !important;
+    padding: 4px !important;
+  }
+  .phone-trio-grid .sound-toggle svg,
+  .phones-3 .sound-toggle svg,
+  .slide--format-multi .format-multi-grid--3 .sound-toggle svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+  .slide--beauty-ig .sound-toggle {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 5px !important;
+  }
+  .slide--beauty-ig .sound-toggle svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  /* TAP TO HEAR label smaller */
+  .phone-trio-grid .tap-hint,
+  .phones-3 .tap-hint,
+  .slide--format-multi .format-multi-grid--3 .tap-hint,
+  .slide--beauty-ig .tap-hint {
+    font-size: 8px !important;
+    padding: 3px 6px !important;
+  }
+}
