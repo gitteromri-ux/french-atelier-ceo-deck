@@ -5324,25 +5324,38 @@
   text-shadow: 0 2px 6px rgba(0,0,0,0.8) !important;
 }
 
-/* Slide 11 — 4 LARGE cards in one row, not iPhone-sized */
+/* Slide 11 — 4 MUCH LARGER cards filling full width */
 @media (min-width: 769px) {
   .deck .slide--beauty-ig .slide__inner {
-    max-width: 1380px !important;
+    max-width: 100% !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+  .deck .slide--beauty-ig .beauty-sublead {
+    display: none !important;
   }
   .deck .slide--beauty-ig .beauty-large-grid {
     grid-template-columns: repeat(4, 1fr) !important;
-    gap: 22px !important;
-    max-width: 1340px !important;
-    margin: 28px auto 0 !important;
+    gap: 24px !important;
+    max-width: 100% !important;
+    margin: 24px auto 0 !important;
   }
   .deck .slide--beauty-ig .beauty-large-frame {
     aspect-ratio: 9/16 !important;
-    max-width: 320px !important;
+    max-width: none !important;
+    max-height: 78vh !important;
     width: 100% !important;
   }
+  .deck .slide--beauty-ig .beauty-large-frame .fa-brand-badge {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 16px !important;
+    top: 18px !important;
+    left: 18px !important;
+  }
   .deck .slide--beauty-ig .beauty-large-cap {
-    font-size: 18px !important;
-    margin-top: 14px !important;
+    font-size: 22px !important;
+    margin-top: 18px !important;
   }
 }
 
@@ -5374,6 +5387,60 @@
 .deck .slide--dark.slide--chapter-closer .tl-note {
   color: rgba(245,239,230,0.75) !important;
   font-style: italic !important;
+}
+
+/* ============================================================
+   v7.37 — Slides 5-8 & 12 (format-multi): MUCH LARGER phones
+   ============================================================ */
+@media (min-width: 769px) {
+  .deck .slide--format-multi .slide__inner {
+    max-width: 100% !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+  /* 5-phone layout (slide 12) */
+  .deck .slide--format-multi .format-multi-grid--5 {
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 18px !important;
+    max-width: 100% !important;
+    margin: 24px auto 0 !important;
+  }
+  .deck .slide--format-multi .format-multi-grid--5 .phone-frame,
+  .deck .slide--format-multi .format-multi-grid--5 .phone-frame--lg {
+    max-width: none !important;
+    max-height: 78vh !important;
+    width: 100% !important;
+    transform: none !important;
+    aspect-ratio: 9/16 !important;
+  }
+  .deck .slide--format-multi .format-multi-grid--5 .format-multi-caption {
+    font-size: 18px !important;
+    margin-top: 14px !important;
+  }
+  /* 3-phone layout (slides 5,6,7,8) */
+  .deck .slide--format-multi .format-multi-grid--3,
+  .deck .slide--format-multi .multi-phone-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 32px !important;
+    max-width: 1100px !important;
+    margin: 24px auto 0 !important;
+  }
+  .deck .slide--format-multi .format-multi-grid--3 .phone-frame,
+  .deck .slide--format-multi .format-multi-grid--3 .phone-frame--lg,
+  .deck .slide--format-multi .multi-phone-grid .phone-frame,
+  .deck .slide--format-multi .multi-phone-grid .phone-frame--lg {
+    max-width: none !important;
+    max-height: 75vh !important;
+    width: 100% !important;
+    transform: none !important;
+    aspect-ratio: 9/16 !important;
+  }
+  .deck .slide--format-multi .format-multi-grid--3 .phone-caption,
+  .deck .slide--format-multi .multi-phone-grid .phone-caption,
+  .deck .slide--format-multi .format-multi-grid--3 .format-multi-caption {
+    font-size: 20px !important;
+    margin-top: 16px !important;
+  }
 }
 
 /* ============================================================
