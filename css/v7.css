@@ -5053,3 +5053,67 @@
 .deck .slide--dark .stat .stat-s {
   color: rgba(245, 239, 230, 0.85) !important;
 }
+
+/* ============================================================
+   v7.31 — Inner .phone-frame must FILL its outer wrapper
+   Old CSS gives .phone-frame fixed 226x400. Override.
+   ============================================================ */
+.deck .paid-phone .phone-frame,
+.deck .paid-phone--xl .phone-frame,
+.deck .ig-phone .phone-frame,
+.deck .ig-phone .phone-frame--ig {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  margin: 0 !important;
+  aspect-ratio: auto !important;
+  border-radius: 28px !important;
+}
+/* Outer wrappers need to BE the visual frame */
+.deck .paid-phone,
+.deck .paid-phone--xl,
+.deck .ig-phone {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 340px !important;
+  aspect-ratio: 9/16 !important;
+  height: auto !important;
+  margin: 0 auto !important;
+  background: #000 !important;
+  border-radius: 28px !important;
+  overflow: hidden !important;
+}
+@media (min-width: 769px) {
+  .deck .slide--paid-duo .paid-phone--xl {
+    max-width: 360px !important;
+  }
+}
+
+/* Format-multi and trio: same — kill any fixed height on .phone-frame */
+.deck .phone-trio-grid .phone-frame,
+.deck .phones-3 .phone-frame,
+.deck .format-multi-card .phone-frame,
+.deck .format-multi-grid .phone-frame--lg {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 320px !important;
+  height: auto !important;
+  aspect-ratio: 9/16 !important;
+  margin: 0 auto !important;
+  background: #000 !important;
+  border-radius: 28px !important;
+  overflow: hidden !important;
+}
+.deck .phone-trio-grid .phone-frame video,
+.deck .phones-3 .phone-frame video,
+.deck .format-multi-card .phone-frame video,
+.deck .format-multi-grid .phone-frame--lg video {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
