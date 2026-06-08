@@ -6198,35 +6198,48 @@
   }
 
   /* ---------- QUORA / MEDIUM / TELEGRAM (32, 33, 35) ----------
-     Convert from asymmetric hero+mini layout to uniform 3x3 grid */
+     Hero left + 3-col grid right; force exactly 3 rows so nothing is cut */
+  .deck #slide-quora .slide__inner--platform-body,
+  .deck #slide-medium .slide__inner--platform-body,
+  .deck #slide-telegram .slide__inner--platform-body {
+    align-items: stretch !important;
+    gap: 24px !important;
+    padding-bottom: 28px !important;
+    overflow: hidden !important;
+  }
   .deck #slide-quora .platform-grid-3x3,
   .deck #slide-medium .platform-grid-3x3,
   .deck #slide-telegram .platform-grid-3x3 {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
-    grid-auto-rows: 1fr !important;
-    gap: 18px !important;
+    grid-template-rows: repeat(3, 1fr) !important;
+    gap: 14px !important;
     width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
   }
-  /* Hero becomes uniform card like the rest */
+  /* Hero stays on the left, matches grid height */
   .deck #slide-quora .platform-hero,
   .deck #slide-medium .platform-hero,
   .deck #slide-telegram .platform-hero {
-    grid-column: auto !important;
-    grid-row: auto !important;
-    max-height: none !important;
-    transform: none !important;
+    flex: 0 0 320px !important;
+    width: 320px !important;
+    align-self: stretch !important;
   }
-  /* All cards equal sized */
-  .deck #slide-quora .mock-quora,
-  .deck #slide-medium .mock-medium,
-  .deck #slide-telegram .mock-telegram {
-    height: auto !important;
-    max-height: 100% !important;
+  /* All cards equal sized, content clipped if overflow */
+  .deck #slide-quora .platform-hero > *,
+  .deck #slide-medium .platform-hero > *,
+  .deck #slide-telegram .platform-hero > *,
+  .deck #slide-quora .platform-grid-3x3 > *,
+  .deck #slide-medium .platform-grid-3x3 > *,
+  .deck #slide-telegram .platform-grid-3x3 > * {
+    height: 100% !important;
+    min-height: 0 !important;
     overflow: hidden !important;
-    padding: 14px 16px !important;
-    font-size: 12.5px !important;
-    line-height: 1.45 !important;
+    padding: 12px 14px !important;
+    font-size: 11.5px !important;
+    line-height: 1.4 !important;
+    box-sizing: border-box !important;
   }
   .deck #slide-quora .mock-quora__question,
   .deck #slide-medium .mock-medium__title,
