@@ -5259,3 +5259,12 @@
 }
 
 /* Slide 12 (was beauty visual / now More Language Formats) — already cleared via HTML label */
+
+/* ============================================================
+   v7.33 — kill TAP TO HEAR overlay (was overlapping captions)
+   ============================================================ */
+.deck .sound-toggle::before,
+.sound-toggle::before {
+  display: none !important;
+  content: none !important;
+}
