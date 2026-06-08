@@ -4714,3 +4714,342 @@
     line-height: 1.3 !important;
   }
 }
+
+/* ============================================================
+   v7.30 — COMPREHENSIVE PRO PASS
+   1) Video FILLS phone frame on all viewports (no black bottom half)
+   2) Captions dark navy (not beige on beige)
+   3) Phones bigger and more spread (desktop slides 3-12)
+   4) Slide 11 large beauty cards 2x2 landscape framing
+   5) Slide 13 card text dark
+   6) Email mockups bigger, no distortion
+   7) Platform mockups higher contrast text
+   ============================================================ */
+
+/* ---------- (1) PHONE FRAME = video fills it everywhere ---------- */
+.deck .phone-frame,
+.deck .paid-phone,
+.deck .paid-phone--xl,
+.deck .ig-phone,
+.deck .phone-frame--lg {
+  position: relative !important;
+  background: #000 !important;
+  overflow: hidden !important;
+  border-radius: 28px !important;
+}
+.deck .phone-frame > video,
+.deck .paid-phone > .phone-frame > video,
+.deck .ig-phone > .phone-frame > video,
+.deck .format-multi-card .phone-frame > video,
+.deck .phone-trio-grid .phone-frame > video,
+.deck .phones-3 .phone-frame > video,
+.deck .paid-duo-card .phone-frame > video {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+.deck .phone-notch { display: none !important; }
+
+/* ---------- (2) CAPTIONS / OVERLAY TEXT — dark navy on cream ---------- */
+.deck .slide--cream .caption,
+.deck .slide--cream .phone-cap,
+.deck .slide--cream .phone-trio-grid p,
+.deck .slide--cream .phones-3 p,
+.deck .slide--cream .format-multi-card .caption,
+.deck .slide--cream .format-multi-card p,
+.deck .slide--cream .paid-duo-card .paid-duo-name,
+.deck .slide--cream .paid-duo-card .paid-duo-desc,
+.deck .slide--cream .paid-duo-card .paid-duo-tag,
+.deck .slide--cream .beauty-large-cap {
+  color: #0A1128 !important;
+}
+/* Italian-style accent words can stay gold but at higher contrast */
+.deck .slide--cream .caption em,
+.deck .slide--cream .caption .gold,
+.deck .slide--cream .phone-trio-grid p em,
+.deck .slide--cream .format-multi-card p em {
+  color: #8A6A2E !important; /* darker gold for readability on cream */
+  font-style: italic;
+}
+
+/* Beauty IG sub-lead on cream */
+.deck .slide--beauty-ig .sub-lead.beauty-sublead {
+  color: #0A1128 !important;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 12px 0 24px;
+}
+
+/* ---------- (3) DESKTOP: bigger spread phones slides 5-8 ---------- */
+@media (min-width: 769px) {
+  .deck .phone-trio-grid,
+  .deck .phones-3,
+  .deck .format-multi-grid--3 {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 48px !important;
+    max-width: 1200px !important;
+    margin: 24px auto 0 !important;
+    align-items: start !important;
+  }
+  .deck .phone-trio-grid .phone-frame,
+  .deck .phones-3 .phone-frame,
+  .deck .format-multi-grid--3 .phone-frame {
+    width: 100% !important;
+    max-width: 320px !important;
+    aspect-ratio: 9/16 !important;
+    height: auto !important;
+    margin: 0 auto !important;
+  }
+
+  /* Caption text under each phone — dark and prominent */
+  .deck .slide--cream .phone-trio-grid > div > .caption,
+  .deck .slide--cream .phone-trio-grid .format-multi-card .caption,
+  .deck .slide--cream .format-multi-card .caption,
+  .deck .slide--cream .phones-3 > div > .caption,
+  .deck .slide--cream .phones-3 .caption {
+    margin-top: 14px !important;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 20px !important;
+    color: #0A1128 !important;
+    text-align: center !important;
+  }
+
+  /* Paid duo: spread further apart on desktop */
+  .deck .slide--paid-duo .paid-duo-grid {
+    gap: 96px !important;
+    max-width: 1100px !important;
+    margin: 24px auto 0 !important;
+  }
+  .deck .slide--paid-duo .paid-phone--xl {
+    width: 100% !important;
+    max-width: 360px !important;
+  }
+  .deck .slide--paid-duo .paid-phone--xl .phone-frame {
+    aspect-ratio: 9/16 !important;
+    height: auto !important;
+  }
+  .deck .slide--paid-duo .paid-duo-card {
+    max-width: 420px;
+  }
+}
+
+/* Sound toggle: always corner, never blocks center text */
+.deck .sound-toggle {
+  position: absolute !important;
+  top: 10px !important;
+  right: 10px !important;
+  bottom: auto !important;
+  left: auto !important;
+  transform: none !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  background: rgba(10, 17, 40, 0.6) !important;
+  border: 1px solid rgba(255,255,255,0.3) !important;
+  z-index: 12 !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.deck .sound-toggle svg {
+  width: 18px !important;
+  height: 18px !important;
+  color: #fff !important;
+}
+.deck .sound-toggle.is-on {
+  background: rgba(201, 169, 97, 0.85) !important;
+}
+/* Hide the TAP TO HEAR label everywhere — sound icon is enough */
+.deck .tap-hint { display: none !important; }
+
+/* ---------- (4) SLIDE 11 LARGE BEAUTY GRID 2x2 ---------- */
+.deck .slide--beauty-ig .beauty-large-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 32px !important;
+  max-width: 1100px !important;
+  margin: 24px auto 0 !important;
+}
+.deck .slide--beauty-ig .beauty-large-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+}
+.deck .slide--beauty-ig .beauty-large-frame {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 9/16 !important;
+  max-height: 60vh !important;
+  background: #000 !important;
+  border-radius: 24px !important;
+  overflow: hidden !important;
+  box-shadow: 0 12px 36px rgba(10,17,40,0.18);
+}
+.deck .slide--beauty-ig .beauty-large-frame video {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+.deck .slide--beauty-ig .beauty-large-frame .fa-brand-badge {
+  position: absolute;
+  top: 14px; left: 14px;
+  z-index: 11;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: #C9A961;
+  color: #0A1128;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.deck .slide--beauty-ig .beauty-large-cap {
+  margin-top: 14px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+  text-align: center;
+  color: #0A1128;
+}
+
+/* Mobile: 1 column, big */
+@media (max-width: 768px) {
+  .deck .slide--beauty-ig .beauty-large-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .deck .slide--beauty-ig .beauty-large-frame {
+    max-height: none !important;
+    aspect-ratio: 9/16 !important;
+  }
+  /* Make sure trio/format-multi mobile captions are dark navy */
+  .deck .slide--cream .caption,
+  .deck .slide--cream .phone-trio-grid .caption,
+  .deck .slide--cream .format-multi-card .caption {
+    color: #0A1128 !important;
+    font-size: 16px !important;
+    margin-top: 12px !important;
+  }
+}
+
+/* ---------- (5) SLIDE 13 closer cards — dark text on light ---------- */
+.deck .slide--cream .stat .stat-n,
+.deck .slide--cream .stat .stat-l,
+.deck .slide--cream .stat .stat-s {
+  color: #0A1128 !important;
+}
+.deck .slide--cream .stat .stat-n.gold {
+  color: #8A6A2E !important;
+}
+
+/* ---------- (6) EMAIL MOCKUPS — bigger, no cutoff ---------- */
+.deck .slide--email-pair .slide__inner {
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+}
+@media (min-width: 769px) {
+  .deck .slide--email-pair .email-pair-grid,
+  .deck .slide--email-pair .email-grid,
+  .deck .slide--email-pair > .slide__inner > div:not(.eyebrow):not(.title):not(.rule) {
+    /* not strictly known, but ensure email cards are full width and not clipped */
+  }
+  .deck .email-card-v78 {
+    max-width: 560px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    box-shadow: 0 20px 60px rgba(10,17,40,0.15) !important;
+  }
+  .deck .email-card-v78__hero {
+    aspect-ratio: 16/9 !important;
+    height: auto !important;
+    background: linear-gradient(135deg, #0A1128 0%, #1A2148 100%) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 24px !important;
+    color: #F5EFE6 !important;
+  }
+  .deck .email-card-v78__brand {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 26px !important;
+    letter-spacing: 0.2em !important;
+    color: #F5EFE6 !important;
+  }
+  .deck .email-card-v78__tag {
+    color: #C9A961 !important;
+    letter-spacing: 0.3em !important;
+    font-size: 11px !important;
+    margin-top: 6px !important;
+  }
+  .deck .email-card-v78__body {
+    color: #0A1128 !important;
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    padding: 16px 22px !important;
+  }
+  .deck .email-card-v78__subj {
+    color: #0A1128 !important;
+    font-weight: 700 !important;
+  }
+}
+@media (max-width: 768px) {
+  .deck .email-card-v78 {
+    width: 92vw !important;
+    max-width: 420px !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* ---------- (7) PLATFORM MOCKUPS — readable text contrast ---------- */
+.deck .slide--platform .mock-reddit__title,
+.deck .slide--platform .mock-quora__title,
+.deck .slide--platform .mock-medium__title,
+.deck .slide--platform .mock-stack__title,
+.deck .slide--platform .mock-telegram__title,
+.deck .slide--platform .mock-pinterest__pin-title,
+.deck .slide--platform [class*="__title"] {
+  color: #0A1128 !important;
+}
+.deck .slide--platform .mock-reddit__body,
+.deck .slide--platform .mock-quora__body,
+.deck .slide--platform .mock-medium__body,
+.deck .slide--platform [class*="__body"] {
+  color: #2C3148 !important;
+}
+.deck .slide--platform .sub-lead,
+.deck .slide--platform .post-meta,
+.deck .slide--platform [class*="__meta"],
+.deck .slide--platform [class*="__pub"] {
+  color: #4A4E69 !important;
+}
+
+/* Higher resolution / bigger hero card on desktop */
+@media (min-width: 769px) {
+  .deck .slide--platform .platform-hero,
+  .deck .slide--platform [class*="-hero"] {
+    transform: scale(1.05);
+    transform-origin: top center;
+  }
+}
+
+/* ---------- TL closer divider (slide 36 now slide 36 still) ---------- */
+.deck .slide--dark .display em.gold,
+.deck .slide--dark .display em {
+  color: #C9A961 !important;
+}
+.deck .slide--dark .stat .stat-n,
+.deck .slide--dark .stat .stat-n.gold {
+  color: #C9A961 !important;
+}
+.deck .slide--dark .stat .stat-l,
+.deck .slide--dark .stat .stat-s {
+  color: rgba(245, 239, 230, 0.85) !important;
+}
