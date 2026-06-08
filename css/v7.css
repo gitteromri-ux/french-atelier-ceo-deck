@@ -4658,3 +4658,59 @@
     display: none !important;
   }
 }
+
+/* ============================================================
+   v7.26 — DESKTOP: no bottom cutoff. Slides scrollable when tall.
+   Plus: format-tag pill styling. Quora/Reddit hero readable on desktop.
+   ============================================================ */
+@media (min-width: 769px) {
+  .deck { height: 100vh !important; overflow: hidden !important; }
+  .slide {
+    height: 100vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .slide__inner {
+    min-height: 100% !important;
+    padding-bottom: 80px !important;
+    box-sizing: border-box !important;
+  }
+  /* Platform hero card stays readable */
+  .slide--platform .platform-hero,
+  .slide--platform .post-hero {
+    max-width: 560px !important;
+    margin: 0 auto !important;
+  }
+  /* Quora/Reddit mock titles never clipped */
+  [class*="mock-"] [class*="__title"],
+  [class*="mock-"] [class*="__body"] {
+    overflow: visible !important;
+    text-overflow: clip !important;
+    -webkit-line-clamp: unset !important;
+    display: block !important;
+  }
+}
+
+/* Format tag pill (both desktop and mobile) */
+.format-tag {
+  display: inline-block;
+  margin: 8px 0 4px;
+  padding: 6px 14px;
+  background: rgba(201, 169, 97, 0.12);
+  border: 1px solid rgba(201, 169, 97, 0.4);
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #C9A961;
+}
+@media (max-width: 768px) {
+  .format-tag {
+    font-size: 10px !important;
+    padding: 5px 10px !important;
+    line-height: 1.3 !important;
+  }
+}
