@@ -6244,16 +6244,24 @@
   .deck #slide-quora .mock-quora__question,
   .deck #slide-medium .mock-medium__title,
   .deck #slide-telegram .mock-telegram__msg-title {
-    font-size: 13.5px !important;
+    font-size: 12.5px !important;
     line-height: 1.3 !important;
-    margin-bottom: 6px !important;
+    margin-bottom: 4px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
   }
   .deck #slide-quora .mock-quora__answer,
   .deck #slide-medium .mock-medium__excerpt,
   .deck #slide-medium .mock-medium__preview,
   .deck #slide-telegram .mock-telegram__msg-body {
-    font-size: 12px !important;
-    line-height: 1.45 !important;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
   }
 
   /* ---------- PINTEREST HERO (31) ----------
