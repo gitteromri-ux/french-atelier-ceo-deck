@@ -6080,3 +6080,15 @@
     content: none !important;
   }
 }
+
+/* ============================================================
+   v7.41e — Override .platform-mini max-height:120 from line 1881
+   ============================================================ */
+@media (min-width: 769px) {
+  .deck .slide--platform .platform-mini,
+  .deck #slide-pinterest .platform-grid-3x3 .mock-pinterest.platform-mini,
+  .deck #slide-pinterest .platform-grid-3x3 .platform-mini {
+    max-height: none !important;
+    height: auto !important;
+  }
+}
