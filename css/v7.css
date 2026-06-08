@@ -5402,16 +5402,25 @@
   .deck .slide--format-multi .format-multi-grid--5 {
     grid-template-columns: repeat(5, 1fr) !important;
     gap: 18px !important;
-    max-width: 100% !important;
+    max-width: 1360px !important;
     margin: 24px auto 0 !important;
+  }
+  .deck .slide--format-multi .format-multi-grid--5 .format-multi-card {
+    max-height: none !important;
+    height: auto !important;
+    width: 100% !important;
   }
   .deck .slide--format-multi .format-multi-grid--5 .phone-frame,
   .deck .slide--format-multi .format-multi-grid--5 .phone-frame--lg {
     max-width: none !important;
-    max-height: 78vh !important;
+    max-height: none !important;
     width: 100% !important;
+    height: auto !important;
     transform: none !important;
     aspect-ratio: 9/16 !important;
+  }
+  .deck .slide--format-multi .format-multi-grid--5 video {
+    max-height: none !important;
   }
   .deck .slide--format-multi .format-multi-grid--5 .format-multi-caption {
     font-size: 18px !important;
@@ -5421,19 +5430,30 @@
   .deck .slide--format-multi .format-multi-grid--3,
   .deck .slide--format-multi .multi-phone-grid {
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 32px !important;
-    max-width: 1100px !important;
+    gap: 36px !important;
+    max-width: 1180px !important;
     margin: 24px auto 0 !important;
+  }
+  .deck .slide--format-multi .format-multi-grid--3 .format-multi-card,
+  .deck .slide--format-multi .multi-phone-grid .format-multi-card {
+    max-height: none !important;
+    height: auto !important;
+    width: 100% !important;
   }
   .deck .slide--format-multi .format-multi-grid--3 .phone-frame,
   .deck .slide--format-multi .format-multi-grid--3 .phone-frame--lg,
   .deck .slide--format-multi .multi-phone-grid .phone-frame,
   .deck .slide--format-multi .multi-phone-grid .phone-frame--lg {
     max-width: none !important;
-    max-height: 75vh !important;
+    max-height: none !important;
     width: 100% !important;
+    height: auto !important;
     transform: none !important;
     aspect-ratio: 9/16 !important;
+  }
+  .deck .slide--format-multi .format-multi-grid--3 video,
+  .deck .slide--format-multi .multi-phone-grid video {
+    max-height: none !important;
   }
   .deck .slide--format-multi .format-multi-grid--3 .phone-caption,
   .deck .slide--format-multi .multi-phone-grid .phone-caption,
