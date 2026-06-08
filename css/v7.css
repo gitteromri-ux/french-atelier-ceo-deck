@@ -5398,12 +5398,29 @@
     padding-left: 40px !important;
     padding-right: 40px !important;
   }
-  /* 5-phone layout (slide 12) */
+  /* Kill height-based constraints on slide__inner for format-multi */
+  .deck .slide--format-multi.slide.slide--cream {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+  }
+  .deck .slide--format-multi .slide__inner {
+    max-height: none !important;
+    height: auto !important;
+    min-height: calc(100vh - 100px) !important;
+    overflow: visible !important;
+  }
+  /* 5-phone layout (slide 12) - use fixed 250px columns to override repeat(3,200px) */
+  .deck .slide--format-multi .format-multi-grid.format-multi-grid--5,
   .deck .slide--format-multi .format-multi-grid--5 {
-    grid-template-columns: repeat(5, 1fr) !important;
-    gap: 18px !important;
-    max-width: 1360px !important;
-    margin: 24px auto 0 !important;
+    grid-template-columns: repeat(5, 240px) !important;
+    gap: 24px !important;
+    max-width: none !important;
+    width: auto !important;
+    max-height: none !important;
+    height: auto !important;
+    margin: 28px auto 0 !important;
+    justify-content: center !important;
   }
   .deck .slide--format-multi .format-multi-grid--5 .format-multi-card {
     max-height: none !important;
@@ -5414,7 +5431,7 @@
   .deck .slide--format-multi .format-multi-grid--5 .phone-frame--lg {
     max-width: none !important;
     max-height: none !important;
-    width: 100% !important;
+    width: 240px !important;
     height: auto !important;
     transform: none !important;
     aspect-ratio: 9/16 !important;
@@ -5426,13 +5443,18 @@
     font-size: 18px !important;
     margin-top: 14px !important;
   }
-  /* 3-phone layout (slides 5,6,7,8) */
+  /* 3-phone layout (slides 5,6,7,8) - use fixed 320px columns */
+  .deck .slide--format-multi .format-multi-grid.format-multi-grid--3,
   .deck .slide--format-multi .format-multi-grid--3,
   .deck .slide--format-multi .multi-phone-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 36px !important;
-    max-width: 1180px !important;
-    margin: 24px auto 0 !important;
+    grid-template-columns: repeat(3, 320px) !important;
+    gap: 48px !important;
+    max-width: none !important;
+    width: auto !important;
+    max-height: none !important;
+    height: auto !important;
+    margin: 28px auto 0 !important;
+    justify-content: center !important;
   }
   .deck .slide--format-multi .format-multi-grid--3 .format-multi-card,
   .deck .slide--format-multi .multi-phone-grid .format-multi-card {
@@ -5446,7 +5468,7 @@
   .deck .slide--format-multi .multi-phone-grid .phone-frame--lg {
     max-width: none !important;
     max-height: none !important;
-    width: 100% !important;
+    width: 320px !important;
     height: auto !important;
     transform: none !important;
     aspect-ratio: 9/16 !important;
