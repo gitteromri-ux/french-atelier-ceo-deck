@@ -7001,3 +7001,20 @@
     margin-bottom: -280px !important;
   }
 }
+
+/* === v7.48 — Reddit platform 3x3 absolutely fit (no transform — direct size) === */
+@media (min-width: 901px) {
+  .deck .slide--platform .platform-grid-3x3 {
+    transform: scale(0.62) !important;
+    transform-origin: top center !important;
+    margin-bottom: -300px !important;
+    max-height: 460px !important;
+    overflow: hidden !important;
+  }
+  .deck .slide--platform#slide-reddit .platform-grid-3x3 {
+    transform: scale(0.55) !important;
+    margin-bottom: -380px !important;
+  }
+  /* Pull slide header tighter too */
+  .deck .slide--platform#slide-reddit .slide__inner { padding-top: 24px !important; padding-bottom: 16px !important; }
+}
