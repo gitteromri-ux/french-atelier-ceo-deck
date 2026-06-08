@@ -5117,3 +5117,145 @@
   height: 100% !important;
   object-fit: cover !important;
 }
+
+/* ============================================================
+   v7.32 — FINAL: real email heroes, slide 13/36 readability,
+   slide 5-8 larger phones, slide 11 even larger
+   ============================================================ */
+
+/* Email hero with image background — for cards that have --img modifier */
+.deck .email-card-v78__hero--img {
+  position: relative !important;
+  aspect-ratio: 16/9 !important;
+  background: #0A1128 !important;
+  background-size: cover !important;
+  background-position: center !important;
+  display: block !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+.deck .email-card-v78__hero--img .email-card-v78__hero-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(180deg, rgba(10,17,40,0.10) 0%, rgba(10,17,40,0.55) 70%, rgba(10,17,40,0.85) 100%) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  padding: 18px !important;
+  text-align: center !important;
+}
+.deck .email-card-v78__hero--img .email-card-v78__brand {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 18px !important;
+  letter-spacing: 0.25em !important;
+  color: #F5EFE6 !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
+  margin: 0 !important;
+}
+.deck .email-card-v78__hero--img .email-card-v78__tag {
+  color: #C9A961 !important;
+  letter-spacing: 0.3em !important;
+  font-size: 10px !important;
+  margin: 4px 0 0 0 !important;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6) !important;
+}
+.deck .email-card-v78__hero--img .email-card-v78__sub {
+  color: #F5EFE6 !important;
+  font-size: 10px !important;
+  letter-spacing: 0.18em !important;
+  margin-top: 6px !important;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6) !important;
+}
+
+/* No clipping of email cards, ensure full hero shows */
+.deck .email-card-v78 {
+  overflow: hidden !important;
+  border-radius: 14px !important;
+}
+
+/* Slide 13 / 36 — chapter-closer stat cards on dark slide: cards are cream/white, text must be DARK */
+.deck .slide--chapter-closer .stat-grid--dark .stat,
+.deck .slide--chapter-closer .stat-grid .stat {
+  background: #FBF8F2 !important;
+  border: 1px solid rgba(10,17,40,0.08) !important;
+}
+.deck .slide--chapter-closer .stat-l {
+  color: #0A1128 !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+}
+.deck .slide--chapter-closer .stat-s {
+  color: #2C3148 !important;
+  opacity: 1 !important;
+  font-weight: 500 !important;
+}
+.deck .slide--chapter-closer .stat-n {
+  color: #8A6A2E !important; /* darker gold for readability on cream */
+}
+.deck .slide--chapter-closer .tl-note {
+  color: #C9A961 !important;
+  font-style: italic !important;
+}
+
+/* Slide 5-8: bigger phones */
+@media (min-width: 769px) {
+  .deck .slide--format-multi .format-multi-grid--3 {
+    gap: 32px !important;
+    max-width: 1100px !important;
+    margin: 28px auto 0 !important;
+  }
+  .deck .slide--format-multi .format-multi-grid--3 .phone-frame,
+  .deck .slide--format-multi .format-multi-grid--3 .phone-frame--lg {
+    max-width: 320px !important;
+  }
+  .deck .slide--format-multi .format-multi-grid--3 .format-multi-card {
+    width: 100% !important;
+  }
+  .deck .slide--format-multi .format-multi-grid--3 .format-multi-caption {
+    color: #0A1128 !important;
+    font-size: 15px !important;
+    margin-top: 14px !important;
+    font-weight: 500 !important;
+  }
+  .deck .slide--format-multi .format-multi-grid--3 .format-multi-caption strong {
+    color: #0A1128 !important;
+    font-weight: 700 !important;
+  }
+  /* Sound toggle: move it OUT of any overlay text by placing it at the bottom-right far from any caption overlay in video */
+  .deck .slide--format-multi .format-multi-grid--3 .sound-toggle {
+    bottom: 8px !important;
+    right: 8px !important;
+    top: auto !important;
+    left: auto !important;
+    width: 32px !important;
+    height: 32px !important;
+    background: rgba(10,17,40,0.85) !important;
+    color: #F5EFE6 !important;
+  }
+}
+
+/* Slide 11: even larger beauty cards */
+@media (min-width: 769px) {
+  .deck .slide--beauty-ig .beauty-large-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 28px !important;
+    max-width: 880px !important;
+    margin: 24px auto 0 !important;
+  }
+  .deck .slide--beauty-ig .beauty-large-frame {
+    aspect-ratio: 9/16 !important;
+    max-width: 380px !important;
+    margin: 0 auto !important;
+  }
+  .deck .slide--beauty-ig .beauty-large-cap {
+    color: #0A1128 !important;
+    font-size: 16px !important;
+    text-align: center !important;
+    margin-top: 12px !important;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-style: italic !important;
+  }
+}
+
+/* Slide 12 (was beauty visual / now More Language Formats) — already cleared via HTML label */
