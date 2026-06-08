@@ -6779,3 +6779,108 @@
     aspect-ratio: 9/16 !important;
   }
 }
+
+/* === v7.44 — GLOBAL enlargement across ALL slide types === */
+
+@media (min-width: 901px) {
+  /* === ALL phone frames bigger === */
+  .deck .phone-frame { width: 100% !important; }
+  .deck .phone-frame.phone-frame--xl { width: 400px !important; max-width: 400px !important; }
+  .deck .phone-frame.phone-frame--lg { width: 280px !important; max-width: 280px !important; }
+  .deck .phone-frame.phone-frame--md { width: 260px !important; }
+  .deck .phone-frame.phone-frame--sm { width: 220px !important; }
+
+  /* Paid duo */
+  .deck .slide--paid-duo .paid-duo-card .phone-frame,
+  .deck .slide--paid-duo .phone-frame {
+    width: 380px !important;
+    max-width: 380px !important;
+    height: 680px !important;
+    max-height: 680px !important;
+  }
+  .deck .slide--paid-duo .paid-duo-card video,
+  .deck .slide--paid-duo .phone-frame video {
+    object-fit: contain !important;
+    background: #000 !important;
+  }
+  .deck .paid-tv { max-width: 960px !important; }
+
+  /* Format-multi (slide 12 — 5 phones) */
+  .deck .slide--format-multi .phone-frame--lg,
+  .deck .format-multi-grid--5 .phone-frame--lg {
+    width: 240px !important;
+    max-width: 240px !important;
+    transform: none !important;
+  }
+  .deck .format-multi-grid--6 .phone-frame--lg {
+    width: 220px !important;
+    max-width: 220px !important;
+  }
+  .deck .slide--format-multi .phone-frame--lg video {
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* Format-tablet — bigger tablet */
+  .deck .slide--format-tablet .tablet-frame {
+    width: 600px !important;
+    max-width: 600px !important;
+  }
+  .deck .tablet-frame { width: 100% !important; }
+
+  /* Beauty IG (slide 11 — 4 phones) */
+  .deck .slide--beauty-ig .ig-phone .phone-frame,
+  .deck .ig-phone .phone-frame {
+    width: 250px !important;
+    max-width: 250px !important;
+    height: auto !important;
+    aspect-ratio: 9/16 !important;
+  }
+
+  /* Formal/Spoken & Homonyms — single big phone slides */
+  .deck .slide--platform .phone-frame,
+  .deck .slide:not(.slide--paid-duo):not(.slide--format-multi):not(.slide--beauty-ig) .phone-frame--xl {
+    width: 420px !important;
+    max-width: 420px !important;
+  }
+
+  /* Any standalone video-wrap card */
+  .deck .video-wrap { max-width: 100% !important; }
+  .deck .browser-body--video { width: 100% !important; }
+  .deck .browser-body--video video { width: 100% !important; height: auto !important; }
+}
+
+@media (max-width: 900px) {
+  /* Global mobile enlarge — phones near full width */
+  .deck .phone-frame,
+  .deck .phone-frame.phone-frame--xl,
+  .deck .phone-frame.phone-frame--lg,
+  .deck .phone-frame.phone-frame--md,
+  .deck .phone-frame.phone-frame--sm {
+    width: 88vw !important;
+    max-width: 340px !important;
+    height: auto !important;
+    aspect-ratio: 9/16 !important;
+  }
+  /* Format-multi mobile — grid stacks, keep 2-per-row option but bigger */
+  .deck .slide--format-multi .format-multi-grid,
+  .deck .format-multi-grid--5,
+  .deck .format-multi-grid--6 {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 14px !important;
+  }
+  .deck .slide--format-multi .phone-frame--lg,
+  .deck .format-multi-grid .phone-frame--lg {
+    width: 100% !important;
+    max-width: 200px !important;
+    margin: 0 auto !important;
+  }
+  /* Beauty IG mobile — 2 columns */
+  .deck .slide--beauty-ig .ig-phone .phone-frame,
+  .deck .ig-phone .phone-frame {
+    width: 100% !important;
+    max-width: 180px !important;
+    margin: 0 auto !important;
+  }
+  .deck .tablet-frame { width: 92vw !important; max-width: 560px !important; }
+}
