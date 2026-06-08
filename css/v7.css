@@ -6137,3 +6137,163 @@
     display: none !important;
   }
 }
+
+/* ============================================================
+   v7.41h — FINAL: shrink heights so nothing is cut at viewport
+   Targets: email slides, Q/M/TG asymmetry, Pinterest hero image,
+   Bastille right-card overflow.
+   ============================================================ */
+@media (min-width: 769px) {
+
+  /* ---------- EMAIL PAIR SLIDES (16-28) ----------
+     Compress title, reduce gap, shrink card so bottom not cut */
+  .deck .slide--email-pair .slide__inner {
+    padding-top: 28px !important;
+    padding-bottom: 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .deck .slide--email-pair .title.title--md {
+    font-size: 36px !important;
+    line-height: 1.15 !important;
+    margin-bottom: 8px !important;
+  }
+  .deck .slide--email-pair .rule {
+    margin: 8px 0 16px 0 !important;
+  }
+  .deck .slide--email-pair .email-pair-v78 {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px !important;
+    align-items: stretch !important;
+  }
+  /* Each email card: constrain height to fit, allow body to show */
+  .deck .slide--email-pair .email-pair-v78 > * {
+    max-height: 100% !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  /* Hero image: cap height to leave room for body text */
+  .deck .slide--email-pair .mock-email-hero,
+  .deck .slide--email-pair .email-pair-v78 [class*="hero"] {
+    max-height: 170px !important;
+    aspect-ratio: 21 / 9 !important;
+    overflow: hidden !important;
+    flex: 0 0 auto !important;
+  }
+  /* Body should fill remaining space */
+  .deck .slide--email-pair .email-pair-v78 [class*="body"],
+  .deck .slide--email-pair .mock-email-body {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    font-size: 13.5px !important;
+    line-height: 1.5 !important;
+    padding: 14px 18px 18px 18px !important;
+  }
+
+  /* ---------- QUORA / MEDIUM / TELEGRAM (32, 33, 35) ----------
+     Convert from asymmetric hero+mini layout to uniform 3x3 grid */
+  .deck #slide-quora .platform-grid-3x3,
+  .deck #slide-medium .platform-grid-3x3,
+  .deck #slide-telegram .platform-grid-3x3 {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    grid-auto-rows: 1fr !important;
+    gap: 18px !important;
+    width: 100% !important;
+  }
+  /* Hero becomes uniform card like the rest */
+  .deck #slide-quora .platform-hero,
+  .deck #slide-medium .platform-hero,
+  .deck #slide-telegram .platform-hero {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    max-height: none !important;
+    transform: none !important;
+  }
+  /* All cards equal sized */
+  .deck #slide-quora .mock-quora,
+  .deck #slide-medium .mock-medium,
+  .deck #slide-telegram .mock-telegram {
+    height: auto !important;
+    max-height: 100% !important;
+    overflow: hidden !important;
+    padding: 14px 16px !important;
+    font-size: 12.5px !important;
+    line-height: 1.45 !important;
+  }
+  .deck #slide-quora .mock-quora__question,
+  .deck #slide-medium .mock-medium__title,
+  .deck #slide-telegram .mock-telegram__msg-title {
+    font-size: 13.5px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 6px !important;
+  }
+  .deck #slide-quora .mock-quora__answer,
+  .deck #slide-medium .mock-medium__excerpt,
+  .deck #slide-medium .mock-medium__preview,
+  .deck #slide-telegram .mock-telegram__msg-body {
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
+
+  /* ---------- PINTEREST HERO (31) ----------
+     Hero card has gradient only — give it a real image background */
+  .deck #slide-pinterest .platform-hero .mock-pinterest__pin.pin-hero-img {
+    background:
+      linear-gradient(180deg, rgba(10,17,40,0.15) 0%, rgba(10,17,40,0.75) 75%, rgba(10,17,40,0.92) 100%),
+      url('../images/real_emails/email09_image_600x350.jpg') center/cover no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+  .deck #slide-pinterest .platform-hero .mock-pinterest__overlay {
+    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.85) 100%) !important;
+  }
+
+  /* ---------- BASTILLE (38) ----------
+     Right card content (title/body/engagement) was cut — shrink image area */
+  .deck .slide--bastille-campaign .bastille-inner {
+    padding-top: 36px !important;
+    padding-bottom: 32px !important;
+  }
+  .deck .slide--bastille-campaign .bastille-campaign-card {
+    display: flex !important;
+    flex-direction: column !important;
+    max-height: calc(100vh - 100px) !important;
+    overflow: hidden !important;
+  }
+  .deck .slide--bastille-campaign .bcc-image {
+    aspect-ratio: auto !important;
+    height: 280px !important;
+    flex: 0 0 auto !important;
+    padding: 24px !important;
+  }
+  .deck .slide--bastille-campaign .bcc-image-headline {
+    font-size: 42px !important;
+  }
+  .deck .slide--bastille-campaign .bcc-meta {
+    flex: 1 1 auto !important;
+    overflow: hidden !important;
+    padding: 20px 24px !important;
+  }
+  .deck .slide--bastille-campaign .bcc-title {
+    font-size: 18px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 10px !important;
+  }
+  .deck .slide--bastille-campaign .bcc-body {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 12px !important;
+  }
+  .deck .slide--bastille-campaign .bcc-engagement {
+    font-size: 12px !important;
+    gap: 14px !important;
+  }
+}
