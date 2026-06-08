@@ -7026,3 +7026,88 @@
     margin-bottom: -420px !important;
   }
 }
+
+/* === v7.50 — MOBILE: slides auto-height (let content flow, NO clipping) === */
+@media (max-width: 900px) {
+  .deck .slide,
+  .deck .slide--cream,
+  .deck .slide--dark,
+  .deck .slide--paid-duo,
+  .deck .slide--format-multi,
+  .deck .slide--format-tablet,
+  .deck .slide--beauty-ig,
+  .deck .slide--email-pair,
+  .deck .slide--platform,
+  .deck .slide--bastille,
+  .deck .slide--chapter-closer,
+  .deck .slide--cover,
+  .deck .slide--divider,
+  .deck .slide--qr-intro {
+    height: auto !important;
+    min-height: 100vh !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  .deck .slide__inner,
+  .deck .slide__inner--platform {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding-bottom: 32px !important;
+  }
+
+  /* Cancel all transforms scale that crop on mobile */
+  .deck .slide--platform .platform-grid-3x3,
+  .deck .slide--platform#slide-reddit .platform-grid-3x3,
+  .deck .slide--format-multi .phone-frame--lg,
+  .deck .slide--paid-duo .paid-phone--xl {
+    transform: none !important;
+    margin-bottom: 0 !important;
+    max-height: none !important;
+  }
+
+  /* Email cards — full content flow */
+  .deck .email-card-v78,
+  .deck .email-card-v78__signoff,
+  .deck .email-pair-card,
+  .deck .email-pair-grid {
+    max-height: none !important;
+    overflow: visible !important;
+    height: auto !important;
+  }
+  .deck .slide--email-pair .email-pair-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  /* Format-multi mobile: stack 2-column flex */
+  .deck .slide--format-multi .format-multi-grid,
+  .deck .slide--format-multi .format-multi-grid--5,
+  .deck .slide--format-multi .format-multi-grid--6 {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+  .deck .format-multi-card { max-height: none !important; height: auto !important; }
+
+  /* Bastille campaign card */
+  .deck .bastille-campaign-card { max-height: none !important; height: auto !important; }
+
+  /* Stack exchange footer */
+  .deck .mock-stack, .deck .mock-stack__footer { max-height: none !important; overflow: visible !important; }
+
+  /* Beauty IG mobile flow */
+  .deck .slide--beauty-ig .beauty-ig-grid,
+  .deck .slide--beauty-ig .ig-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 14px !important;
+    max-height: none !important;
+  }
+  .deck .ig-phone .phone-frame {
+    width: 100% !important;
+    max-width: 160px !important;
+    margin: 0 auto !important;
+  }
+}
