@@ -7111,3 +7111,47 @@
     margin: 0 auto !important;
   }
 }
+
+/* === v7.51 — MAX SPECIFICITY mobile override === */
+@media (max-width: 900px) {
+  html body .deck .slide,
+  html body .deck section.slide,
+  html body .deck .slide--cream,
+  html body .deck .slide--dark,
+  html body .deck .slide--paid-duo,
+  html body .deck .slide--format-multi,
+  html body .deck .slide--format-tablet,
+  html body .deck .slide--beauty-ig,
+  html body .deck .slide--email-pair,
+  html body .deck .slide--platform,
+  html body .deck .slide--bastille,
+  html body .deck .slide--chapter-closer,
+  html body .deck .slide--cover,
+  html body .deck .slide--divider,
+  html body .deck .slide--qr-intro,
+  html body .deck .slide--bastille-campaign {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  html body .deck .slide__inner {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 24px 16px 40px !important;
+  }
+  /* Force every descendant to be visible too */
+  html body .deck .slide > *,
+  html body .deck .slide__inner > *,
+  html body .deck .platform-grid-3x3,
+  html body .deck .email-card-v78,
+  html body .deck .email-pair-grid,
+  html body .deck .format-multi-grid,
+  html body .deck .bastille-campaign-card,
+  html body .deck .mock-stack {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+}
