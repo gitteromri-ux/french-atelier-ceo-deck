@@ -6525,3 +6525,62 @@
     display: -webkit-box !important; -webkit-line-clamp: 2 !important; -webkit-box-orient: vertical !important; overflow: hidden !important;
   }
 }
+
+/* ============================================================
+   v7.41M — Charline landscape TV frame for paid duo slide
+   - Philippe stays in 9:16 phone (his ad is vertical)
+   - Charline now uses 16:9 landscape TV frame (her paid cut is the masterclass landscape)
+   - Both align vertically centered, never cropped
+   ============================================================ */
+@media (min-width: 768px) {
+  .deck .slide--paid-duo .paid-duo-grid {
+    grid-template-columns: 1fr 1.35fr !important;
+    gap: 56px !important;
+    align-items: center !important;
+    justify-items: center !important;
+  }
+  .deck .slide--paid-duo .paid-duo-card {
+    max-width: none !important;
+    width: 100% !important;
+  }
+  /* Charline TV frame — landscape 16:9 */
+  .deck .paid-tv {
+    width: 100% !important;
+    max-width: 720px !important;
+    margin: 0 auto !important;
+  }
+  .deck .paid-tv .tv-frame {
+    position: relative !important;
+    width: 100% !important;
+    aspect-ratio: 16/9 !important;
+    background: #000 !important;
+    border-radius: 14px !important;
+    border: 8px solid #0A1128 !important;
+    box-shadow: 0 24px 60px rgba(10,17,40,0.28), 0 0 0 1px rgba(201,169,97,0.22) inset !important;
+    overflow: hidden !important;
+  }
+  .deck .paid-tv .tv-frame video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;   /* never crop the TV — pillar/letterbox if needed */
+    object-position: center center !important;
+    display: block !important;
+    background: #000 !important;
+  }
+  .deck .paid-tv .sound-toggle {
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    background: rgba(0,0,0,0.55) !important;
+    color: #fff !important;
+    border: 1px solid rgba(255,255,255,0.25) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    z-index: 5 !important;
+  }
+}
