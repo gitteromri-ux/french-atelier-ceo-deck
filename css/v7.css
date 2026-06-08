@@ -6654,13 +6654,13 @@
 }
 
 /* ============================================================
-   v7.41k — PAID DUO (slide 3): LARGER Philippe/Charline phones
-   Shrink header further; expand phones; NO cropping.
-   Target: phone h ~640px, fits viewport 820 with no clip.
+   v7.41k.2 — PAID DUO (slide 3): LARGER phones, meta tightened
+   Phone+meta+gap must fit within ~657px column.
+   Phone w=300 → h=533. Meta compressed to ~80px. Total ~620.
    ============================================================ */
 @media (min-width: 769px) {
   .deck .slide--paid-duo .slide__inner {
-    padding-top: 12px !important;
+    padding-top: 14px !important;
     padding-bottom: 12px !important;
     justify-content: flex-start !important;
     height: 100vh !important;
@@ -6684,7 +6684,6 @@
     margin: 4px 0 8px 0 !important;
     width: 70px !important;
   }
-  /* Grid takes remaining height, phones expand inside */
   .deck .slide--paid-duo .paid-duo-grid {
     margin-top: 6px !important;
     flex: 1 1 auto !important;
@@ -6692,7 +6691,7 @@
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     gap: 28px !important;
-    align-items: center !important;
+    align-items: start !important;
     justify-items: center !important;
     overflow: hidden !important;
   }
@@ -6702,28 +6701,51 @@
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
     min-height: 0 !important;
+    gap: 12px !important;
   }
-  /* Phones: enlarge — width 360 → 9/16 = 640 tall, fits the ~700px available */
+  /* Phones: larger than original 320 — width 360 → 640 tall.
+     Slot height ~657, gap 12, meta 80 → phone budget ~565. So shrink to 318 w → 565h.
+     Use min() to be safe. */
   .deck .slide--paid-duo .paid-phone,
   .deck .slide--paid-duo .paid-phone--xl {
-    width: 360px !important;
+    width: clamp(280px, 32vw, 360px) !important;
     max-width: 360px !important;
     height: auto !important;
-    max-height: 100% !important;
     flex: 0 0 auto !important;
   }
   .deck .slide--paid-duo .paid-phone .phone-frame {
     width: 100% !important;
     aspect-ratio: 9 / 16 !important;
+    max-height: calc(100vh - 270px) !important;
     height: auto !important;
-    max-height: 100% !important;
   }
   .deck .slide--paid-duo .paid-phone video {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    border-radius: inherit !important;
+  }
+  /* Meta caption tight — show name + 1 short line */
+  .deck .slide--paid-duo .paid-duo-meta {
+    flex: 0 0 auto !important;
+    max-height: 70px !important;
+    overflow: hidden !important;
+    text-align: center !important;
+    padding: 0 !important;
+  }
+  .deck .slide--paid-duo .paid-duo-meta > *:first-child {
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+    margin: 0 0 4px 0 !important;
+  }
+  .deck .slide--paid-duo .paid-duo-meta > *:not(:first-child) {
+    font-size: 11.5px !important;
+    line-height: 1.35 !important;
+    margin: 0 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
   }
 }
