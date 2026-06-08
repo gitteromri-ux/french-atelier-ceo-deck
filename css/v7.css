@@ -6956,3 +6956,39 @@
 .deck video { display: block !important; }
 .deck video[autoplay] { object-fit: cover; }
 .deck .paid-tv video, .deck .slide--paid-duo video { object-fit: contain !important; background: #000 !important; }
+
+/* === v7.46 — precise clip fixes for 3/9/10/30 === */
+@media (min-width: 901px) {
+  /* Slide 3 paid-duo — phone too tall, bring back to 640 */
+  .deck .slide--paid-duo .paid-duo-card .phone-frame,
+  .deck .slide--paid-duo .phone-frame {
+    width: 360px !important;
+    max-width: 360px !important;
+    height: 640px !important;
+    max-height: 640px !important;
+  }
+  .deck .paid-tv .tv-frame { max-width: 880px !important; }
+
+  /* Slides 9/10 format-tablet — content way too tall, scale tablet down */
+  .deck .slide--format-tablet .tablet-frame {
+    width: 600px !important;
+    max-width: 600px !important;
+    height: auto !important;
+    aspect-ratio: 4/3 !important;
+  }
+  .deck .slide--format-tablet .slide__inner { padding-top: 28px !important; }
+  .deck .slide--format-tablet .tablet-meta { 
+    font-size: 12px !important;
+    margin-top: 8px !important;
+    max-height: 100px !important;
+    overflow: hidden !important;
+  }
+
+  /* Slide 30 platform Reddit 3x3 — scale grid to fit */
+  .deck .slide--platform .platform-grid-3x3 {
+    transform: scale(0.72) !important;
+    transform-origin: top center !important;
+    margin-bottom: -180px !important;
+  }
+  .deck .slide--platform .slide__inner { padding-top: 28px !important; }
+}
