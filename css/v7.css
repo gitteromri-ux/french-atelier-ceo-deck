@@ -6884,3 +6884,75 @@
   }
   .deck .tablet-frame { width: 92vw !important; max-width: 560px !important; }
 }
+
+/* === v7.45 — Fill screens, move content up, NO clipping === */
+@media (min-width: 901px) {
+  /* Reduce top padding across all slides — move content up */
+  .deck .slide__inner {
+    padding-top: 40px !important;
+    padding-bottom: 30px !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+  }
+
+  /* Tighter header spacing */
+  .deck .slide__inner .eyebrow { margin-top: 0 !important; margin-bottom: 6px !important; }
+  .deck .slide__inner .title, .deck .slide-title { margin-top: 4px !important; margin-bottom: 8px !important; }
+  .deck .slide__inner .rule { margin: 6px 0 14px !important; }
+
+  /* Paid duo — fill more vertical */
+  .deck .slide--paid-duo .paid-duo-card .phone-frame,
+  .deck .slide--paid-duo .phone-frame {
+    width: 400px !important;
+    max-width: 400px !important;
+    height: 720px !important;
+    max-height: 720px !important;
+  }
+  .deck .paid-tv .tv-frame {
+    max-width: 980px !important;
+  }
+  .deck .slide--paid-duo .paid-duo-grid {
+    flex: 1 !important;
+    align-items: center !important;
+  }
+
+  /* Format-multi (5/6 phones) — give them more height since slide is 900h */
+  .deck .slide--format-multi .phone-frame--lg {
+    width: 260px !important;
+    height: auto !important;
+    aspect-ratio: 9/16 !important;
+  }
+  .deck .format-multi-grid--6 .phone-frame--lg {
+    width: 240px !important;
+  }
+  .deck .slide--format-multi .format-multi-grid {
+    flex: 1 !important;
+    align-items: center !important;
+  }
+
+  /* Format-tablet — fill more */
+  .deck .slide--format-tablet .tablet-frame {
+    width: 720px !important;
+    max-width: 720px !important;
+  }
+
+  /* Beauty IG — fill */
+  .deck .slide--beauty-ig .ig-phone .phone-frame,
+  .deck .ig-phone .phone-frame {
+    width: 280px !important;
+    height: auto !important;
+    aspect-ratio: 9/16 !important;
+  }
+
+  /* Platform (Reddit/Pinterest/etc.) — fill */
+  .deck .slide--platform .slide__inner > * { flex-shrink: 0; }
+  .deck .slide--platform .platform-canvas, 
+  .deck .slide--platform .platform-body { flex: 1 !important; }
+}
+
+/* Ensure all videos autoplay correctly */
+.deck video { display: block !important; }
+.deck video[autoplay] { object-fit: cover; }
+.deck .paid-tv video, .deck .slide--paid-duo video { object-fit: contain !important; background: #000 !important; }
