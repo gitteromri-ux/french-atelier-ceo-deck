@@ -5343,3 +5343,33 @@
     font-size: 15px !important;
   }
 }
+
+/* ============================================================
+   v7.36 — FINAL slide 13/36 stat readability
+   Higher specificity than .deck .slide--dark .stat .stat-l rule
+   ============================================================ */
+.deck .slide--dark.slide--chapter-closer .stat .stat-l,
+.deck .slide--chapter-closer .stat-grid .stat .stat-l {
+  color: #0A1128 !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+}
+.deck .slide--dark.slide--chapter-closer .stat .stat-s,
+.deck .slide--chapter-closer .stat-grid .stat .stat-s {
+  color: #2C3148 !important;
+  opacity: 1 !important;
+  font-weight: 500 !important;
+}
+.deck .slide--dark.slide--chapter-closer .stat .stat-n,
+.deck .slide--dark.slide--chapter-closer .stat .stat-n.gold {
+  color: #8A6A2E !important;
+}
+.deck .slide--dark.slide--chapter-closer .stat-grid .stat {
+  background: #FBF8F2 !important;
+  border: 1px solid rgba(10,17,40,0.08) !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
+}
+.deck .slide--dark.slide--chapter-closer .tl-note {
+  color: rgba(245,239,230,0.75) !important;
+  font-style: italic !important;
+}
