@@ -6992,3 +6992,12 @@
   }
   .deck .slide--platform .slide__inner { padding-top: 28px !important; }
 }
+
+/* === v7.47 — Reddit 3x3 final fit === */
+@media (min-width: 901px) {
+  .deck .slide--platform .platform-grid-3x3 {
+    transform: scale(0.62) !important;
+    transform-origin: top center !important;
+    margin-bottom: -280px !important;
+  }
+}
