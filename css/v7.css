@@ -6320,349 +6320,17 @@
 }
 
 /* ============================================================
-   v7.41j — MOVE CONTENT UP (no cropping)
-   Phones keep natural size & aspect ratio.
-   Tighten eyebrow/title/rule + slide padding.
+   v7.41L — Move content up + paid-duo phones LARGER properly
+   No aspect-ratio overrides. No object-fit changes.
+   Reduce header/meta padding to free room for naturally-sized phones.
+   Phones use the existing 9/16 frame; we just provide more room.
    ============================================================ */
 @media (min-width: 769px) {
 
-  /* PAID DUO (slide 3) — pull phones up by ~50px */
-  .deck .slide--paid-duo .slide__inner {
-    padding-top: 18px !important;
-    padding-bottom: 20px !important;
-    justify-content: flex-start !important;
-  }
-  .deck .slide--paid-duo .eyebrow {
-    margin-bottom: 8px !important;
-    font-size: 12px !important;
-  }
-  .deck .slide--paid-duo .title.title--md,
-  .deck .slide--paid-duo h2 {
-    font-size: 30px !important;
-    line-height: 1.15 !important;
-    margin: 0 0 8px 0 !important;
-  }
-  .deck .slide--paid-duo .rule {
-    margin: 4px 0 12px 0 !important;
-  }
-  .deck .slide--paid-duo .paid-duo-grid {
-    margin-top: 8px !important;
-  }
-  /* NO height/width caps on phones — keep natural aspect ratio */
-
-  /* FORMAT-MULTI (slides 5,6,7,8) — same tightening */
-  .deck .slide--format-multi .slide__inner {
-    padding-top: 16px !important;
-    padding-bottom: 16px !important;
-    justify-content: flex-start !important;
-  }
-  .deck .slide--format-multi .eyebrow {
-    margin-bottom: 6px !important;
-    font-size: 12px !important;
-  }
-  .deck .slide--format-multi .title.title--md,
-  .deck .slide--format-multi h2 {
-    font-size: 30px !important;
-    line-height: 1.15 !important;
-    margin: 0 0 4px 0 !important;
-  }
-  .deck .slide--format-multi .title-sub {
-    font-size: 14px !important;
-  }
-  .deck .slide--format-multi .rule {
-    margin: 4px 0 10px 0 !important;
-  }
-  .deck .slide--format-multi .format-multi-grid {
-    margin-top: 4px !important;
-  }
-  /* No cropping on .paid-phone inside format-multi — keep natural size */
-
-  /* HOMONYMS / VIDGRID variants — same tightening */
-  .deck .slide--vidgrid .slide__inner,
-  .deck .slide--format-tablet .slide__inner {
-    padding-top: 16px !important;
-    padding-bottom: 16px !important;
-  }
-  .deck .slide--vidgrid .eyebrow,
-  .deck .slide--format-tablet .eyebrow {
-    margin-bottom: 6px !important;
-  }
-  .deck .slide--vidgrid .title.title--md,
-  .deck .slide--format-tablet .title.title--md {
-    font-size: 30px !important;
-    line-height: 1.15 !important;
-    margin: 0 0 4px 0 !important;
-  }
-  .deck .slide--vidgrid .rule,
-  .deck .slide--format-tablet .rule {
-    margin: 4px 0 10px 0 !important;
-  }
-
-  /* ---------- EMAIL PAIR SLIDES (16-28) — keep prior shrinks ---------- */
-  .deck .slide--email-pair .slide__inner {
-    padding-top: 18px !important;
-    padding-bottom: 16px !important;
-    height: 100vh !important;
-    max-height: 100vh !important;
-    overflow: hidden !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-  .deck .slide--email-pair .eyebrow {
-    margin-bottom: 6px !important;
-  }
-  .deck .slide--email-pair .title.title--md {
-    font-size: 26px !important;
-    line-height: 1.15 !important;
-    margin: 0 0 6px 0 !important;
-  }
-  .deck .slide--email-pair .rule {
-    margin: 4px 0 10px 0 !important;
-  }
-  .deck .slide--email-pair .email-pair-v78 {
-    flex: 1 1 auto !important;
-    min-height: 0 !important;
-    max-height: 100% !important;
-    overflow: hidden !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 24px !important;
-    align-items: stretch !important;
-  }
-  .deck .slide--email-pair .email-pair-v78 > * {
-    max-height: 100% !important;
-    overflow: hidden !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-  .deck .slide--email-pair .mock-email-hero,
-  .deck .slide--email-pair .email-pair-v78 [class*="hero"] {
-    max-height: 130px !important;
-    height: 130px !important;
-    aspect-ratio: auto !important;
-    overflow: hidden !important;
-    flex: 0 0 130px !important;
-  }
-  .deck .slide--email-pair .email-pair-v78 [class*="body"],
-  .deck .slide--email-pair .mock-email-body {
-    flex: 1 1 auto !important;
-    min-height: 0 !important;
-    overflow: hidden !important;
-    font-size: 11.5px !important;
-    line-height: 1.42 !important;
-    padding: 10px 14px 12px 14px !important;
-  }
-  .deck .slide--email-pair .email-pair-v78 [class*="body"] p,
-  .deck .slide--email-pair .mock-email-body p {
-    margin: 0 0 5px 0 !important;
-  }
-
-  /* ---------- PINTEREST 3×3 (slide 31) ---------- */
-  .deck #slide-pinterest .slide__inner--platform-body {
-    align-items: stretch !important;
-    gap: 24px !important;
-    padding-bottom: 24px !important;
-    overflow: hidden !important;
-  }
-  .deck #slide-pinterest .platform-grid-3x3 {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    grid-template-rows: repeat(3, 1fr) !important;
-    gap: 14px !important;
-    width: 100% !important;
-    height: 100% !important;
-    overflow: hidden !important;
-  }
-  .deck #slide-pinterest .platform-hero {
-    flex: 0 0 320px !important;
-    width: 320px !important;
-    align-self: stretch !important;
-  }
-  .deck #slide-pinterest .platform-grid-3x3 > * {
-    height: 100% !important;
-    min-height: 0 !important;
-    overflow: hidden !important;
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-  .deck #slide-pinterest .platform-grid-3x3 .mock-pinterest__pin {
-    flex: 1 1 auto !important;
-    min-height: 0 !important;
-    overflow: hidden !important;
-    border-radius: 8px !important;
-  }
-  .deck #slide-pinterest .platform-grid-3x3 .mock-pinterest__overlay {
-    padding: 8px 10px !important;
-  }
-  .deck #slide-pinterest .platform-grid-3x3 .mock-pinterest__topic {
-    font-size: 9.5px !important;
-    line-height: 1.3 !important;
-    margin-bottom: 4px !important;
-  }
-  .deck #slide-pinterest .platform-grid-3x3 .mock-pinterest__pin-title {
-    font-size: 11.5px !important;
-    line-height: 1.25 !important;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 3 !important;
-    -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
-  }
-  .deck #slide-pinterest .platform-grid-3x3 .mock-pinterest__letter {
-    font-size: 32px !important;
-  }
-  .deck #slide-pinterest .platform-grid-3x3 .mock-pinterest__bottom {
-    flex: 0 0 auto !important;
-    padding: 6px 8px !important;
-    font-size: 10px !important;
-  }
-
-  /* ---------- REDDIT 3×3 (slide 30) + STACK EXCHANGE (slide 34, id=slide-stack_exchange) ---------- */
-  .deck #slide-reddit .slide__inner--platform-body,
-  .deck #slide-stack_exchange .slide__inner--platform-body {
-    align-items: stretch !important;
-    gap: 24px !important;
-    padding-bottom: 24px !important;
-    overflow: hidden !important;
-    max-height: calc(100vh - 130px) !important;
-    height: calc(100vh - 130px) !important;
-  }
-  .deck #slide-reddit .platform-grid-3x3,
-  .deck #slide-stack_exchange .platform-grid-3x3 {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    grid-template-rows: repeat(3, 1fr) !important;
-    gap: 12px !important;
-    width: 100% !important;
-    height: 100% !important;
-    max-height: 100% !important;
-    overflow: hidden !important;
-  }
-  .deck #slide-reddit .platform-hero,
-  .deck #slide-stack_exchange .platform-hero {
-    flex: 0 0 320px !important;
-    width: 320px !important;
-    align-self: stretch !important;
-  }
-  .deck #slide-reddit .platform-grid-3x3 > *,
-  .deck #slide-stack_exchange .platform-grid-3x3 > * {
-    height: 100% !important;
-    min-height: 0 !important;
-    overflow: hidden !important;
-    padding: 10px 12px !important;
-    font-size: 10.5px !important;
-    line-height: 1.35 !important;
-    box-sizing: border-box !important;
-  }
-  /* Reddit-specific text clamping */
-  .deck #slide-reddit .mock-reddit__title,
-  .deck #slide-reddit [class*="mock-reddit"] [class*="title"] {
-    font-size: 11.5px !important;
-    line-height: 1.3 !important;
-    margin-bottom: 4px !important;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 3 !important;
-    -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
-  }
-  .deck #slide-reddit .mock-reddit__body,
-  .deck #slide-reddit [class*="mock-reddit"] [class*="body"] {
-    font-size: 10.5px !important;
-    line-height: 1.35 !important;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important;
-    -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
-  }
-  /* Stack-specific clamping */
-  .deck #slide-stack_exchange .mock-stack__title,
-  .deck #slide-stack_exchange [class*="mock-stack"] [class*="title"] {
-    font-size: 11.5px !important;
-    line-height: 1.3 !important;
-    margin-bottom: 4px !important;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 3 !important;
-    -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
-  }
-  .deck #slide-stack_exchange .mock-stack__answer,
-  .deck #slide-stack_exchange [class*="mock-stack"] [class*="excerpt"] {
-    font-size: 10.5px !important;
-    line-height: 1.35 !important;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important;
-    -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
-  }
-  .deck #slide-stack_exchange .mock-stack__tags {
-    font-size: 9.5px !important;
-    gap: 4px !important;
-    flex-wrap: wrap !important;
-  }
-
-  /* ---------- Q/M/TG stricter height cap ---------- */
-  .deck #slide-quora .slide__inner--platform-body,
-  .deck #slide-medium .slide__inner--platform-body,
-  .deck #slide-telegram .slide__inner--platform-body {
-    max-height: calc(100vh - 130px) !important;
-    height: calc(100vh - 130px) !important;
-  }
-  .deck #slide-quora .platform-grid-3x3,
-  .deck #slide-medium .platform-grid-3x3,
-  .deck #slide-telegram .platform-grid-3x3 {
-    max-height: 100% !important;
-  }
-}
-
-/* v7.41j.1 — single email card slides (27, 29-style single) */
-@media (min-width: 769px) {
-  .deck .slide--email-pair .email-pair-v78--single {
-    flex: 1 1 auto !important;
-    min-height: 0 !important;
-    max-height: 100% !important;
-    overflow: hidden !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-  }
-  .deck .slide--email-pair .email-pair-v78--single > .email-card-v78 {
-    max-height: 100% !important;
-    overflow: hidden !important;
-    display: flex !important;
-    flex-direction: column !important;
-    width: min(720px, 80%) !important;
-  }
-  .deck .slide--email-pair .email-pair-v78--single .email-card-v78__hero,
-  .deck .slide--email-pair .email-pair-v78--single [class*="hero"] {
-    max-height: 140px !important;
-    height: 140px !important;
-    flex: 0 0 140px !important;
-    overflow: hidden !important;
-  }
-  .deck .slide--email-pair .email-pair-v78--single .email-card-v78__body,
-  .deck .slide--email-pair .email-pair-v78--single [class*="body"] {
-    flex: 1 1 auto !important;
-    min-height: 0 !important;
-    overflow: hidden !important;
-    font-size: 12px !important;
-    line-height: 1.45 !important;
-    padding: 12px 18px !important;
-  }
-  .deck .slide--email-pair .email-pair-v78--single .email-card-v78__body p {
-    margin: 0 0 6px 0 !important;
-  }
-}
-
-/* ============================================================
-   v7.41k.2 — PAID DUO (slide 3): LARGER phones, meta tightened
-   Phone+meta+gap must fit within ~657px column.
-   Phone w=300 → h=533. Meta compressed to ~80px. Total ~620.
-   ============================================================ */
-@media (min-width: 769px) {
+  /* PAID DUO (slide 3): give phones 340px width → naturally 604px tall */
   .deck .slide--paid-duo .slide__inner {
     padding-top: 14px !important;
     padding-bottom: 12px !important;
-    justify-content: flex-start !important;
     height: 100vh !important;
     max-height: 100vh !important;
     display: flex !important;
@@ -6672,7 +6340,6 @@
   .deck .slide--paid-duo .eyebrow {
     margin-bottom: 4px !important;
     font-size: 11px !important;
-    line-height: 1.2 !important;
   }
   .deck .slide--paid-duo .title.title--md,
   .deck .slide--paid-duo h2 {
@@ -6690,62 +6357,171 @@
     min-height: 0 !important;
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 28px !important;
+    gap: 24px !important;
     align-items: start !important;
     justify-items: center !important;
     overflow: hidden !important;
   }
   .deck .slide--paid-duo .paid-duo-card {
-    height: 100% !important;
-    max-height: 100% !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    justify-content: flex-start !important;
+    gap: 10px !important;
     min-height: 0 !important;
-    gap: 12px !important;
   }
-  /* Phones: larger than original 320 — width 360 → 640 tall.
-     Slot height ~657, gap 12, meta 80 → phone budget ~565. So shrink to 318 w → 565h.
-     Use min() to be safe. */
+  /* PHONES: width 340 → 604 tall (was 320 → 569 = +6% larger). NO aspect-ratio overrides. NO max-height clamp. */
   .deck .slide--paid-duo .paid-phone,
   .deck .slide--paid-duo .paid-phone--xl {
-    width: clamp(280px, 32vw, 360px) !important;
-    max-width: 360px !important;
-    height: auto !important;
+    width: 340px !important;
+    max-width: 340px !important;
     flex: 0 0 auto !important;
   }
-  .deck .slide--paid-duo .paid-phone .phone-frame {
-    width: 100% !important;
-    aspect-ratio: 9 / 16 !important;
-    max-height: calc(100vh - 270px) !important;
-    height: auto !important;
-  }
-  .deck .slide--paid-duo .paid-phone video {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-  }
-  /* Meta caption tight — show name + 1 short line */
+  /* Meta caption — tight but full visible */
   .deck .slide--paid-duo .paid-duo-meta {
     flex: 0 0 auto !important;
-    max-height: 70px !important;
-    overflow: hidden !important;
     text-align: center !important;
-    padding: 0 !important;
+    max-height: 90px !important;
+    overflow: hidden !important;
   }
   .deck .slide--paid-duo .paid-duo-meta > *:first-child {
-    font-size: 18px !important;
+    font-size: 17px !important;
     line-height: 1.2 !important;
-    margin: 0 0 4px 0 !important;
+    margin: 0 0 3px 0 !important;
   }
   .deck .slide--paid-duo .paid-duo-meta > *:not(:first-child) {
     font-size: 11.5px !important;
     line-height: 1.35 !important;
     margin: 0 !important;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important;
-    -webkit-box-orient: vertical !important;
+  }
+
+  /* FORMAT-MULTI (5,6,7,8) — move up, do NOT cap phone size */
+  .deck .slide--format-multi .slide__inner {
+    padding-top: 14px !important;
+    padding-bottom: 12px !important;
+  }
+  .deck .slide--format-multi .eyebrow { margin-bottom: 4px !important; font-size: 11px !important; }
+  .deck .slide--format-multi .title.title--md {
+    font-size: 26px !important; line-height: 1.15 !important; margin: 0 0 2px 0 !important;
+  }
+  .deck .slide--format-multi .title-sub { font-size: 13px !important; }
+  .deck .slide--format-multi .rule { margin: 4px 0 8px 0 !important; }
+  .deck .slide--format-multi .format-multi-grid { margin-top: 4px !important; }
+
+  /* VIDGRID / HOMONYMS — same gentle header trim */
+  .deck .slide--vidgrid .slide__inner,
+  .deck .slide--format-tablet .slide__inner {
+    padding-top: 14px !important;
+    padding-bottom: 12px !important;
+  }
+  .deck .slide--vidgrid .eyebrow,
+  .deck .slide--format-tablet .eyebrow { margin-bottom: 4px !important; }
+  .deck .slide--vidgrid .title.title--md,
+  .deck .slide--format-tablet .title.title--md {
+    font-size: 26px !important; line-height: 1.15 !important; margin: 0 0 2px 0 !important;
+  }
+  .deck .slide--vidgrid .rule,
+  .deck .slide--format-tablet .rule { margin: 4px 0 8px 0 !important; }
+
+  /* ---------- EMAIL PAIR SLIDES (re-apply, no cropping) ---------- */
+  .deck .slide--email-pair .slide__inner {
+    padding-top: 18px !important;
+    padding-bottom: 16px !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
     overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .deck .slide--email-pair .eyebrow { margin-bottom: 6px !important; }
+  .deck .slide--email-pair .title.title--md {
+    font-size: 26px !important; line-height: 1.15 !important; margin: 0 0 6px 0 !important;
+  }
+  .deck .slide--email-pair .rule { margin: 4px 0 10px 0 !important; }
+  .deck .slide--email-pair .email-pair-v78,
+  .deck .slide--email-pair .email-pair-v78--single {
+    flex: 1 1 auto !important; min-height: 0 !important; max-height: 100% !important; overflow: hidden !important;
+    display: flex !important; gap: 24px !important;
+  }
+  .deck .slide--email-pair .email-pair-v78 { display: grid !important; grid-template-columns: 1fr 1fr !important; }
+  .deck .slide--email-pair .email-pair-v78--single { justify-content: center !important; }
+  .deck .slide--email-pair .email-pair-v78--single > .email-card-v78 { width: min(720px, 80%) !important; }
+  .deck .slide--email-pair .email-pair-v78 > *,
+  .deck .slide--email-pair .email-pair-v78--single > * {
+    max-height: 100% !important; overflow: hidden !important; display: flex !important; flex-direction: column !important;
+  }
+  .deck .slide--email-pair .mock-email-hero,
+  .deck .slide--email-pair [class*="hero"] {
+    max-height: 130px !important; height: 130px !important; flex: 0 0 130px !important; overflow: hidden !important;
+  }
+  .deck .slide--email-pair [class*="body"],
+  .deck .slide--email-pair .mock-email-body {
+    flex: 1 1 auto !important; min-height: 0 !important; overflow: hidden !important;
+    font-size: 11.5px !important; line-height: 1.42 !important; padding: 10px 14px 12px 14px !important;
+  }
+  .deck .slide--email-pair [class*="body"] p,
+  .deck .slide--email-pair .mock-email-body p { margin: 0 0 5px 0 !important; }
+
+  /* ---------- Pinterest, Reddit, Stack 3x3 (re-apply) ---------- */
+  .deck #slide-pinterest .slide__inner--platform-body,
+  .deck #slide-reddit .slide__inner--platform-body,
+  .deck #slide-stack_exchange .slide__inner--platform-body,
+  .deck #slide-quora .slide__inner--platform-body,
+  .deck #slide-medium .slide__inner--platform-body,
+  .deck #slide-telegram .slide__inner--platform-body {
+    align-items: stretch !important;
+    gap: 24px !important;
+    padding-bottom: 24px !important;
+    overflow: hidden !important;
+    max-height: calc(100vh - 130px) !important;
+    height: calc(100vh - 130px) !important;
+  }
+  .deck #slide-pinterest .platform-grid-3x3,
+  .deck #slide-reddit .platform-grid-3x3,
+  .deck #slide-stack_exchange .platform-grid-3x3 {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-rows: repeat(3, 1fr) !important;
+    gap: 12px !important;
+    width: 100% !important; height: 100% !important; max-height: 100% !important;
+    overflow: hidden !important;
+  }
+  .deck #slide-pinterest .platform-hero,
+  .deck #slide-reddit .platform-hero,
+  .deck #slide-stack_exchange .platform-hero {
+    flex: 0 0 320px !important; width: 320px !important; align-self: stretch !important;
+  }
+  .deck #slide-pinterest .platform-grid-3x3 > *,
+  .deck #slide-reddit .platform-grid-3x3 > *,
+  .deck #slide-stack_exchange .platform-grid-3x3 > * {
+    height: 100% !important; min-height: 0 !important; overflow: hidden !important; box-sizing: border-box !important;
+  }
+  /* Pinterest mini-card formatting */
+  .deck #slide-pinterest .platform-grid-3x3 > * {
+    display: flex !important; flex-direction: column !important;
+  }
+  .deck #slide-pinterest .platform-grid-3x3 .mock-pinterest__pin {
+    flex: 1 1 auto !important; min-height: 0 !important; overflow: hidden !important; border-radius: 8px !important;
+  }
+  .deck #slide-pinterest .platform-grid-3x3 .mock-pinterest__overlay { padding: 8px 10px !important; }
+  .deck #slide-pinterest .platform-grid-3x3 .mock-pinterest__topic { font-size: 9.5px !important; line-height: 1.3 !important; margin-bottom: 4px !important; }
+  .deck #slide-pinterest .platform-grid-3x3 .mock-pinterest__pin-title {
+    font-size: 11.5px !important; line-height: 1.25 !important;
+    display: -webkit-box !important; -webkit-line-clamp: 3 !important; -webkit-box-orient: vertical !important; overflow: hidden !important;
+  }
+  .deck #slide-pinterest .platform-grid-3x3 .mock-pinterest__letter { font-size: 32px !important; }
+  .deck #slide-pinterest .platform-grid-3x3 .mock-pinterest__bottom { flex: 0 0 auto !important; padding: 6px 8px !important; font-size: 10px !important; }
+  /* Reddit/Stack tight clamping */
+  .deck #slide-reddit .platform-grid-3x3 > *,
+  .deck #slide-stack_exchange .platform-grid-3x3 > * {
+    padding: 10px 12px !important; font-size: 10.5px !important; line-height: 1.35 !important;
+  }
+  .deck #slide-reddit [class*="title"], .deck #slide-stack_exchange [class*="title"] {
+    font-size: 11.5px !important; line-height: 1.3 !important; margin-bottom: 4px !important;
+    display: -webkit-box !important; -webkit-line-clamp: 3 !important; -webkit-box-orient: vertical !important; overflow: hidden !important;
+  }
+  .deck #slide-reddit [class*="body"], .deck #slide-stack_exchange [class*="excerpt"],
+  .deck #slide-stack_exchange [class*="answer"] {
+    font-size: 10.5px !important; line-height: 1.35 !important;
+    display: -webkit-box !important; -webkit-line-clamp: 2 !important; -webkit-box-orient: vertical !important; overflow: hidden !important;
   }
 }
