@@ -6680,3 +6680,102 @@
   .deck img, .deck video { max-width: 100% !important; height: auto !important; }
   .deck video { height: 100% !important; } /* override - keep inside containers */
 }
+
+/* === v7.43 — Enlarge Charline TV like Philippe + no-crop Philippe + bigger phones everywhere === */
+
+/* Desktop/tablet: enlarge paid duo videos */
+@media (min-width: 901px) {
+  /* Philippe phone — bigger and no crop (contain so graphics never cut) */
+  .deck .slide--paid-duo .paid-duo-card .phone-frame,
+  .deck .slide--paid-duo .phone-frame {
+    width: 360px !important;
+    max-width: 360px !important;
+    height: 640px !important;
+    max-height: 640px !important;
+  }
+  .deck .slide--paid-duo .paid-duo-card video,
+  .deck .slide--paid-duo .phone-frame video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;  /* NO CROP — graphics fully visible */
+    background: #000 !important;
+  }
+
+  /* Charline TV — match Philippe's prominence (taller, larger) */
+  .deck .paid-tv {
+    width: 100% !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+  }
+  .deck .paid-tv .tv-frame {
+    width: 100% !important;
+    aspect-ratio: 16/9 !important;
+    border-width: 10px !important;
+  }
+  .deck .paid-tv .tv-frame video {
+    object-fit: contain !important;  /* no crop */
+  }
+
+  /* Paid duo grid: align both prominently */
+  .deck .slide--paid-duo .paid-duo-grid {
+    gap: 50px !important;
+    align-items: center !important;
+  }
+
+  /* Organic phone frames bigger */
+  .deck .phone-frame.phone-frame--xl {
+    width: 380px !important;
+    max-width: 380px !important;
+  }
+  .deck .phone-frame.phone-frame--lg {
+    width: 260px !important;
+  }
+
+  /* Format multi (5/6 phones) slight bump */
+  .deck .format-multi-grid--6 .phone-frame--lg { width: 220px !important; }
+  .deck .format-multi-grid--5 .phone-frame--lg { width: 240px !important; }
+
+  /* Beauty IG phones bigger */
+  .deck .ig-phone .phone-frame {
+    width: 230px !important;
+    height: auto !important;
+    aspect-ratio: 9/16 !important;
+  }
+
+  /* Generic video-wrap larger */
+  .deck .video-wrap {
+    max-width: 100% !important;
+  }
+}
+
+/* Mobile: enlarge but contained */
+@media (max-width: 900px) {
+  .deck .slide--paid-duo .paid-duo-card .phone-frame,
+  .deck .slide--paid-duo .phone-frame {
+    width: 90vw !important;
+    max-width: 360px !important;
+    height: auto !important;
+    aspect-ratio: 9/16 !important;
+    max-height: 70vh !important;
+  }
+  .deck .slide--paid-duo .paid-duo-card video,
+  .deck .slide--paid-duo .phone-frame video {
+    object-fit: contain !important;  /* NO CROP */
+    background: #000 !important;
+  }
+  .deck .paid-tv {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .deck .paid-tv .tv-frame video { object-fit: contain !important; }
+
+  /* Organic phones bigger on mobile too */
+  .deck .phone-frame.phone-frame--xl,
+  .deck .phone-frame.phone-frame--lg,
+  .deck .ig-phone .phone-frame {
+    width: 85vw !important;
+    max-width: 340px !important;
+    height: auto !important;
+    aspect-ratio: 9/16 !important;
+  }
+}
