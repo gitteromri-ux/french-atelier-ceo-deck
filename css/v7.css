@@ -5127,9 +5127,10 @@
 .deck .email-card-v78__hero--img {
   position: relative !important;
   aspect-ratio: 16/9 !important;
-  background: #0A1128 !important;
+  background-color: #0A1128 !important;
   background-size: cover !important;
   background-position: center !important;
+  background-repeat: no-repeat !important;
   display: block !important;
   padding: 0 !important;
   overflow: hidden !important;
