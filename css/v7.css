@@ -6117,3 +6117,23 @@
     padding-right: 64px !important;
   }
 }
+
+/* ============================================================
+   v7.41g — Pinterest hero: ensure text not cut by white frame
+   ============================================================ */
+@media (min-width: 769px) {
+  .deck #slide-pinterest .platform-hero {
+    overflow: visible !important;
+  }
+  .deck #slide-pinterest .platform-hero .mock-pinterest__pin {
+    overflow: hidden !important;
+    border-radius: 8px !important;
+  }
+  /* Move bottom overlay higher inside the pin */
+  .deck #slide-pinterest .platform-hero .mock-pinterest__overlay {
+    padding-bottom: 28px !important;
+  }
+  .deck #slide-pinterest .platform-hero .mock-pinterest__bottom {
+    display: none !important;
+  }
+}
