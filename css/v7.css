@@ -7018,3 +7018,11 @@
   /* Pull slide header tighter too */
   .deck .slide--platform#slide-reddit .slide__inner { padding-top: 24px !important; padding-bottom: 16px !important; }
 }
+
+/* === v7.49 — Reddit final 47px clip === */
+@media (min-width: 901px) {
+  .deck .slide--platform#slide-reddit .platform-grid-3x3 {
+    transform: scale(0.50) !important;
+    margin-bottom: -420px !important;
+  }
+}
