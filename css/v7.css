@@ -6652,3 +6652,78 @@
     margin: 0 0 6px 0 !important;
   }
 }
+
+/* ============================================================
+   v7.41k — PAID DUO (slide 3): LARGER Philippe/Charline phones
+   Shrink header further; expand phones; NO cropping.
+   Target: phone h ~640px, fits viewport 820 with no clip.
+   ============================================================ */
+@media (min-width: 769px) {
+  .deck .slide--paid-duo .slide__inner {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    justify-content: flex-start !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+  }
+  .deck .slide--paid-duo .eyebrow {
+    margin-bottom: 4px !important;
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+  }
+  .deck .slide--paid-duo .title.title--md,
+  .deck .slide--paid-duo h2 {
+    font-size: 24px !important;
+    line-height: 1.15 !important;
+    margin: 0 0 4px 0 !important;
+  }
+  .deck .slide--paid-duo .rule {
+    margin: 4px 0 8px 0 !important;
+    width: 70px !important;
+  }
+  /* Grid takes remaining height, phones expand inside */
+  .deck .slide--paid-duo .paid-duo-grid {
+    margin-top: 6px !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 28px !important;
+    align-items: center !important;
+    justify-items: center !important;
+    overflow: hidden !important;
+  }
+  .deck .slide--paid-duo .paid-duo-card {
+    height: 100% !important;
+    max-height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 0 !important;
+  }
+  /* Phones: enlarge — width 360 → 9/16 = 640 tall, fits the ~700px available */
+  .deck .slide--paid-duo .paid-phone,
+  .deck .slide--paid-duo .paid-phone--xl {
+    width: 360px !important;
+    max-width: 360px !important;
+    height: auto !important;
+    max-height: 100% !important;
+    flex: 0 0 auto !important;
+  }
+  .deck .slide--paid-duo .paid-phone .phone-frame {
+    width: 100% !important;
+    aspect-ratio: 9 / 16 !important;
+    height: auto !important;
+    max-height: 100% !important;
+  }
+  .deck .slide--paid-duo .paid-phone video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: inherit !important;
+  }
+}
