@@ -5511,3 +5511,269 @@
 .deck .slide--dark.slide--qr-intro .stat-grid .stat .stat-n.gold {
   color: #8A6A2E !important;
 }
+
+/* ============================================================
+   v7.41 — Chapter 3 final fixes
+   ============================================================ */
+
+/* (1) Email cards — show MORE body text (not cut at bottom).
+   Reduce hero aspect ratio so body has more visible space, and
+   raise max-height of body. */
+@media (min-width: 769px) {
+  .deck .slide--email-pair .email-card-v78__hero.email-card-v78__hero--img,
+  .deck .slide--email-pair .email-card-v78__hero {
+    aspect-ratio: 21/9 !important;
+    max-height: 200px !important;
+  }
+  .deck .slide--email-pair .email-card-v78__body {
+    max-height: 320px !important;
+    overflow-y: auto !important;
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+    padding: 14px 20px 18px !important;
+  }
+  .deck .slide--email-pair .email-card-v78 {
+    max-height: none !important;
+    height: auto !important;
+  }
+  .deck .slide--email-pair .slide__inner {
+    max-height: none !important;
+    padding-bottom: 32px !important;
+  }
+}
+
+/* (2) Slide 29 (qr-intro) — move everything UP and larger platform badges */
+@media (min-width: 769px) {
+  .deck .slide--qr-intro .slide__inner {
+    justify-content: flex-start !important;
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+  .deck .slide--qr-intro .title,
+  .deck .slide--qr-intro h1,
+  .deck .slide--qr-intro h2 {
+    font-size: 64px !important;
+    line-height: 1.1 !important;
+    margin-top: 8px !important;
+    margin-bottom: 16px !important;
+  }
+  .deck .slide--qr-intro .qr-platform-row,
+  .deck .slide--qr-intro .platform-pill-row,
+  .deck .slide--qr-intro .qr-intro__pills,
+  .deck .slide--qr-intro .platform-badges {
+    margin-top: 16px !important;
+    margin-bottom: 28px !important;
+    gap: 14px !important;
+  }
+  .deck .slide--qr-intro .qr-platform-row > *,
+  .deck .slide--qr-intro .platform-pill-row > *,
+  .deck .slide--qr-intro .qr-intro__pills > *,
+  .deck .slide--qr-intro .platform-badges > *,
+  .deck .slide--qr-intro .platform-pill,
+  .deck .slide--qr-intro .platform-badge {
+    font-size: 18px !important;
+    padding: 14px 26px !important;
+    letter-spacing: 0.14em !important;
+    font-weight: 700 !important;
+  }
+  .deck .slide--qr-intro .stat-grid {
+    margin-top: 12px !important;
+    gap: 24px !important;
+  }
+  .deck .slide--qr-intro .stat-grid .stat {
+    padding: 24px 28px !important;
+  }
+}
+
+/* (3) Pinterest slide 31 — LARGER mocks + WHITE fonts on pin cards */
+@media (min-width: 769px) {
+  .deck #slide-pinterest .platform-hero.mock-pinterest {
+    width: 340px !important;
+    flex: 0 0 340px !important;
+  }
+  .deck #slide-pinterest .platform-hero .mock-pinterest__pin {
+    aspect-ratio: 3/4 !important;
+    min-height: 460px !important;
+  }
+  .deck #slide-pinterest .platform-grid-3x3 {
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 18px !important;
+  }
+  .deck #slide-pinterest .platform-grid-3x3 .mock-pinterest {
+    width: 100% !important;
+  }
+  .deck #slide-pinterest .platform-grid-3x3 .mock-pinterest__pin {
+    aspect-ratio: 3/4 !important;
+    min-height: 220px !important;
+    padding: 14px !important;
+  }
+  /* WHITE TEXT EVERYWHERE on pin cards */
+  .deck #slide-pinterest .mock-pinterest__topic,
+  .deck #slide-pinterest .mock-pinterest__pin-title,
+  .deck #slide-pinterest .mock-pinterest__letter,
+  .deck #slide-pinterest .mock-pinterest__overlay,
+  .deck #slide-pinterest .mock-pinterest__overlay * {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.55) !important;
+  }
+  .deck #slide-pinterest .mock-pinterest__pin-title {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+  }
+  .deck #slide-pinterest .mock-pinterest__topic {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.04em !important;
+    margin-bottom: 6px !important;
+  }
+  .deck #slide-pinterest .platform-hero .mock-pinterest__pin-title {
+    font-size: 18px !important;
+  }
+  .deck #slide-pinterest .platform-hero .mock-pinterest__topic {
+    font-size: 13px !important;
+  }
+  /* Darken pin backgrounds slightly so white text stands out */
+  .deck #slide-pinterest .mock-pinterest__pin::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 100%) !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+  }
+  .deck #slide-pinterest .mock-pinterest__pin {
+    position: relative !important;
+  }
+  .deck #slide-pinterest .mock-pinterest__overlay,
+  .deck #slide-pinterest .mock-pinterest__letter {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+}
+
+/* (4) Quora slide 32, Medium slide 33, Telegram slide 35 — LARGER mocks,
+   slight color shading per card, clearer text, not cut */
+@media (min-width: 769px) {
+  /* Layout: hero card + 2-col grid on the right, fit in screen */
+  .deck #slide-quora .slide__inner--platform-body,
+  .deck #slide-medium .slide__inner--platform-body,
+  .deck #slide-telegram .slide__inner--platform-body {
+    align-items: flex-start !important;
+    gap: 28px !important;
+  }
+  .deck #slide-quora .platform-grid-3x3,
+  .deck #slide-medium .platform-grid-3x3,
+  .deck #slide-telegram .platform-grid-3x3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 18px !important;
+  }
+  .deck #slide-quora .platform-hero,
+  .deck #slide-medium .platform-hero,
+  .deck #slide-telegram .platform-hero {
+    flex: 0 0 360px !important;
+    width: 360px !important;
+  }
+  /* Make each mini-card BIGGER and clearer text */
+  .deck #slide-quora .platform-mini,
+  .deck #slide-medium .platform-mini,
+  .deck #slide-telegram .platform-mini {
+    padding: 18px 20px !important;
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08) !important;
+  }
+  .deck #slide-quora .platform-mini *,
+  .deck #slide-medium .platform-mini *,
+  .deck #slide-telegram .platform-mini * {
+    font-size: inherit;
+  }
+  .deck #slide-quora .mock-quora__title,
+  .deck #slide-medium .mock-medium__title,
+  .deck #slide-telegram .mock-telegram__title {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    color: #0A1128 !important;
+    margin-bottom: 8px !important;
+  }
+  .deck #slide-quora .mock-quora__answer,
+  .deck #slide-medium .mock-medium__subtitle,
+  .deck #slide-medium .mock-medium__body,
+  .deck #slide-telegram .mock-telegram__text {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    color: #2C3148 !important;
+  }
+  /* Subtle color shading - alternating warm/cool tints per card */
+  .deck #slide-quora .platform-grid-3x3 .platform-mini:nth-child(odd),
+  .deck #slide-medium .platform-grid-3x3 .platform-mini:nth-child(odd),
+  .deck #slide-telegram .platform-grid-3x3 .platform-mini:nth-child(odd) {
+    background: #FDFAF4 !important;
+    border-left: 3px solid #C9A961 !important;
+  }
+  .deck #slide-quora .platform-grid-3x3 .platform-mini:nth-child(even),
+  .deck #slide-medium .platform-grid-3x3 .platform-mini:nth-child(even),
+  .deck #slide-telegram .platform-grid-3x3 .platform-mini:nth-child(even) {
+    background: #F4F7FB !important;
+    border-left: 3px solid #5B6B8A !important;
+  }
+  .deck #slide-quora .platform-grid-3x3 .platform-mini:nth-child(3n),
+  .deck #slide-medium .platform-grid-3x3 .platform-mini:nth-child(3n),
+  .deck #slide-telegram .platform-grid-3x3 .platform-mini:nth-child(3n) {
+    background: #F8F3EE !important;
+    border-left: 3px solid #8A6A2E !important;
+  }
+  /* Force all 9 cards to be visible (not hidden) */
+  .deck #slide-quora .platform-grid-3x3 > *,
+  .deck #slide-medium .platform-grid-3x3 > *,
+  .deck #slide-telegram .platform-grid-3x3 > * {
+    display: block !important;
+  }
+  /* Telegram had a rule hiding nth-child(n+5) — override */
+  .deck .slide--platform#slide-telegram .platform-grid-3x3 .platform-mini:nth-child(n+5) {
+    display: block !important;
+  }
+  /* Container height — show all */
+  .deck #slide-quora .slide__inner--platform-body,
+  .deck #slide-medium .slide__inner--platform-body,
+  .deck #slide-telegram .slide__inner--platform-body {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+}
+
+/* (5) Bastille slide 38 — fix header overflow/smear and ensure not cut */
+@media (min-width: 769px) {
+  .deck .slide--bastille-campaign .bastille-campaign-headline {
+    font-size: 64px !important;
+    line-height: 1.06 !important;
+    letter-spacing: -0.005em !important;
+    word-spacing: normal !important;
+    margin: 0 !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    text-shadow: none !important;
+    filter: none !important;
+  }
+  .deck .slide--bastille-campaign .bastille-eyebrow {
+    margin-bottom: 24px !important;
+  }
+  .deck .slide--bastille-campaign .bastille-inner {
+    padding: 48px 64px !important;
+    overflow: visible !important;
+  }
+  .deck .slide--bastille-campaign .bastille-campaign-grid {
+    gap: 48px !important;
+    align-items: flex-start !important;
+    padding-top: 16px !important;
+  }
+  .deck .slide--bastille-campaign .bcc-body {
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+  }
+  .deck .slide--bastille-campaign .bastille-campaign-card {
+    overflow: visible !important;
+  }
+}
