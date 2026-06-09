@@ -7258,3 +7258,19 @@ html body .deck .slide--paid-duo .paid-tv video {
   object-fit: contain !important;
   background: #000 !important;
 }
+
+/* === v7.55 — DESKTOP: restore horizontal scroll for deck navigation === */
+@media (min-width: 901px) {
+  html body .deck {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  html body .deck::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+}
