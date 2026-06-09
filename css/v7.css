@@ -6769,13 +6769,13 @@ html body .deck section.slide.slide--email-pair .email-card-v78__subj{
 html body .deck section.slide.slide--email-pair .email-card-v78__hero{
   position: relative !important;
   width: 100% !important;
-  height: 220px !important;
-  min-height: 220px !important;
-  background-color: #0A1128 !important;
+  height: 240px !important;
+  min-height: 240px !important;
+  background-color: #d9cdb6 !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
-  flex: 0 0 220px !important;
+  flex: 0 0 240px !important;
   overflow: hidden !important;
 }
 html body .deck section.slide.slide--email-pair .email-card-v78__hero::before{
@@ -6783,10 +6783,11 @@ html body .deck section.slide.slide--email-pair .email-card-v78__hero::before{
   position: absolute !important;
   inset: 0 !important;
   background: linear-gradient(180deg,
-    rgba(10,17,40,0.10) 0%,
-    rgba(10,17,40,0.32) 60%,
-    rgba(10,17,40,0.72) 100%) !important;
+    rgba(10,17,40,0.0) 0%,
+    rgba(10,17,40,0.05) 55%,
+    rgba(10,17,40,0.68) 100%) !important;
   pointer-events: none !important;
+  z-index: 1 !important;
 }
 html body .deck section.slide.slide--email-pair .email-card-v78__hero-overlay{
   position: absolute !important;
@@ -6881,4 +6882,47 @@ html body .deck section.slide.slide--email-pair .email-card-v78::after{
     min-height: 180px !important;
     flex: 0 0 180px !important;
   }
+}
+
+/* ============================================================
+   v7.65 — PAID DUO: Philippe and Charline IDENTICAL TV size
+   ============================================================ */
+html body .deck section.slide.slide--paid-duo .paid-duo-grid{
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 60px !important;
+  align-items: start !important;
+  justify-items: center !important;
+}
+html body .deck section.slide.slide--paid-duo .paid-duo-card{
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: 640px !important;
+}
+html body .deck section.slide.slide--paid-duo .paid-duo-card .paid-tv,
+html body .deck section.slide.slide--paid-duo .paid-duo-card .paid-tv--xl{
+  width: 100% !important;
+  max-width: 640px !important;
+  transform: none !important;
+  margin: 0 !important;
+}
+html body .deck section.slide.slide--paid-duo .paid-duo-card .tv-frame{
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  max-width: 640px !important;
+  height: auto !important;
+  max-height: none !important;
+  position: relative !important;
+  background: #000 !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  box-shadow: 0 20px 50px rgba(10,17,40,0.25), 0 4px 12px rgba(10,17,40,0.12) !important;
+}
+html body .deck section.slide.slide--paid-duo .paid-duo-card .tv-frame video{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
 }
