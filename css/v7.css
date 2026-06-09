@@ -7294,3 +7294,49 @@ html body .deck section.slide.slide--paid-duo .paid-duo-card .tv-frame video{
     max-width: 280px !important;
   }
 }
+
+/* ============================================================
+   v7.68 — MOBILE: release 100vh lock, allow natural scroll
+   This is the CRITICAL fix — slides on mobile expand to fit content
+   ============================================================ */
+@media (max-width: 768px){
+  html, body{
+    overflow-x: hidden !important;
+  }
+  html body .deck{
+    scroll-snap-type: none !important;
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100vh !important;
+  }
+  html body .deck section.slide,
+  html body .deck .slide{
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    scroll-snap-align: none !important;
+    padding: 28px 0 32px !important;
+  }
+  html body .deck section.slide .slide__inner{
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 18px !important;
+  }
+  /* Phones smaller to fit nicely */
+  html body .deck .phone-frame,
+  html body .deck .phone-frame--lg{
+    width: 70% !important;
+    max-width: 260px !important;
+  }
+  html body .deck .beauty-large-frame{
+    width: 78% !important;
+    max-width: 280px !important;
+  }
+  html body .deck .format-multi-card .phone-frame{
+    width: 100% !important;
+    max-width: 260px !important;
+  }
+}
