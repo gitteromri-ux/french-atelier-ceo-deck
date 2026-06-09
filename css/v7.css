@@ -6721,3 +6721,75 @@
     padding: 18px 20px !important;
   }
 }
+
+/* ============================================================
+   v7.62 — Bigger sound toggle, default visible glow
+   ============================================================ */
+html body .deck .sound-toggle {
+  width: 48px !important;
+  height: 48px !important;
+  background: rgba(201, 169, 97, 0.95) !important;
+  color: #0A1128 !important;
+  border: 2px solid #FFFFFF !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4), 0 0 0 4px rgba(201,169,97,0.25) !important;
+  top: 14px !important;
+  right: 14px !important;
+  z-index: 10 !important;
+  cursor: pointer !important;
+}
+html body .deck .sound-toggle svg {
+  width: 22px !important;
+  height: 22px !important;
+  stroke: #0A1128 !important;
+  stroke-width: 2.4 !important;
+}
+html body .deck .sound-toggle:hover {
+  background: #C9A961 !important;
+  transform: scale(1.08) !important;
+}
+html body .deck .sound-toggle.is-on {
+  background: #28C840 !important;
+}
+
+/* ============================================================
+   v7.63 — ULTRA specificity email side-by-side (defeat all old rules)
+   ============================================================ */
+@media (min-width: 769px) {
+  html body .deck section.slide.slide--email-pair .slide__inner .email-pair-v78 .email-card-v78 {
+    display: grid !important;
+    grid-template-columns: 360px 1fr !important;
+    grid-template-areas: "hero body" !important;
+    height: 300px !important;
+    max-height: 300px !important;
+    min-height: 300px !important;
+    overflow: hidden !important;
+  }
+  html body .deck section.slide.slide--email-pair .slide__inner .email-pair-v78 .email-card-v78 .email-card-v78__chrome,
+  html body .deck section.slide.slide--email-pair .slide__inner .email-pair-v78 .email-card-v78 .email-card-v78__meta,
+  html body .deck section.slide.slide--email-pair .slide__inner .email-pair-v78 .email-card-v78 .email-card-v78__subj {
+    display: none !important;
+  }
+  html body .deck section.slide.slide--email-pair .slide__inner .email-pair-v78 .email-card-v78 .email-card-v78__hero,
+  html body .deck section.slide.slide--email-pair .slide__inner .email-pair-v78 .email-card-v78 .email-card-v78__hero--img {
+    grid-area: hero !important;
+    width: 100% !important;
+    height: 300px !important;
+    min-height: 300px !important;
+    max-height: 300px !important;
+    aspect-ratio: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-size: cover !important;
+    background-position: center !important;
+    border-radius: 0 !important;
+    position: relative !important;
+  }
+  html body .deck section.slide.slide--email-pair .slide__inner .email-pair-v78 .email-card-v78 .email-card-v78__body {
+    grid-area: body !important;
+    height: 300px !important;
+    max-height: 300px !important;
+    overflow-y: auto !important;
+    padding: 22px 28px !important;
+    background: #FFFFFF !important;
+  }
+}
