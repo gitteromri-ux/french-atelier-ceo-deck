@@ -7958,137 +7958,117 @@ html body .deck #slide-pinterest .platform-mini .mock-pinterest {
   }
 }
 
-/* === v8.9 CRITICAL MOBILE FIXES (Jun 10, 2026) === */
+
+/* === v8.9 CRITICAL MOBILE FIXES (Jun 10, 2026 — correct selectors) === */
 @media (max-width: 768px) {
-  /* ORGANIC PHONES — fix title clipping at top of phone frame.
-     The phone-frame masks content beyond its boundaries. Move video DOWN
-     inside the phone so the SPOKEN/HOMONYMS/etc title bar shows, not the burned-in word. */
-  html body .deck .organic-phone video,
+  /* PHONE FRAMES: organic & history slides — revert object-position to normal center
+     (v8.8 set it to 35% in some rules; ensure no zoom distortion) */
   html body .deck .phone-frame video,
-  html body .deck .reels-phone video,
-  html body .deck .phone-mock video {
-    object-position: center 35% !important;
+  html body .deck .phone-frame--lg video {
+    object-fit: cover !important;
+    object-position: center center !important;
+    width: 100% !important;
+    height: 100% !important;
   }
 
-  /* HISTORY slide 10 — title BELOW the phone is wrong; show only the phone, hide loose title */
-  html body .deck #slide-history .slide__inner > h2,
-  html body .deck #slide-history .slide__title-loose,
-  html body .deck .slide--history > .slide__inner > h2:last-child {
-    display: none !important;
-  }
-
-  /* PLATFORM GRIDS — force SINGLE column on mobile.
-     2-col was making cards 145px wide and text wrapped vertically letter-by-letter.
-     Single col gives full width and readable layouts. */
-  html body .deck .reddit-grid,
-  html body .deck .pinterest-grid,
-  html body .deck .quora-grid,
-  html body .deck .medium-grid,
-  html body .deck .stack-grid,
-  html body .deck .telegram-grid,
-  html body .deck .platform-grid,
-  html body .deck #slide-reddit .grid,
-  html body .deck #slide-pinterest .grid,
-  html body .deck #slide-quora .grid,
-  html body .deck #slide-medium .grid,
-  html body .deck #slide-stack .grid,
-  html body .deck #slide-telegram .grid {
+  /* PLATFORM GRIDS — use actual class .platform-grid-3x3 — force single col */
+  html body .deck .slide--platform .platform-grid-3x3,
+  html body .deck #slide-reddit .platform-grid-3x3,
+  html body .deck #slide-pinterest .platform-grid-3x3,
+  html body .deck #slide-quora .platform-grid-3x3,
+  html body .deck #slide-medium .platform-grid-3x3,
+  html body .deck #slide-stack_exchange .platform-grid-3x3,
+  html body .deck #slide-telegram .platform-grid-3x3 {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 12px !important;
+    gap: 10px !important;
   }
 
-  /* Limit how many cards show on each platform (mobile gets 3 examples max) */
-  html body .deck .reddit-grid > *:nth-child(n+5),
-  html body .deck .pinterest-grid > *:nth-child(n+5),
-  html body .deck .quora-grid > *:nth-child(n+5),
-  html body .deck .medium-grid > *:nth-child(n+5),
-  html body .deck .stack-grid > *:nth-child(n+5),
-  html body .deck .telegram-grid > *:nth-child(n+5),
-  html body .deck #slide-reddit .grid > *:nth-child(n+5),
-  html body .deck #slide-pinterest .grid > *:nth-child(n+5),
-  html body .deck #slide-quora .grid > *:nth-child(n+5),
-  html body .deck #slide-medium .grid > *:nth-child(n+5),
-  html body .deck #slide-stack .grid > *:nth-child(n+5),
-  html body .deck #slide-telegram .grid > *:nth-child(n+5) {
+  /* Limit to 5 cards max on mobile (1 hero + 4) */
+  html body .deck .slide--platform .platform-grid-3x3 > .platform-mini:nth-child(n+6) {
     display: none !important;
   }
 
-  /* Inside-card horizontal layouts that were going vertical — keep them horizontal */
-  html body .deck .reddit-post,
-  html body .deck .quora-post,
-  html body .deck .medium-post,
-  html body .deck .stack-post,
-  html body .deck .pinterest-post,
-  html body .deck .telegram-post {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-start !important;
-    flex-wrap: wrap !important;
+  /* PLATFORM MINI CARDS — make sure inner flex columns are wide enough */
+  html body .deck .slide--platform .platform-mini {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 90px !important;
+    padding: 10px !important;
   }
 
-  /* Vote/upvote sidebars — fixed width so text doesn't wrap vertically */
-  html body .deck .reddit-post .upvote-column,
-  html body .deck .reddit-post .votes,
-  html body .deck .quora-post .upvote,
-  html body .deck .stack-post .stat-column {
-    flex: 0 0 auto !important;
-    min-width: 44px !important;
+  /* All text inside platform cards must be horizontal, no vertical wrap */
+  html body .deck .slide--platform .platform-mini,
+  html body .deck .slide--platform .platform-mini * {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+  }
+
+  /* Reddit/Quora/Stack left-column upvote area — give it a fixed reasonable width */
+  html body .deck .slide--platform .platform-mini .mock-reddit__left,
+  html body .deck .slide--platform .platform-mini .mock-stack__left,
+  html body .deck .slide--platform .platform-mini .mock-quora__upvote {
+    flex: 0 0 40px !important;
+    min-width: 40px !important;
+    max-width: 40px !important;
+  }
+  html body .deck .slide--platform .platform-mini .mock-reddit__score,
+  html body .deck .slide--platform .platform-mini .mock-stack__votes,
+  html body .deck .slide--platform .platform-mini .mock-quora__count {
     white-space: nowrap !important;
-    writing-mode: horizontal-tb !important;
-    text-orientation: mixed !important;
+    font-size: 11px !important;
+  }
+  /* Right-side upvote columns in Quora — collapse them */
+  html body .deck .slide--platform .platform-mini .mock-quora__upvote--right,
+  html body .deck .slide--platform .platform-mini .mock-quora__right-upvote {
+    display: none !important;
+  }
+  /* Left-side category tags in Quora/Reddit — collapse if too narrow */
+  html body .deck .slide--platform .platform-mini .mock-quora__category--side,
+  html body .deck .slide--platform .platform-mini .mock-quora__sidebar {
+    display: none !important;
+  }
+  /* Pinterest pin — the FA badge and Save button position */
+  html body .deck .slide--platform .platform-mini .mock-pinterest__fa-badge,
+  html body .deck .slide--platform .platform-mini .mock-pinterest__save {
+    position: absolute !important;
+    z-index: 5 !important;
   }
 
-  /* Force text not to wrap letter-by-letter anywhere on platform cards */
-  html body .deck .reddit-post *,
-  html body .deck .quora-post *,
-  html body .deck .medium-post *,
-  html body .deck .stack-post *,
-  html body .deck .pinterest-post *,
-  html body .deck .telegram-post * {
-    writing-mode: horizontal-tb !important;
-    text-orientation: mixed !important;
-    word-break: normal !important;
-    overflow-wrap: break-word !important;
+  /* FORMAT-MULTI slides (5-7) — make sure phone title doesn't clip.
+     The phone-frame uses overflow:hidden so the burned title at top of video gets cut by frame edge.
+     Adjust: video object-position pushes content DOWN inside the frame so the bottom shows,
+     but we want the SLIDE'S title ABOVE the phone, not burned in the video. */
+  html body .deck .slide--format-multi .phone-frame video {
+    /* Default - video shows centered. The burned title "il n'y a pas" is part of the video itself. */
+    object-position: center center !important;
+  }
+  /* Add small top padding inside format-multi phones so burned-in title sits below the rounded corner */
+  html body .deck .slide--format-multi .phone-frame {
+    overflow: hidden !important;
   }
 
-  /* Pinterest pin cards — full-width image, no FA/Save badge overflow */
-  html body .deck .pinterest-post {
+  /* FORMAT-TABLET slides (10-11 history etc) — title goes ABOVE the tablet on mobile */
+  html body .deck .slide--format-tablet .slide__inner {
+    display: flex !important;
     flex-direction: column !important;
   }
-  html body .deck .pinterest-post .save-btn,
-  html body .deck .pinterest-post .pin-actions {
-    position: absolute !important;
-    top: 8px !important;
-    right: 8px !important;
+  html body .deck .slide--format-tablet h2,
+  html body .deck .slide--format-tablet .slide__title {
+    order: -1 !important;
+    margin-bottom: 12px !important;
   }
 
-  /* BASTILLE slide 37 — kill background text bleed-through behind the IG post */
-  html body .deck .slide--bastille .bg-text,
-  html body .deck .slide--bastille .floating-text,
-  html body .deck #slide-bastille .bg-text,
-  html body .deck #slide-bastille .floating-text {
-    display: none !important;
-  }
-  html body .deck .slide--bastille .ig-post-card,
-  html body .deck #slide-bastille .ig-post-card {
+  /* BASTILLE — keep prior z-index fix robust (the bg text was bleeding through) */
+  html body .deck .slide--bastille,
+  html body .deck #slide-bastille {
     position: relative !important;
-    z-index: 10 !important;
-    background: #0a1733 !important;
-    width: 95% !important;
-    margin: 0 auto !important;
   }
-  html body .deck .slide--bastille .ig-post-card *,
-  html body .deck #slide-bastille .ig-post-card * {
-    color: inherit !important;
-  }
-  /* Bastille subtitle must be FULL width, no clipping */
-  html body .deck .slide--bastille .post-caption,
-  html body .deck #slide-bastille .post-caption {
-    width: 95% !important;
-    max-width: 95% !important;
-    margin: 0 auto !important;
-    padding: 16px !important;
-    background: #f5ebd9 !important;
+  html body .deck .slide--bastille .bastille-bg-text,
+  html body .deck .slide--bastille [class*="bg-text"],
+  html body .deck .slide--bastille [class*="background-text"],
+  html body .deck .slide--bastille [class*="floating-copy"],
+  html body .deck #slide-bastille [class*="bg-text"] {
+    display: none !important;
   }
 }
