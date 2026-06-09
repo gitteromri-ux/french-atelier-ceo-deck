@@ -6655,3 +6655,80 @@
   .deck .paid-duo-card.sound-on .paid-phone::after,
   .deck .paid-duo-card.sound-on .paid-tv::after { opacity: 0 !important; }
 }
+
+/* ============================================================
+   v7.58 — Email cards: IMAGE next to BODY (side-by-side)
+   Restore "beautiful imagery next to each email" layout.
+   ============================================================ */
+@media (min-width: 769px) {
+  /* Each email card: chrome on top, then a 2-column row (image | body) */
+  .deck .slide--email-pair .email-pair-v78 {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    align-items: stretch !important;
+    max-width: 1240px !important;
+    margin: 0 auto !important;
+  }
+  .deck .slide--email-pair .email-card-v78 {
+    display: grid !important;
+    grid-template-columns: 1fr 1.15fr !important;
+    grid-template-rows: auto 1fr !important;
+    grid-template-areas:
+      "chrome chrome"
+      "hero   body"
+    !important;
+    gap: 0 !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    background: #fff !important;
+    box-shadow: 0 16px 40px rgba(10,17,40,0.10), 0 0 0 1px rgba(10,17,40,0.06) !important;
+    min-height: 320px !important;
+    max-height: none !important;
+    height: auto !important;
+  }
+  .deck .slide--email-pair .email-card-v78__chrome {
+    grid-area: chrome !important;
+  }
+  .deck .slide--email-pair .email-card-v78__meta,
+  .deck .slide--email-pair .email-card-v78__subj {
+    display: none !important;
+  }
+  /* Image hero: full LEFT column, beautiful and large */
+  .deck .slide--email-pair .email-card-v78__hero.email-card-v78__hero--img {
+    grid-area: hero !important;
+    aspect-ratio: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 280px !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+  /* Email body: RIGHT column, scrollable, readable */
+  .deck .slide--email-pair .email-card-v78__body {
+    grid-area: body !important;
+    padding: 24px 28px !important;
+    font-size: 13.5px !important;
+    line-height: 1.6 !important;
+    overflow-y: auto !important;
+    max-height: 360px !important;
+    background: #fff !important;
+  }
+  .deck .slide--email-pair .email-card-v78__body p {
+    margin: 0 0 9px 0 !important;
+  }
+}
+
+/* Mobile: stack image above body */
+@media (max-width: 768px) {
+  .deck .slide--email-pair .email-card-v78 {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .deck .slide--email-pair .email-card-v78__hero.email-card-v78__hero--img {
+    aspect-ratio: 16/9 !important;
+    width: 100% !important;
+  }
+}
+
+/* v7.58b — Cache-bust ALL videos */
