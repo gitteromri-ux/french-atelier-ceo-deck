@@ -137,6 +137,22 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.slide').forEach(s => io.observe(s));
   }
 
+  // AGGRESSIVE autoplay: every video plays muted always; intersection re-kicks on each slide entry
+  if ('IntersectionObserver' in window){
+    const playIO = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        const vids = e.target.querySelectorAll('video');
+        vids.forEach(v => {
+          if (e.isIntersecting && e.intersectionRatio > 0.2){
+            // Force play (muted by default; intersection above handles unmute when SOUND_ENABLED)
+            if (v.paused) { v.muted = !SOUND_ENABLED ? true : v.muted; v.play().catch(()=>{}); }
+          }
+        });
+      });
+    }, { threshold: [0, 0.2, 0.5] });
+    document.querySelectorAll('.slide').forEach(s => playIO.observe(s));
+  }
+
   // Any user click anywhere unlocks audio (safety net)
   const unlock = () => { _enableAudioGlobally(); document.removeEventListener('click', unlock, true); };
   document.addEventListener('click', unlock, true);
