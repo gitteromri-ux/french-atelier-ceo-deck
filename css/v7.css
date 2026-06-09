@@ -7396,11 +7396,14 @@ html body .deck section.slide.slide--paid-duo .paid-duo-card .tv-frame video{
 
 .email-landing-preview {
   background-size: cover;
-  background-position: top center;
+  background-position: center center;
+  background-repeat: no-repeat;
   border-radius: 12px;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: auto;
+  height: 100%;
+  width: 100%;
   box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  min-height: 240px;
+  min-height: 360px;
 }
 
 /* Full body text — no clipping */
@@ -7443,12 +7446,16 @@ html body .deck section.slide.slide--email-pair .email-row-v78 {
 
 html body .deck section.slide.slide--email-pair .email-landing-preview {
   background-size: cover !important;
-  background-position: top center !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
   border-radius: 12px !important;
-  aspect-ratio: 16 / 9 !important;
+  aspect-ratio: auto !important;
+  height: 100% !important;
+  width: 100% !important;
   box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
-  min-height: 200px !important;
+  min-height: 360px !important;
   flex: none !important;
+  align-self: stretch !important;
 }
 
 html body .deck section.slide.slide--email-pair .email-card-v78__body {
