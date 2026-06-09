@@ -4627,37 +4627,16 @@
    Hero card already conveys the platform; mini grid is unreadable
    at mobile width. Keep hero only.
    ============================================================ */
+/* v7.70 — DISABLED v7.24/v7.25 hide-grid rules. Minis must show on mobile. */
 @media (max-width: 768px) {
-  .platform-grid-3x3,
-  [class*="platform-grid-3"],
-  [class*="platform-grid-4"],
-  .platform-mini-grid {
-    display: none !important;
-  }
-  /* Show "60 posts across platform" stat in place if exists */
+  /* v7.24 NEUTRALIZED — was hiding .platform-grid-3x3 entirely */
   .platform-hero {
     margin-bottom: 24px !important;
   }
 }
 
-/* ============================================================
-   v7.25 — Stronger override: hide platform mini grids on mobile
-   The .slide--platform .platform-grid-3x3 rule has higher specificity.
-   ============================================================ */
-@media (max-width: 768px) {
-  .deck .slide--platform .platform-grid-3x3,
-  .deck .slide--platform .platform-mini-grid,
-  .deck .slide .platform-grid-3x3,
-  body .slide--platform .platform-grid-3x3,
-  body .slide .platform-grid-3x3 {
-    display: none !important;
-  }
-  .deck .slide--platform .platform-mini,
-  .deck .slide .platform-mini,
-  body .slide .platform-mini {
-    display: none !important;
-  }
-}
+/* v7.25 NEUTRALIZED — was hiding grid AND minis on mobile.
+   Removed to allow Reddit/Pinterest/Quora minis to render. */
 
 /* ============================================================
    v7.26 — DESKTOP: no bottom cutoff. Slides scrollable when tall.
@@ -7217,14 +7196,22 @@ html body .deck section.slide.slide--paid-duo .paid-duo-card .tv-frame video{
     flex-direction: column !important;
     gap: 14px !important;
     height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
   }
   html body .deck .platform-hero,
-  html body .deck .platform-mini{
+  html body .deck .platform-mini,
+  html body .deck .slide--platform .platform-mini{
+    display: flex !important;
+    flex-direction: column !important;
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
-    min-height: 120px !important;
+    min-height: 140px !important;
+    max-height: none !important;
     box-sizing: border-box !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
   html body .deck .mock-reddit,
   html body .deck .mock-quora,
