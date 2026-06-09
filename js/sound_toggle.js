@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     v.play().catch(()=>{});
   });
 
-  // One-tap "Enable sound" overlay
+  // One-tap "Enable sound" overlay - hide on slide 1 (cover)
   if (!document.getElementById('sound-enable-overlay')){
     const ov = document.createElement('button');
     ov.id = 'sound-enable-overlay';
@@ -88,10 +88,30 @@ document.addEventListener('DOMContentLoaded', () => {
       'position:fixed','right:20px','bottom:20px','z-index:99999',
       'background:rgba(10,17,40,0.92)','color:#fff','border:none',
       'padding:12px 18px','border-radius:999px','font:600 14px/1 system-ui,-apple-system,Segoe UI,sans-serif',
-      'cursor:pointer','box-shadow:0 8px 24px rgba(0,0,0,0.25)','letter-spacing:0.3px'
+      'cursor:pointer','box-shadow:0 8px 24px rgba(0,0,0,0.25)','letter-spacing:0.3px',
+      'display:none','opacity:0','transition:opacity 0.3s'
     ].join(';');
     ov.addEventListener('click', _enableAudioGlobally);
     document.body.appendChild(ov);
+
+    // Show overlay only AFTER scrolling past slide 1
+    const updateOverlayVisibility = () => {
+      if (SOUND_ENABLED) { ov.style.display = 'none'; return; }
+      const slides = document.querySelectorAll('.slide');
+      if (slides.length < 2) return;
+      const firstSlide = slides[0];
+      const r = firstSlide.getBoundingClientRect();
+      const firstSlideMostlyVisible = r.bottom > window.innerHeight * 0.5;
+      if (firstSlideMostlyVisible) {
+        ov.style.display = 'none';
+        ov.style.opacity = '0';
+      } else {
+        ov.style.display = 'block';
+        requestAnimationFrame(() => { ov.style.opacity = '1'; });
+      }
+    };
+    window.addEventListener('scroll', updateOverlayVisibility, { passive: true });
+    setTimeout(updateOverlayVisibility, 100);
   }
 
   // Auto-unmute active slide once sound is enabled
