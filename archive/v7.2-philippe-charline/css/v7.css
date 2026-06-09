@@ -1,0 +1,881 @@
+/* v7.css — CSS extensions for deck v7 */
+
+/* ──────────────────────────────────────────────────────────────
+   DARK SLIDE VARIANTS
+   ────────────────────────────────────────────────────────────── */
+
+/* Dark chapter closer */
+.slide--chapter-closer {
+  background: var(--navy);
+  color: #F5EFE6;
+}
+.slide--chapter-closer .slide__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 9vw;
+}
+/* FIX: raised tl-note opacity from .55→.72 on dark chapter-closer slides */
+.slide--chapter-closer .tl-note {
+  color: rgba(245,239,230,.72);
+}
+
+/* Dark stat grid (for dark slides) */
+/* FIX: raised opacity from .6→.82 and .45→.65 for legibility on navy bg */
+.stat-grid--dark .stat-l {
+  color: rgba(245,239,230,.82);
+}
+.stat-grid--dark .stat-s {
+  color: rgba(245,239,230,.65);
+}
+.stat-grid--dark .stat-n.gold {
+  color: var(--gold);
+}
+
+/* Dark eyebrow variant */
+.eyebrow--gold {
+  color: var(--gold) !important;
+}
+
+/* Lead text on dark slides */
+.lead--muted {
+  color: rgba(245,239,230,.65);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.5;
+  max-width: 680px;
+  margin: 0 0 28px;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   SOUND TOGGLE BUTTON — 44px, gold, always visible
+   ────────────────────────────────────────────────────────────── */
+.video-wrap, .phone-frame, .browser-body--video { position: relative; }
+
+.sound-toggle {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #C9A961;
+  border: 2px solid #F5EFE6;
+  color: #0A1128;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 50;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.45), 0 0 0 1px rgba(10,17,40,0.2);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  padding: 0;
+  flex-shrink: 0;
+}
+.sound-toggle:hover {
+  transform: scale(1.12);
+  box-shadow: 0 6px 20px rgba(201,169,97,0.5), 0 0 0 1px rgba(10,17,40,0.3);
+}
+.sound-toggle svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  pointer-events: none;
+}
+.sound-toggle::after {
+  content: "TAP FOR SOUND";
+  position: absolute;
+  bottom: 52px;
+  right: 0;
+  background: rgba(10,17,40,0.92);
+  color: #F5EFE6;
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  padding: 5px 9px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.sound-toggle:hover::after { opacity: 1; transform: translateY(0); }
+.sound-toggle.is-on { background: #F5EFE6; }
+.sound-toggle.is-on::after { content: "SOUND ON \00B7 CLICK TO MUTE"; }
+/* legacy class alias */
+.sound-toggle--on { background: #F5EFE6; }
+
+/* Browser-body-video toggle: pin to top-right so it's always in the visible area
+   (the 16/9 browser body extends below viewport on 1440×900) */
+.browser-body--video .sound-toggle {
+  top: 12px;
+  bottom: auto;
+}
+.browser-body--video .sound-toggle::after {
+  bottom: auto;
+  top: 52px;
+  transform: translateY(-4px);
+}
+.browser-body--video .sound-toggle:hover::after {
+  transform: translateY(0);
+}
+
+/* Ensure phone-frame is position:relative for absolute sound toggle */
+.phone-frame {
+  position: relative;
+}
+.paid-phone .phone-frame {
+  position: relative;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   VID-GRID PHONE SIZE FIXES
+   At 1440×900 the organic video grids start at ~433px, leaving
+   only 467px of available height. The default phone widths
+   produce frames that overflow the viewport and hide the
+   sound-toggle button + bottom burned-in text.
+
+   vid-grid--1  (solo, 300px default → 533px tall):
+     Fix: 248px → 441px tall. Fits with ~26px margin.
+
+   vid-grid--2  (2-up, 374px default → 665px tall):
+     Fix: 263px → 468px tall. Fits with ~1px margin (safe).
+
+   vid-grid--8  (4×2, 278px default → first-row ends at 927px):
+     Fix: 260px → 462px tall. First row ends at 895px.
+   ────────────────────────────────────────────────────────────── */
+.slide--vidgrid .vid-grid--1 .vid-phone {
+  width: 248px;
+}
+/* vid-grid--2: tighten max-width so each column is ~254px
+   (254×2 + 32 gap = 540px) → phone 9/16 = 452px, fits at ~885px */
+.slide--vidgrid .vid-grid--2 {
+  max-width: 540px;
+}
+/* vid-grid--8 (Homonyms 4×2): reduce phone width so first row
+   fits in viewport (260×16/9 = 462px, starts at 433 → ends 895) */
+.slide--vidgrid .vid-grid--8 .vid-phone {
+  width: 260px;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   ORGANIC FORMAT FAMILIES
+   ────────────────────────────────────────────────────────────── */
+.slide--family-intro {
+  background: var(--navy);
+}
+.slide--family-intro .slide__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 9vw;
+}
+.slide--family-intro .display--md {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 1.05;
+  color: #F5EFE6;
+  margin: 0 0 20px;
+  letter-spacing: -0.01em;
+}
+.slide--family-intro .rule {
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  margin: 20px 0 24px;
+  border: 0;
+}
+
+/* Family card grid — format name + episode count */
+.family-card-grid {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.family-card {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(201,169,97,.3);
+  border-radius: 6px;
+  padding: 18px 22px;
+  min-width: 180px;
+  flex: 1;
+  max-width: 260px;
+}
+.fc-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #F5EFE6;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+.fc-count {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: .18em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   EMAIL FLOW INTRO SLIDES (dark)
+   ────────────────────────────────────────────────────────────── */
+.slide--email-flow-intro {
+  background: var(--navy);
+}
+.slide--email-flow-intro .slide__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 9vw;
+}
+.slide--email-flow-intro .display--md {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 1.05;
+  color: #F5EFE6;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+.slide--email-flow-intro .rule {
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  margin: 18px 0 20px;
+  border: 0;
+}
+
+/* Email flow intro grid — compact cards */
+.email-flow-intro {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+.email-flow-intro--6 {
+  grid-template-columns: repeat(6, 1fr);
+  max-width: 900px;
+}
+.email-flow-intro--15 {
+  grid-template-columns: repeat(5, 1fr);
+  max-width: 1000px;
+}
+
+.ef-card {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(201,169,97,.25);
+  border-radius: 5px;
+  padding: 12px 10px;
+  text-align: center;
+}
+.ef-card--sm {
+  padding: 8px 8px;
+}
+.ef-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  letter-spacing: .2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.ef-day {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  /* FIX: raised opacity from .5→.75 for legibility on dark navy */
+  color: rgba(245,239,230,.75);
+  margin-bottom: 4px;
+  letter-spacing: .08em;
+}
+.ef-cat {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  color: #F5EFE6;
+  font-style: italic;
+  line-height: 1.25;
+}
+
+/* ml2-body fix: max-height + scroll to prevent hero/body cutoff */
+.ml2-body {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   QUORA/REDDIT → 6 PLATFORMS
+   ────────────────────────────────────────────────────────────── */
+
+/* Intro dark slide */
+.slide--qr-intro {
+  background: var(--navy);
+}
+.slide--qr-intro .slide__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 9vw;
+}
+
+/* Platform badge row */
+.qr-platforms-overview {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+.qr-plat-badge {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: .16em;
+  color: #fff;
+  padding: 7px 16px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Platform slide layout */
+.slide--platform-grid .slide__inner {
+  max-width: 1380px;
+}
+.platform-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 16px;
+}
+.platform-icon-lg {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+/* Platform grid — 2 rows × 5 cols = 10 cards */
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 14px;
+  margin-top: 18px;
+}
+
+/* Post card */
+.post-card-mockup {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-height: 160px;
+  transition: box-shadow 0.15s;
+}
+.post-card-mockup:hover {
+  box-shadow: 0 4px 16px rgba(10,17,40,.12);
+}
+.post-card-mockup--placeholder {
+  opacity: 0.45;
+  background: var(--cream-2);
+}
+
+.pcm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pcm-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+}
+.pcm-votes {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  color: var(--gold-2);
+  font-weight: 600;
+}
+.pcm-subtopic {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  letter-spacing: .14em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.pcm-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  color: var(--navy);
+  line-height: 1.3;
+  font-style: italic;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.pcm-snippet {
+  font-family: 'Inter', sans-serif;
+  font-size: 9.5px;
+  color: #555;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+.pcm-persona {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  color: var(--muted);
+  font-style: italic;
+}
+.pcm-cta {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  color: var(--gold-2);
+  font-weight: 600;
+  letter-spacing: .06em;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   BASTILLE REDESIGN (dark)
+   ────────────────────────────────────────────────────────────── */
+.slide--bastille {
+  background: var(--navy);
+}
+.slide__inner--bastille {
+  display: grid;
+  /* FIX: widened left column from 3fr→4fr so bastille-terms has room for nowrap bt-en text */
+  grid-template-columns: 4fr 3fr;
+  gap: 48px;
+  align-items: start;
+  padding: 60px 7vw;
+}
+.bastille-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.bastille-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 68px;
+  font-weight: 500;
+  line-height: 1.05;
+  color: #F5EFE6;
+  margin: 20px 0 10px;
+  letter-spacing: -0.01em;
+}
+.bastille-headline .gold {
+  color: var(--gold);
+  font-style: normal;
+}
+.bastille-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-style: italic;
+  color: var(--gold);
+  margin-bottom: 2px;
+}
+.bastille-left .rule {
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  margin: 22px 0 24px;
+  border: 0;
+}
+.bastille-terms {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.bastille-term {
+  display: block;
+  border-left: 2px solid var(--gold);
+  padding-left: 16px;
+}
+.bt-fr {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: #F5EFE6;
+  margin-bottom: 2px;
+}
+.bt-en {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  /* FIX: raised opacity from .55→.75; white-space nowrap prevents word-by-word wrap */
+  color: rgba(245,239,230,.75);
+  letter-spacing: .06em;
+  white-space: nowrap;
+}
+.bastille-footer {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: .3em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-top: 32px;
+}
+
+/* Bastille post card (right column) */
+.bastille-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.bastille-post-card {
+  background: #F5EFE6;
+  border: 1px solid rgba(201,169,97,.4);
+  border-radius: 8px;
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.bpc-platform {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: .2em;
+  color: #8a6c28;
+  text-transform: uppercase;
+}
+.bpc-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: #1a1f2e;
+  line-height: 1.25;
+}
+.bpc-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  line-height: 1.65;
+  color: rgba(26,31,46,.75);
+}
+.bpc-body em {
+  color: #8a6c28;
+  font-style: italic;
+}
+.bpc-tags {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  color: #8a6c28;
+  letter-spacing: .04em;
+}
+/* Engagement metrics row */
+.bpc-metrics {
+  display: flex;
+  gap: 20px;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(26,31,46,.15);
+}
+.bpc-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.bpc-metric-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1f2e;
+  line-height: 1;
+}
+.bpc-metric-l {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(26,31,46,.5);
+}
+
+/* Bastille mech-list on dark bg */
+.slide--bastille .mech-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.slide--bastille .mech {
+  border-left: 2px solid rgba(201,169,97,.4);
+  padding-left: 14px;
+}
+.slide--bastille .mech-h {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  letter-spacing: .24em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+.slide--bastille .mech-b {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(245,239,230,.7);
+}
+
+/* ──────────────────────────────────────────────────────────────
+   DISPLAY UTILITY
+   ────────────────────────────────────────────────────────────── */
+.display--md {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 1.05;
+  color: #F5EFE6;
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+}
+.display--md em.gold {
+  color: var(--gold);
+  font-style: italic;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   PAID PHONE FRAME WITH SOUND TOGGLE SUPPORT
+   ────────────────────────────────────────────────────────────── */
+.paid-phone {
+  position: relative;
+}
+.paid-phone .phone-frame {
+  position: relative;
+  aspect-ratio: 9/16;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #000;
+  border: 5px solid #0c1226;
+  box-shadow: 0 12px 28px rgba(10,17,40,.22);
+}
+.paid-phone .phone-notch {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 11px;
+  background: #000;
+  border-radius: 8px;
+  z-index: 2;
+}
+.paid-phone video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   ML2 FRAME + BODY OVERFLOW FIX (explicit override)
+   Frame starts at ~363px from top (header takes ~303px + 60px padding-top).
+   Max frame height = 900 - 363 - 12px margin = 525px = calc(100vh - 375px)
+   ────────────────────────────────────────────────────────────── */
+.slide--ml2 .ml2-frame {
+  max-height: calc(100vh - 375px) !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.slide--ml2 .ml2-body {
+  flex: 1 !important;
+  min-height: 0 !important;
+  overflow-y: auto !important;
+  max-height: none !important;
+}
+/* General ml2-body cap (non-ml2 slides) */
+.ml2-body {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   PAID SOLO — Single centered phone (Philippe video slide)
+   ────────────────────────────────────────────────────────────── */
+.paid-solo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 48px;
+  margin-top: 30px;
+}
+.paid-solo .paid-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 400px;
+}
+.paid-solo .paid-phone--lg {
+  width: 185px !important;
+}
+@media (max-height: 820px) {
+  .paid-solo .paid-phone--lg {
+    width: 160px !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   PAID PHONE HEIGHT FIX — ensure phone + meta fit in 840px slide
+   Available after header: ~485px → phone max height ~330px → width ~185px
+   ────────────────────────────────────────────────────────────── */
+/* Override the 340px from v6.css for the paid chapter phone frames */
+.paid-phone--lg {
+  width: 185px !important;
+}
+/* Charline two-phone layout: slightly larger since no bottom meta overflow risk */
+.paid-row .paid-phone--lg {
+  width: 220px !important;
+}
+@media (max-height: 820px) {
+  .paid-phone--lg {
+    width: 160px !important;
+  }
+  .paid-row .paid-phone--lg {
+    width: 190px !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   PAID ROW MARGIN FIX — reduce top margin to prevent tag overflow
+   ────────────────────────────────────────────────────────────── */
+.paid-row {
+  margin-top: 20px;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   PAID DUO — Philippe + Charline side by side
+   ────────────────────────────────────────────────────────────── */
+.slide--paid-duo .slide__inner { display: flex; flex-direction: column; padding: 80px 100px; }
+.paid-duo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 40px; align-items: start; justify-items: center; }
+.paid-duo-card { display: flex; flex-direction: column; align-items: center; max-width: 380px; }
+.paid-phone.paid-phone--xl { width: 320px; }
+.paid-phone--xl .phone-frame { aspect-ratio: 9/16; border-radius: 32px; }
+.paid-duo-meta { margin-top: 28px; text-align: center; }
+.paid-duo-name { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: #0A1128; margin-bottom: 8px; }
+.paid-duo-desc { font-family: 'Inter', sans-serif; font-size: 14px; color: #0A1128; opacity: 0.75; line-height: 1.5; max-width: 320px; margin-bottom: 12px; }
+.paid-duo-tag { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #C9A961; padding: 6px 14px; border: 1px solid rgba(201,169,97,0.4); border-radius: 100px; display: inline-block; }
+
+/* ──────────────────────────────────────────────────────────────
+   FORMAT-LARGE — One big phone per slide, organic chapter
+   ────────────────────────────────────────────────────────────── */
+.slide--format-large .slide__inner { padding: 80px 100px; }
+.format-large-grid { display: grid; grid-template-columns: 360px 1fr; gap: 80px; margin-top: 32px; align-items: center; }
+.format-large-phone { display: flex; justify-content: center; }
+.phone-frame.phone-frame--xl { width: 340px; aspect-ratio: 9/16; border-radius: 36px; border: 8px solid #0A1128; position: relative; overflow: hidden; background: #000; }
+.phone-frame--xl video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.phone-frame--xl .sound-toggle { position: absolute; bottom: 12px; right: 12px; width: 44px; height: 44px; border-radius: 50%; background: #C9A961; border: 2px solid #F5EFE6; color: #0A1128; z-index: 50; box-shadow: 0 4px 16px rgba(0,0,0,0.45); }
+.phone-frame--xl .sound-toggle:hover { background: #C9A961; transform: scale(1.12); }
+.phone-frame--xl .sound-toggle.is-on { background: #F5EFE6; }
+.format-large-meta { display: flex; flex-direction: column; gap: 18px; }
+.format-large-meta .title--lg { font-size: 56px; line-height: 1.05; }
+.format-large-meta .lead { font-size: 18px; line-height: 1.5; color: #0A1128; opacity: 0.8; max-width: 520px; }
+.format-large-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 8px; max-width: 480px; }
+.fls { }
+.fls-n { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #0A1128; font-weight: 600; }
+.fls-l { font-size: 11px; letter-spacing: 0.08em; color: #0A1128; opacity: 0.5; text-transform: uppercase; margin-top: 2px; }
+.format-large-vocab { margin-top: 16px; padding: 20px; background: rgba(10,17,40,0.04); border-left: 3px solid #C9A961; max-width: 520px; }
+.flv { display: flex; gap: 12px; align-items: baseline; margin-bottom: 6px; }
+.flv-tag { font-size: 10px; letter-spacing: 0.1em; color: #C9A961; font-weight: 600; min-width: 56px; }
+.flv-fr { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #0A1128; font-style: italic; }
+.flv-tr { font-size: 14px; color: #0A1128; opacity: 0.7; margin-top: 8px; padding-top: 8px; border-top: 1px dashed rgba(10,17,40,0.15); }
+
+/* ── Bastille Campaign Promo ─────────────────────────────────────────── */
+.slide--bastille-campaign { background: #0A1128 !important; }
+.bastille-inner { padding: 60px 80px; height: 100%; display: flex; flex-direction: column; }
+.bastille-eyebrow { margin-bottom: 0; }
+.bastille-campaign-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; padding-top: 32px; flex: 1; }
+.bastille-campaign-headline { font-family: 'Cormorant Garamond', serif; font-size: 72px; line-height: 1.05; color: #F5EFE6; margin: 0; }
+.bastille-rule { width: 56px; height: 2px; background: #C9A961; margin: 24px 0; }
+.bastille-campaign-lead { font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.6; color: #F5EFE6; opacity: 0.82; max-width: 560px; margin-top: 0; margin-bottom: 0; }
+.bastille-mechanics { margin-top: 36px; display: grid; gap: 16px; max-width: 560px; }
+.bm-row { display: grid; grid-template-columns: 120px 1fr; gap: 20px; padding-bottom: 14px; border-bottom: 1px solid rgba(201,169,97,0.18); }
+.bm-row:last-child { border-bottom: none; }
+.bm-label { font-size: 11px; letter-spacing: 0.1em; color: #C9A961; font-weight: 600; }
+.bm-value { font-size: 14px; color: #F5EFE6; opacity: 0.92; line-height: 1.5; }
+.bastille-campaign-card { background: #F5EFE6; border-radius: 12px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.4); }
+.bcc-tag { padding: 12px 20px; font-size: 10px; letter-spacing: 0.1em; color: #C9A961; border-bottom: 1px solid rgba(10,17,40,0.1); }
+.bcc-image { aspect-ratio: 1 / 1; background: linear-gradient(135deg, #0A1128 0%, #1a2754 50%, #C9A961 200%); position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #F5EFE6; text-align: center; padding: 40px; }
+.bcc-image-headline { font-family: 'Cormorant Garamond', serif; font-size: 38px; line-height: 1.1; }
+.bcc-image-sub { margin-top: 16px; font-size: 14px; letter-spacing: 0.05em; color: #C9A961; }
+.bcc-image-arrow { position: absolute; bottom: 24px; right: 24px; font-size: 32px; color: #C9A961; }
+.bcc-meta { padding: 20px 24px; }
+.bcc-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #0A1128; margin: 0 0 10px; line-height: 1.3; }
+.bcc-body { font-family: 'Inter', sans-serif; font-size: 13px; color: #0A1128; opacity: 0.78; line-height: 1.5; margin: 0; }
+.bcc-engagement { margin-top: 14px; display: flex; gap: 16px; font-size: 12px; color: #0A1128; opacity: 0.7; align-items: center; }
+.bcc-reach { margin-left: auto; font-size: 10px; letter-spacing: 0.08em; color: #C9A961; opacity: 1; }
+
+/* ── Beauty IG References Slide ─────────────────────────────── */
+.slide--beauty-ig .slide__inner { padding: 48px 80px 56px; }
+.slide--beauty-ig .sub-lead {
+  font-size: 14px; color: #0A1128; opacity: 0.65;
+  max-width: 680px; margin: 12px 0 0; line-height: 1.55;
+}
+.beauty-ig-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 28px;
+}
+/* Row 2: 3 cards centered via auto margins on the row */
+.beauty-ig-grid .beauty-ig-card:nth-child(5) { grid-column: 1; }
+.beauty-ig-grid .beauty-ig-card:nth-child(6) { grid-column: 2; }
+.beauty-ig-grid .beauty-ig-card:nth-child(7) { grid-column: 3; }
+
+.beauty-ig-card {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.ig-phone { width: 160px; }
+.ig-phone .phone-frame {
+  aspect-ratio: 9/16;
+  border-radius: 20px;
+  border: 5px solid #0A1128;
+  position: relative;
+  overflow: hidden;
+  background: #0A1128;
+}
+.ig-phone .phone-frame video {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.phone-frame--empty {
+  display: flex; align-items: center; justify-content: center;
+  background: #e8e4db;
+}
+.phone-unavailable {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; color: #0A1128; opacity: 0.2;
+}
+.beauty-ig-meta {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+}
+.big-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; color: #C9A961; line-height: 1;
+}
+.big-label {
+  font-size: 9px; letter-spacing: 0.12em;
+  color: #0A1128; opacity: 0.55; margin-top: 2px;
+}
+.beauty-ig-card--unavailable .big-num { opacity: 0.3; }
+.beauty-ig-card--unavailable .big-label { opacity: 0.3; }

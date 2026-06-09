@@ -1,0 +1,589 @@
+/* v7.css — CSS extensions for deck v7 */
+
+/* ──────────────────────────────────────────────────────────────
+   DARK SLIDE VARIANTS
+   ────────────────────────────────────────────────────────────── */
+
+/* Dark chapter closer */
+.slide--chapter-closer {
+  background: var(--navy);
+  color: #F5EFE6;
+}
+.slide--chapter-closer .slide__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 9vw;
+}
+.slide--chapter-closer .tl-note {
+  color: rgba(245,239,230,.55);
+}
+
+/* Dark stat grid (for dark slides) */
+.stat-grid--dark .stat-l {
+  color: rgba(245,239,230,.6);
+}
+.stat-grid--dark .stat-s {
+  color: rgba(245,239,230,.45);
+}
+.stat-grid--dark .stat-n.gold {
+  color: var(--gold);
+}
+
+/* Dark eyebrow variant */
+.eyebrow--gold {
+  color: var(--gold) !important;
+}
+
+/* Lead text on dark slides */
+.lead--muted {
+  color: rgba(245,239,230,.65);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.5;
+  max-width: 680px;
+  margin: 0 0 28px;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   SOUND TOGGLE BUTTON
+   ────────────────────────────────────────────────────────────── */
+.sound-toggle {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(201, 169, 97, 0.92);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0A1128;
+  z-index: 10;
+  transition: background 0.15s, transform 0.12s;
+  box-shadow: 0 2px 8px rgba(0,0,0,.35);
+  padding: 0;
+  flex-shrink: 0;
+}
+.sound-toggle:hover {
+  background: #C9A961;
+  transform: scale(1.1);
+}
+.sound-toggle--on {
+  background: #C9A961;
+}
+.sound-toggle svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+  pointer-events: none;
+}
+
+/* Ensure phone-frame is position:relative for absolute sound toggle */
+.phone-frame {
+  position: relative;
+}
+.paid-phone .phone-frame {
+  position: relative;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   ORGANIC FORMAT FAMILIES
+   ────────────────────────────────────────────────────────────── */
+.slide--family-intro {
+  background: var(--navy);
+}
+.slide--family-intro .slide__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 9vw;
+}
+.slide--family-intro .display--md {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 1.05;
+  color: #F5EFE6;
+  margin: 0 0 20px;
+  letter-spacing: -0.01em;
+}
+.slide--family-intro .rule {
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  margin: 20px 0 24px;
+  border: 0;
+}
+
+/* Family card grid — format name + episode count */
+.family-card-grid {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.family-card {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(201,169,97,.3);
+  border-radius: 6px;
+  padding: 18px 22px;
+  min-width: 180px;
+  flex: 1;
+  max-width: 260px;
+}
+.fc-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #F5EFE6;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+.fc-count {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: .18em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   EMAIL FLOW INTRO SLIDES (dark)
+   ────────────────────────────────────────────────────────────── */
+.slide--email-flow-intro {
+  background: var(--navy);
+}
+.slide--email-flow-intro .slide__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 9vw;
+}
+.slide--email-flow-intro .display--md {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 1.05;
+  color: #F5EFE6;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+.slide--email-flow-intro .rule {
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  margin: 18px 0 20px;
+  border: 0;
+}
+
+/* Email flow intro grid — compact cards */
+.email-flow-intro {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+.email-flow-intro--6 {
+  grid-template-columns: repeat(6, 1fr);
+  max-width: 900px;
+}
+.email-flow-intro--15 {
+  grid-template-columns: repeat(5, 1fr);
+  max-width: 1000px;
+}
+
+.ef-card {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(201,169,97,.25);
+  border-radius: 5px;
+  padding: 12px 10px;
+  text-align: center;
+}
+.ef-card--sm {
+  padding: 8px 8px;
+}
+.ef-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  letter-spacing: .2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.ef-day {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  color: rgba(245,239,230,.5);
+  margin-bottom: 4px;
+  letter-spacing: .08em;
+}
+.ef-cat {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  color: #F5EFE6;
+  font-style: italic;
+  line-height: 1.25;
+}
+
+/* ml2-body fix: max-height + scroll to prevent hero/body cutoff */
+.ml2-body {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   QUORA/REDDIT → 6 PLATFORMS
+   ────────────────────────────────────────────────────────────── */
+
+/* Intro dark slide */
+.slide--qr-intro {
+  background: var(--navy);
+}
+.slide--qr-intro .slide__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 9vw;
+}
+
+/* Platform badge row */
+.qr-platforms-overview {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+.qr-plat-badge {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: .16em;
+  color: #fff;
+  padding: 7px 16px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Platform slide layout */
+.slide--platform-grid .slide__inner {
+  max-width: 1380px;
+}
+.platform-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 16px;
+}
+.platform-icon-lg {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+/* Platform grid — 2 rows × 5 cols = 10 cards */
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 14px;
+  margin-top: 18px;
+}
+
+/* Post card */
+.post-card-mockup {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 130px;
+  transition: box-shadow 0.15s;
+}
+.post-card-mockup:hover {
+  box-shadow: 0 4px 16px rgba(10,17,40,.12);
+}
+.post-card-mockup--placeholder {
+  opacity: 0.45;
+  background: var(--cream-2);
+}
+
+.pcm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pcm-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+}
+.pcm-votes {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  color: var(--gold-2);
+  font-weight: 600;
+}
+.pcm-subtopic {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  letter-spacing: .14em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.pcm-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  color: var(--navy);
+  line-height: 1.3;
+  font-style: italic;
+  flex: 1;
+}
+.pcm-persona {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  color: var(--muted);
+  font-style: italic;
+}
+.pcm-cta {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  color: var(--gold-2);
+  font-weight: 600;
+  letter-spacing: .06em;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   BASTILLE REDESIGN (dark)
+   ────────────────────────────────────────────────────────────── */
+.slide--bastille {
+  background: var(--navy);
+}
+.slide__inner--bastille {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  padding: 60px 7vw;
+}
+.bastille-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.bastille-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 68px;
+  font-weight: 500;
+  line-height: 1.05;
+  color: #F5EFE6;
+  margin: 20px 0 10px;
+  letter-spacing: -0.01em;
+}
+.bastille-headline .gold {
+  color: var(--gold);
+  font-style: normal;
+}
+.bastille-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-style: italic;
+  color: rgba(245,239,230,.7);
+  margin-bottom: 2px;
+}
+.bastille-left .rule {
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  margin: 22px 0 24px;
+  border: 0;
+}
+.bastille-terms {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.bastille-term {
+  border-left: 2px solid var(--gold);
+  padding-left: 16px;
+}
+.bt-fr {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: #F5EFE6;
+  margin-bottom: 2px;
+}
+.bt-en {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: rgba(245,239,230,.55);
+  letter-spacing: .06em;
+}
+.bastille-footer {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: .3em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-top: 32px;
+}
+
+/* Bastille post card (right column) */
+.bastille-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.bastille-post-card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(201,169,97,.3);
+  border-radius: 8px;
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.bpc-platform {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: .2em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.bpc-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: #F5EFE6;
+  line-height: 1.25;
+}
+.bpc-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  line-height: 1.65;
+  color: rgba(245,239,230,.75);
+}
+.bpc-body em {
+  color: var(--gold);
+  font-style: italic;
+}
+.bpc-tags {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  color: rgba(201,169,97,.7);
+  letter-spacing: .04em;
+}
+.bpc-cta {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* Bastille mech-list on dark bg */
+.slide--bastille .mech-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.slide--bastille .mech {
+  border-left: 2px solid rgba(201,169,97,.4);
+  padding-left: 14px;
+}
+.slide--bastille .mech-h {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  letter-spacing: .24em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+.slide--bastille .mech-b {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(245,239,230,.7);
+}
+
+/* ──────────────────────────────────────────────────────────────
+   DISPLAY UTILITY
+   ────────────────────────────────────────────────────────────── */
+.display--md {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 1.05;
+  color: #F5EFE6;
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+}
+.display--md em.gold {
+  color: var(--gold);
+  font-style: italic;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   PAID PHONE FRAME WITH SOUND TOGGLE SUPPORT
+   ────────────────────────────────────────────────────────────── */
+.paid-phone {
+  position: relative;
+}
+.paid-phone .phone-frame {
+  position: relative;
+  aspect-ratio: 9/16;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #000;
+  border: 5px solid #0c1226;
+  box-shadow: 0 12px 28px rgba(10,17,40,.22);
+}
+.paid-phone .phone-notch {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 11px;
+  background: #000;
+  border-radius: 8px;
+  z-index: 2;
+}
+.paid-phone video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   ML2 BODY OVERFLOW FIX (explicit override)
+   ────────────────────────────────────────────────────────────── */
+.ml2-body {
+  max-height: 70vh !important;
+  overflow-y: auto !important;
+}
