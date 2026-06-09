@@ -2,9 +2,26 @@
 
 <html lang="en">
 <head>
-<meta content="no-cache, no-store, must-revalidate" http-equiv="Cache-Control"/>
+<meta content="no-cache, no-store, must-revalidate, max-age=0" http-equiv="Cache-Control"/>
 <meta content="no-cache" http-equiv="Pragma"/>
 <meta content="0" http-equiv="Expires"/>
+<script>
+// Auto cache-bust: if URL has no ?v= or ?v is older than 5min, reload with fresh timestamp
+(function(){
+  var u = new URL(location.href);
+  var v = parseInt(u.searchParams.get('v')||'0', 10);
+  var now = Math.floor(Date.now()/1000);
+  if (!v || (now - v) > 300) {
+    u.searchParams.set('v', now);
+    location.replace(u.toString());
+  }
+})();
+// Kill any service worker + caches on load
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(rs => rs.forEach(r => r.unregister()));
+}
+if (window.caches) { caches.keys().then(ks => ks.forEach(k => caches.delete(k))); }
+</script>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>French Atelier · CEO Briefing · v7</title>
