@@ -7505,3 +7505,80 @@ html body .deck section.slide.slide--email-pair .email-card-v78__body {
     border: none !important;
   }
 }
+
+/* ============================================================
+   v7.71 EMERGENCY EMAIL LAYOUT FIX
+   Agent1's redesign got crushed by older email-pair-v78 rules.
+   This block must WIN on specificity + cascade order.
+   ============================================================ */
+html body .deck .slide--email-pair .email-pair-v78 {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 24px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  justify-content: stretch !important;
+}
+html body .deck .slide--email-pair .email-row-v78 {
+  display: grid !important;
+  grid-template-columns: minmax(380px, 1fr) minmax(420px, 1.3fr) !important;
+  gap: 24px !important;
+  align-items: stretch !important;
+  width: 100% !important;
+}
+html body .deck .slide--email-pair .email-card-v78 {
+  width: 100% !important;
+  min-width: 360px !important;
+  max-width: 100% !important;
+  height: auto !important;
+  background: #fff !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08) !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+}
+html body .deck .slide--email-pair .email-card-v78__body {
+  max-height: none !important;
+  overflow: visible !important;
+  -webkit-line-clamp: unset !important;
+}
+html body .deck .slide--email-pair .email-card-v78__body p {
+  display: block !important;
+  -webkit-line-clamp: unset !important;
+  overflow: visible !important;
+  max-height: none !important;
+  margin: 0 0 10px 0 !important;
+  font-size: 13.5px !important;
+  line-height: 1.55 !important;
+  color: #2a2a2a !important;
+}
+html body .deck .slide--email-pair .email-landing-preview {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 280px !important;
+  background-size: cover !important;
+  background-position: top center !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
+}
+@media (max-width: 768px) {
+  html body .deck .slide--email-pair .email-row-v78 {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  html body .deck .slide--email-pair .email-card-v78 {
+    min-width: 0 !important;
+  }
+  html body .deck .slide--email-pair .email-landing-preview {
+    min-height: 200px !important;
+    aspect-ratio: 16/9 !important;
+  }
+}
+
+/* Hide the redundant in-card hero image now that we have the landing preview beside it */
+html body .deck .slide--email-pair .email-card-v78 .email-card-v78__hero {
+  display: none !important;
+}
+/* Make sure the title separator dot still renders */
+html body .deck .slide--email-pair .email-pair-v78__sep { display: inline !important; }
