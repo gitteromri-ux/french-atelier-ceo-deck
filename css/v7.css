@@ -6938,3 +6938,359 @@ html body .deck section.slide.slide--paid-duo .paid-duo-card .tv-frame video{
   object-fit: cover !important;
   display: block !important;
 }
+
+/* ============================================================
+   v7.66 — COMPREHENSIVE MOBILE RESPONSIVE OVERHAUL
+   Stack everything, ensure padding, no overflow, readable text
+   ============================================================ */
+@media (max-width: 768px){
+  /* Global slide padding */
+  html body .deck section.slide{
+    padding: 0 !important;
+    overflow-x: hidden !important;
+  }
+  html body .deck section.slide .slide__inner{
+    padding: 24px 18px 32px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  html body .deck section.slide .eyebrow{
+    font-size: 10.5px !important;
+    letter-spacing: 0.16em !important;
+    line-height: 1.4 !important;
+    margin-bottom: 10px !important;
+  }
+  html body .deck section.slide .title{
+    font-size: 26px !important;
+    line-height: 1.18 !important;
+    margin: 0 0 10px !important;
+  }
+  html body .deck section.slide .subtitle,
+  html body .deck section.slide .lede{
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+  html body .deck section.slide .rule{
+    margin: 12px 0 !important;
+  }
+
+  /* PAID DUO — vertical stack */
+  html body .deck section.slide.slide--paid-duo .paid-duo-grid{
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  html body .deck section.slide.slide--paid-duo .paid-duo-card{
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  html body .deck section.slide.slide--paid-duo .paid-duo-card .tv-frame{
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  html body .deck section.slide.slide--paid-duo .paid-duo-card h3,
+  html body .deck section.slide.slide--paid-duo .paid-duo-card .caption{
+    font-size: 18px !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+  }
+
+  /* ORGANIC PHONES — stack vertically, full width */
+  html body .deck section.slide .phones-row,
+  html body .deck section.slide .phones-grid,
+  html body .deck section.slide .organic-phones,
+  html body .deck section.slide .reels-row{
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 22px !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  html body .deck section.slide .phone-frame,
+  html body .deck section.slide .phone,
+  html body .deck section.slide .vertical-reel{
+    width: 86% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    transform: none !important;
+  }
+  html body .deck section.slide .phone-frame video,
+  html body .deck section.slide .phone video,
+  html body .deck section.slide .vertical-reel video{
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  /* BEAUTY IG slide */
+  html body .deck section.slide.slide--beauty .phones-row,
+  html body .deck section.slide.slide--beauty .ig-grid{
+    flex-direction: column !important;
+  }
+
+  /* MORE FORMATS slide */
+  html body .deck section.slide .formats-row,
+  html body .deck section.slide .formats-grid{
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 22px !important;
+    align-items: center !important;
+  }
+
+  /* PLATFORM POSTS (Reddit/Quora/Pinterest/Medium/Stack/Telegram) */
+  html body .deck section.slide .post-grid,
+  html body .deck section.slide .platform-grid,
+  html body .deck section.slide .pinterest-grid,
+  html body .deck section.slide .quora-grid,
+  html body .deck section.slide .reddit-grid,
+  html body .deck section.slide .medium-grid,
+  html body .deck section.slide .stack-grid,
+  html body .deck section.slide .telegram-grid{
+    grid-template-columns: 1fr !important;
+    display: grid !important;
+    gap: 14px !important;
+  }
+  html body .deck section.slide .post-card,
+  html body .deck section.slide .pin-card,
+  html body .deck section.slide .quora-card,
+  html body .deck section.slide .reddit-card{
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* BASTILLE final slide grids */
+  html body .deck section.slide.slide--bastille .grid,
+  html body .deck section.slide.slide--bastille [class*="grid"]{
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* Caption pills don't overflow */
+  html body .deck section.slide .pill,
+  html body .deck section.slide .metric-pill,
+  html body .deck section.slide .caption-pill{
+    font-size: 11px !important;
+    padding: 8px 12px !important;
+    line-height: 1.4 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+  }
+
+  /* Sound toggle — smaller on mobile, top-right corner */
+  html body .deck section.slide .sound-toggle{
+    width: 42px !important;
+    height: 42px !important;
+    top: 10px !important;
+    right: 10px !important;
+  }
+
+  /* Email pair already handled in v7.64 mobile rules */
+
+  /* Cover slide — ensure padding */
+  html body .deck section.slide.slide--cover .slide__inner,
+  html body .deck section.slide:first-child .slide__inner{
+    padding: 60px 22px !important;
+  }
+
+  /* Divider slides */
+  html body .deck section.slide.slide--divider .slide__inner,
+  html body .deck section.slide[class*="divider"] .slide__inner{
+    padding: 80px 22px !important;
+  }
+  html body .deck section.slide.slide--divider .title,
+  html body .deck section.slide[class*="divider"] .title{
+    font-size: 36px !important;
+  }
+}
+
+@media (max-width: 480px){
+  html body .deck section.slide .title{
+    font-size: 22px !important;
+  }
+  html body .deck section.slide .phone-frame,
+  html body .deck section.slide .phone,
+  html body .deck section.slide .vertical-reel{
+    width: 92% !important;
+    max-width: 300px !important;
+  }
+}
+
+/* ============================================================
+   v7.67 — MOBILE REAL CLASSNAMES (definitive)
+   ============================================================ */
+@media (max-width: 768px){
+  /* Beauty IG grid */
+  html body .deck .beauty-large-grid{
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    align-items: center !important;
+  }
+  html body .deck .beauty-large-card{
+    width: 100% !important;
+    max-width: 320px !important;
+  }
+  html body .deck .beauty-large-frame{
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Format multi (3-up and 5-up phone grids) */
+  html body .deck .format-multi-grid,
+  html body .deck .format-multi-grid--3,
+  html body .deck .format-multi-grid--5{
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 22px !important;
+    align-items: center !important;
+  }
+  html body .deck .format-multi-card{
+    width: 100% !important;
+    max-width: 320px !important;
+  }
+
+  /* Phone-frame (organic vertical reels — Formal, Homonyms, Tourism, History) */
+  html body .deck .phone-frame,
+  html body .deck .phone-frame--lg{
+    width: 88% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    transform: none !important;
+  }
+  html body .deck .phone-frame video,
+  html body .deck .phone-frame--lg video{
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Paid TV */
+  html body .deck .paid-tv,
+  html body .deck .paid-tv--xl,
+  html body .deck .tv-frame{
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  html body .deck .paid-tv video,
+  html body .deck .paid-tv--xl video,
+  html body .deck .tv-frame video{
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16/9 !important;
+    object-fit: cover !important;
+  }
+  html body .deck .paid-duo-grid{
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 28px !important;
+  }
+  html body .deck .paid-duo-card{
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  html body .deck .paid-duo-name{
+    font-size: 18px !important;
+    text-align: center !important;
+  }
+  html body .deck .paid-duo-desc{
+    font-size: 13px !important;
+    text-align: center !important;
+    line-height: 1.5 !important;
+  }
+  html body .deck .paid-duo-tag,
+  html body .deck .paid-duo-meta{
+    font-size: 10.5px !important;
+    padding: 6px 10px !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  /* Platform grids — Reddit, Quora, Pinterest, etc */
+  html body .deck .platform-grid-3x3{
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+  }
+  html body .deck .platform-hero,
+  html body .deck .platform-mini{
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  html body .deck .platform-header-row{
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  /* Bastille */
+  html body .deck .bastille-campaign-grid{
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+  }
+  html body .deck .bastille-campaign-card,
+  html body .deck .bastille-campaign-left,
+  html body .deck .bastille-campaign-right{
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  html body .deck .bastille-campaign-headline{
+    font-size: 22px !important;
+    line-height: 1.2 !important;
+  }
+  html body .deck .bastille-campaign-lead{
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Stats grid */
+  html body .deck .stat-grid,
+  html body .deck .stat-grid--dark{
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* BM row */
+  html body .deck .bm-row{
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  /* Tablet frame */
+  html body .deck .tablet-frame{
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Slide inner padding — generic */
+  html body .deck .slide__inner{
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    padding-top: 28px !important;
+    padding-bottom: 32px !important;
+  }
+
+  /* Title sizes */
+  html body .deck .title,
+  html body .deck h1.title,
+  html body .deck h2.title{
+    font-size: 28px !important;
+    line-height: 1.18 !important;
+  }
+
+  /* Eyebrow */
+  html body .deck .eyebrow{
+    font-size: 10.5px !important;
+    line-height: 1.5 !important;
+  }
+}
+
+@media (max-width: 480px){
+  html body .deck .title{ font-size: 24px !important; }
+  html body .deck .phone-frame,
+  html body .deck .phone-frame--lg{
+    width: 92% !important;
+    max-width: 280px !important;
+  }
+}
