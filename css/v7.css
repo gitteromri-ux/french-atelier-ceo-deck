@@ -6876,12 +6876,23 @@ html body .deck section.slide.slide--email-pair .email-card-v78::after{
   }
   html body .deck section.slide.slide--email-pair .email-card-v78{
     min-height: 640px !important;
-    max-height: 680px !important;
+    max-height: none !important;
   }
   html body .deck section.slide.slide--email-pair .email-card-v78__hero{
-    height: 180px !important;
-    min-height: 180px !important;
-    flex: 0 0 180px !important;
+    height: 200px !important;
+    min-height: 200px !important;
+    flex: 0 0 200px !important;
+  }
+  html body .deck section.slide.slide--email-pair .email-card-v78__meta{
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+  html body .deck section.slide.slide--email-pair .email-card-v78__time{
+    width: 100% !important;
+    text-align: right !important;
+  }
+  html body .deck section.slide.slide--email-pair .email-card-v78__from-addr{
+    word-break: break-all !important;
   }
 }
 
