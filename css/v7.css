@@ -7349,3 +7349,38 @@ html body .deck section.slide.slide--paid-duo .paid-duo-card .tv-frame video{
     max-width: 260px !important;
   }
 }
+
+/* Agent3: thought leadership cleanup */
+.deck #slide-reddit .eyebrow,
+.deck #slide-pinterest .eyebrow,
+.deck #slide-quora .eyebrow,
+.deck #slide-medium .eyebrow,
+.deck #slide-stack_exchange .eyebrow,
+.deck #slide-telegram .eyebrow,
+.deck .slide--platform .platform-meta,
+.deck .slide--platform .eyebrow + .title + .platform-meta { display: none !important; }
+
+/* Limit mini grid to 3 on both desktop and mobile */
+.deck .slide--platform .platform-grid-3x3 > .platform-mini:nth-child(n+5) { display: none !important; }
+.deck .slide--platform .platform-grid-3x3 {
+  grid-template-columns: repeat(3, 1fr) !important;
+  max-height: none !important;
+  gap: 16px !important;
+}
+.deck .slide--platform .platform-hero {
+  margin-bottom: 24px !important;
+}
+@media (max-width: 768px){
+  html body .deck .slide--platform .platform-grid-3x3 {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+  }
+  html body .deck .slide--platform .platform-grid-3x3 > .platform-mini {
+    flex: 1 1 calc(50% - 6px) !important;
+    min-height: 140px !important;
+  }
+}
+/* Hide sub-lead platform meta text */
+.deck .slide--platform .sub-lead { display: none !important; }
