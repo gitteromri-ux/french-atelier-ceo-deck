@@ -6822,8 +6822,9 @@ html body .deck section.slide.slide--email-pair .email-card-v78__sub{
 /* BODY — scrollable readable text */
 html body .deck section.slide.slide--email-pair .email-card-v78__body{
   flex: 1 1 auto !important;
-  padding: 18px 24px 18px !important;
+  padding: 18px 24px 24px !important;
   overflow-y: auto !important;
+  min-height: 0 !important;
   font: 400 13.5px/1.65 'Inter', sans-serif !important;
   color: #2A2D3A !important;
   background: #ffffff !important;
