@@ -34,7 +34,7 @@ if (window.caches) { caches.keys().then(ks => ks.forEach(k => caches.delete(k)))
 <link href="css/v2.css?v=1781037063" rel="stylesheet"/>
 <link href="css/v5.css?v=1781037063" rel="stylesheet"/>
 <link href="css/v6.css?v=1781037063" rel="stylesheet"/>
-<link href="css/v7.css?v=1781044324" rel="stylesheet"/>
+<link href="css/v7.css?v=1781044642" rel="stylesheet"/>
 <style id="v82-final-overrides">
 /* v8.2 FINAL — beats everything by being last in <head> */
 
@@ -129,6 +129,85 @@ html body .deck .slide--email-pair .slide__inner { padding-top: 32px !important;
 /* Email time: never wrap (AM was getting superscripted) */
 html body .deck .slide--email-pair .email-card-v78__time { white-space: nowrap !important; flex-shrink: 0 !important; font-size: 12px !important; color: #888 !important; }
 html body .deck .slide--email-pair .email-card-v78__meta { display: flex !important; justify-content: space-between !important; align-items: center !important; gap: 12px !important; flex-wrap: nowrap !important; }
+
+/* === v8.9.2 MOBILE — must be INSIDE inline style to beat earlier inline rules === */
+@media (max-width: 768px) {
+  /* Platform grid: 1 column instead of 5 */
+  html body .deck .slide--platform .platform-grid-3x3,
+  html body .deck #slide-reddit .platform-grid-3x3,
+  html body .deck #slide-pinterest .platform-grid-3x3,
+  html body .deck #slide-quora .platform-grid-3x3,
+  html body .deck #slide-medium .platform-grid-3x3,
+  html body .deck #slide-stack_exchange .platform-grid-3x3,
+  html body .deck #slide-telegram .platform-grid-3x3 {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    gap: 10px !important;
+    overflow-y: auto !important;
+  }
+  /* Show only first 5 cards on mobile (1 hero + 4 mini) */
+  html body .deck .slide--platform .platform-grid-3x3 > .platform-mini:nth-child(n+5) {
+    display: none !important;
+  }
+  /* Platform slide layout — allow scroll */
+  html body .deck .slide--platform .slide__inner,
+  html body .deck .slide--platform .slide__inner--platform {
+    padding: 20px !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+  }
+  html body .deck .slide--platform .slide__inner--platform-body {
+    overflow: visible !important;
+  }
+  /* Mini card sizing for mobile single col */
+  html body .deck .slide--platform .platform-mini {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 100px !important;
+    padding: 12px !important;
+    font-size: 12px !important;
+  }
+  html body .deck .slide--platform .platform-hero {
+    max-height: none !important;
+    min-height: 110px !important;
+    padding: 14px !important;
+  }
+  /* Larger readable text on mobile */
+  html body .deck .slide--platform .platform-mini .mock-reddit__title,
+  html body .deck .slide--platform .platform-mini .mock-quora__q,
+  html body .deck .slide--platform .platform-mini .mock-quora__title,
+  html body .deck .slide--platform .platform-mini .mock-medium__title,
+  html body .deck .slide--platform .platform-mini .mock-stack__title,
+  html body .deck .slide--platform .platform-mini .mock-telegram__title {
+    font-size: 13px !important;
+    -webkit-line-clamp: 2 !important;
+  }
+  html body .deck .slide--platform .platform-mini .mock-reddit__body,
+  html body .deck .slide--platform .platform-mini .mock-quora__a,
+  html body .deck .slide--platform .platform-mini .mock-quora__body,
+  html body .deck .slide--platform .platform-mini .mock-medium__sub,
+  html body .deck .slide--platform .platform-mini .mock-stack__excerpt,
+  html body .deck .slide--platform .platform-mini .mock-telegram__body {
+    font-size: 11px !important;
+  }
+  /* Reddit/Stack left column — fixed width so vote numbers don't squeeze */
+  html body .deck .slide--platform .platform-mini .mock-reddit__left,
+  html body .deck .slide--platform .platform-mini .mock-stack__left {
+    flex: 0 0 36px !important;
+    min-width: 36px !important;
+  }
+  /* Format-tablet: title above tablet on mobile */
+  html body .deck .slide--format-tablet .slide__inner {
+    flex-direction: column !important;
+  }
+  html body .deck .slide--format-tablet h2,
+  html body .deck .slide--format-tablet .slide__title {
+    order: -1 !important;
+    margin-bottom: 12px !important;
+  }
+}
 </style>
 <script defer="" src="js/sound_toggle.js?v=1781042349"></script>
 </head>
@@ -1347,10 +1426,12 @@ html body .deck .slide--email-pair .email-card-v78__meta { display: flex !import
 </div></section>
 <section class="slide slide--cream slide--platform" id="slide-quora"><div class="slide__inner slide__inner--platform">
 <div class="slide__inner--platform-header">
+<div class="eyebrow">CHAPTER 03 · THOUGHT LEADERSHIP · QUORA</div>
 <div class="platform-header-row">
 <div class="platform-icon-svg"><svg fill="white" height="20" viewbox="0 0 20 20" width="20"><circle cx="10" cy="10" fill="#B92B27" r="10"></circle><text fill="white" font-family="Georgia,serif" font-size="13" font-weight="bold" x="5" y="15">Q</text></svg></div>
 <div>
 <h2 class="title title--md">Quora.</h2>
+<div class="sub-lead">10 posts · quora platform UI · targeted personas</div>
 </div>
 </div>
 </div>
@@ -1486,22 +1567,10 @@ html body .deck .slide--email-pair .email-card-v78__meta { display: flex !import
 <div class="mock-quora__answer">For certain careers — international business, diplomacy, academia, translation — a recognized credential changes how you're perceived. Here's what each level signals.</div>
 <div class="mock-quora__bar"><span class="mock-quora__upvote">▲ Upvote ▲ 960</span> <span>⬇</span> <span>💬 97</span> <span>↗ Share</span></div>
 </div>
-<div class="mock-quora platform-mini">
-<div class="mock-quora__topic-row"><span class="mock-quora__topic-chip">French Music & Chanson</span></div>
-<div class="mock-quora__author-row">
-<div class="mock-quora__avatar">FM</div>
-<div class="mock-quora__author-meta">
-<div class="mock-quora__author-name">FrenchAtelier Instructor</div>
-<div class="mock-quora__author-credentials">French Teacher · 20+ years · Adult learners</div>
-</div>
-</div>
-<div class="mock-quora__question">Can learning songs by Brel or Piaf actually teach me French?</div>
-<div class="mock-quora__answer">Yes — chanson française gives you natural rhythm, idiomatic phrasing, and emotional vocabulary you'll never get from a textbook. Here's how to use it.</div>
-<div class="mock-quora__bar"><span class="mock-quora__upvote">▲ Upvote ▲ 1,140</span> <span>⬇</span> <span>💬 102</span> <span>↗ Share</span></div>
-</div>
 </div>
 </div>
 </div></section>
+
 <section class="slide slide--cream slide--platform" id="slide-medium"><div class="slide__inner slide__inner--platform">
 <div class="slide__inner--platform-header">
 <div class="platform-header-row">
