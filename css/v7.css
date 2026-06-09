@@ -7242,3 +7242,19 @@
     object-fit: cover !important;
   }
 }
+
+/* === v7.54 — NO CROP: contain both Philippe phone + Charline TV graphics === */
+html body .deck .slide--paid-duo .phone-frame video,
+html body .deck .slide--paid-duo .paid-duo-card video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  background: #000 !important;
+}
+html body .deck .slide--paid-duo .tv-frame video,
+html body .deck .slide--paid-duo .paid-tv video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  background: #000 !important;
+}
