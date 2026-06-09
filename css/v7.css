@@ -7274,3 +7274,43 @@ html body .deck .slide--paid-duo .paid-tv video {
     height: 0 !important;
   }
 }
+
+/* === v7.56 — Two equal phone frames in paid duo === */
+@media (min-width: 901px) {
+  html body .deck .slide--paid-duo .paid-duo-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 80px !important;
+    justify-items: center !important;
+    align-items: center !important;
+  }
+  html body .deck .slide--paid-duo .paid-phone--xl .phone-frame,
+  html body .deck .slide--paid-duo .paid-duo-card .phone-frame {
+    width: 380px !important;
+    max-width: 380px !important;
+    height: 676px !important;
+    max-height: 676px !important;
+    aspect-ratio: 9/16 !important;
+  }
+  html body .deck .slide--paid-duo .phone-frame video {
+    object-fit: cover !important;
+    background: #000 !important;
+  }
+  /* Kill old TV frame styling if any leftover */
+  html body .deck .slide--paid-duo .paid-tv,
+  html body .deck .slide--paid-duo .tv-frame {
+    display: none !important;
+  }
+}
+@media (max-width: 900px) {
+  html body .deck .slide--paid-duo .paid-duo-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  html body .deck .slide--paid-duo .phone-frame {
+    width: 88vw !important;
+    max-width: 340px !important;
+    height: auto !important;
+    aspect-ratio: 9/16 !important;
+    margin: 0 auto !important;
+  }
+}
