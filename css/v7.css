@@ -6894,6 +6894,11 @@ html body .deck section.slide.slide--email-pair .email-card-v78::after{
   html body .deck section.slide.slide--email-pair .email-card-v78__from-addr{
     word-break: break-all !important;
   }
+  html body .deck section.slide.slide--email-pair .email-card-v78::after{
+    content: "↩ Reply  ↪ Forward  ★ Star" !important;
+    font-size: 10.5px !important;
+    padding: 11px 14px !important;
+  }
 }
 
 /* ============================================================
@@ -7211,12 +7216,29 @@ html body .deck section.slide.slide--paid-duo .paid-duo-card .tv-frame video{
     display: flex !important;
     flex-direction: column !important;
     gap: 14px !important;
+    height: auto !important;
   }
   html body .deck .platform-hero,
   html body .deck .platform-mini{
     width: 100% !important;
     max-width: 100% !important;
+    height: auto !important;
+    min-height: 120px !important;
     box-sizing: border-box !important;
+  }
+  html body .deck .mock-reddit,
+  html body .deck .mock-quora,
+  html body .deck .mock-pinterest,
+  html body .deck .mock-medium,
+  html body .deck .mock-stack,
+  html body .deck .mock-telegram{
+    height: auto !important;
+    min-height: 140px !important;
+  }
+  html body .deck .mock-pinterest__pin{
+    height: auto !important;
+    min-height: 240px !important;
+    aspect-ratio: 3/4 !important;
   }
   html body .deck .platform-header-row{
     flex-wrap: wrap !important;
