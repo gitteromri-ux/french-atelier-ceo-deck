@@ -3715,7 +3715,7 @@
     gap: 8px !important;
     width: 100% !important;
   }
-  .slide--platform .platform-mini > *:nth-child(n+5) { display: none !important; }
+  /* DISABLED v8.2 */
   .deck .slide--platform .title,
   .slide--platform .title { font-size: 26px !important; }
 
@@ -3859,7 +3859,7 @@
     margin: 0 !important;
   }
   /* limit mini count to keep slide reasonable */
-  .slide--platform .platform-grid-3x3 > *:nth-child(n+5) { display: none !important; }
+  /* DISABLED v8.2 */
 
   /* QUORA author row: don't let it overflow */
   .mock-quora__author-row { flex-wrap: wrap !important; }
@@ -7360,13 +7360,7 @@ html body .deck section.slide.slide--paid-duo .paid-duo-card .tv-frame video{
 .deck .slide--platform .platform-meta,
 .deck .slide--platform .eyebrow + .title + .platform-meta { display: none !important; }
 
-/* Limit mini grid to 3 on both desktop and mobile */
-.deck .slide--platform .platform-grid-3x3 > .platform-mini:nth-child(n+4) { display: none !important; }
-.deck .slide--platform .platform-grid-3x3 {
-  grid-template-columns: repeat(3, 1fr) !important;
-  max-height: none !important;
-  gap: 16px !important;
-}
+/* DISABLED v8.2 — was limiting to 3, user wants all visible */
 .deck .slide--platform .platform-hero {
   margin-bottom: 24px !important;
 }
@@ -7475,35 +7469,9 @@ html body .deck section.slide.slide--email-pair .email-card-v78__body {
   }
 }
 
-/* Agent3: strong override — hide minis 4+ regardless of earlier rules (keep only 3) */
+/* Agent3 DISABLED v8.2 — was hiding minis 4+, user wants all visible */
 @media (min-width: 769px) {
-  .deck .slide--platform .platform-grid-3x3 > .platform-mini:nth-child(n+4),
-  .deck #slide-quora .platform-grid-3x3 > .platform-mini:nth-child(n+4),
-  .deck #slide-medium .platform-grid-3x3 > .platform-mini:nth-child(n+4),
-  .deck #slide-telegram .platform-grid-3x3 > .platform-mini:nth-child(n+4),
-  html body .deck #slide-quora .platform-grid-3x3 > *:nth-child(n+4),
-  html body .deck #slide-medium .platform-grid-3x3 > *:nth-child(n+4),
-  html body .deck #slide-telegram .platform-grid-3x3 > *:nth-child(n+4) {
-    display: none !important;
-  }
-}
-
-/* Agent3: ultra-specific override for telegram/quora/medium — hide all minis after 3rd */
-@media (min-width: 769px) {
-  .deck .slide--platform#slide-telegram .platform-grid-3x3 .platform-mini:nth-child(n+4),
-  .deck .slide--platform#slide-quora .platform-grid-3x3 .platform-mini:nth-child(n+4),
-  .deck .slide--platform#slide-medium .platform-grid-3x3 .platform-mini:nth-child(n+4),
-  .deck .slide--platform#slide-reddit .platform-grid-3x3 .platform-mini:nth-child(n+4),
-  .deck .slide--platform#slide-pinterest .platform-grid-3x3 .platform-mini:nth-child(n+4),
-  .deck .slide--platform#slide-stack_exchange .platform-grid-3x3 .platform-mini:nth-child(n+4) {
-    display: none !important;
-    visibility: hidden !important;
-    height: 0 !important;
-    overflow: hidden !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    border: none !important;
-  }
+  /* removed */
 }
 
 /* ============================================================
