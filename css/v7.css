@@ -8758,3 +8758,33 @@ html body .deck section.slide.slide--email-pair .email-landing-preview {
   }
   html body .deck section.slide.slide--organic-duo .org-duo-meta { margin-top: 10px !important; }
 }
+
+/* ============================================================
+   v7.31 — MOBILE organic-duo: stacking 2 large phones can't fit in one
+   screen. Put the two phones SIDE BY SIDE (scaled to the phone width)
+   so BOTH videos are fully visible at once — nothing cut, no scroll.
+   ============================================================ */
+@media (max-width: 900px) {
+  html body .deck section.slide.slide--organic-duo > .slide__inner {
+    justify-content: center !important; padding: 14px 10px 20px !important;
+    overflow: hidden !important;            /* fits now, no scroll needed */
+  }
+  html body .deck section.slide.slide--organic-duo .org-duo-title { font-size: 21px !important; margin-bottom: 4px !important; }
+  html body .deck section.slide.slide--organic-duo .org-duo-counter { font-size: 19px !important; margin-bottom: 2px !important; }
+  html body .deck section.slide.slide--organic-duo .org-duo-sub { margin-bottom: 12px !important; font-size: 10px !important; }
+  html body .deck section.slide.slide--organic-duo .org-duo-grid {
+    flex-direction: row !important; gap: 10px !important;
+    align-items: flex-start !important; justify-content: center !important; width: 100% !important;
+  }
+  html body .deck section.slide.slide--organic-duo .phone-frame--duo {
+    width: 165px !important; height: 300px !important; flex: 0 0 auto !important;
+  }
+  html body .deck section.slide.slide--organic-duo .phone-frame--duo .phone-notch {
+    width: 70px !important; height: 16px !important;
+  }
+  html body .deck section.slide.slide--organic-duo .org-duo-meta { margin-top: 8px !important; }
+  html body .deck section.slide.slide--organic-duo .org-duo-name { font-size: 9px !important; }
+  html body .deck section.slide.slide--organic-duo .org-duo-cap { font-size: 14px !important; }
+  /* keep sound toggle from overflowing the small phone */
+  html body .deck section.slide.slide--organic-duo .sound-toggle { width: 30px !important; height: 30px !important; }
+}
