@@ -8631,3 +8631,130 @@ html body .deck section.slide.slide--email-pair .email-landing-preview {
 }
 
 /* (traffic-light dots removed per request) */
+
+/* ============================================================
+   v7.28 — MOBILE "NOTHING CUT" FIX (authoritative, last in cascade)
+   Problem: email-pair & organic-duo slides grew to ~1766px tall on
+   a 812px phone, so the deck overflowed and the 2nd email/2nd phone
+   was clipped below the fold with no working scroll → "mockups cut".
+   Fix: pin deck + these slides to the exact viewport height, and make
+   .slide__inner the single, smooth, touch-scrollable region so EVERY
+   email, image and video is fully reachable and never clipped.
+   ============================================================ */
+@media (max-width: 900px) {
+  /* Deck must never grow past the screen on mobile */
+  html body .deck-body { overflow: hidden !important; }
+  html body .deck {
+    height: 100vh !important; height: 100dvh !important;
+    max-height: 100vh !important; max-height: 100dvh !important;
+    overflow-y: hidden !important;
+  }
+
+  /* Email-pair + organic-duo: slide is exactly one screen; inner scrolls */
+  html body .deck section.slide.slide--email-pair,
+  html body .deck section.slide.slide--organic-duo {
+    height: 100vh !important; height: 100dvh !important;
+    max-height: 100vh !important; max-height: 100dvh !important;
+    overflow: hidden !important;
+  }
+  html body .deck section.slide.slide--email-pair > .slide__inner,
+  html body .deck section.slide.slide--organic-duo > .slide__inner {
+    height: 100% !important; max-height: 100% !important;
+    min-height: 0 !important;
+    overflow-y: auto !important; overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+    padding: 18px 18px 64px !important;       /* bottom pad so last item clears the fold */
+    box-sizing: border-box !important;
+    scroll-padding-bottom: 48px !important;
+  }
+
+  /* Stack the two email rows; each fits its own content (no clipping) */
+  html body .deck section.slide.slide--email-pair .email-pair-v78 {
+    display: flex !important; flex-direction: column !important;
+    gap: 22px !important; height: auto !important; min-height: 0 !important;
+  }
+  html body .deck section.slide.slide--email-pair .email-row-v78 {
+    display: flex !important; flex-direction: column !important;
+    gap: 12px !important; height: auto !important; min-height: 0 !important;
+  }
+  /* Email text card: show ALL text, no inner clipping */
+  html body .deck section.slide.slide--email-pair .email-card-v78 {
+    height: auto !important; min-height: 0 !important;
+  }
+  html body .deck section.slide.slide--email-pair .email-card-v78__body {
+    height: auto !important; overflow: visible !important;
+    font-size: 12.5px !important; line-height: 1.5 !important;
+  }
+  /* Square image: full-width beautiful square, never cropped away */
+  html body .deck section.slide.slide--email-pair .email-landing-preview {
+    width: 100% !important; max-width: 100% !important;
+    aspect-ratio: 1 / 1 !important; height: auto !important; max-height: none !important;
+    justify-self: stretch !important;
+  }
+
+  /* Organic-duo: stack the two phones; both fully visible via scroll */
+  html body .deck section.slide.slide--organic-duo .org-duo-grid {
+    flex-direction: column !important; gap: 28px !important;
+    align-items: center !important; height: auto !important;
+  }
+  html body .deck section.slide.slide--organic-duo .phone-frame--duo {
+    width: 248px !important; height: 452px !important; flex: 0 0 auto !important;
+  }
+}
+
+/* ============================================================
+   v7.29 — MOBILE email text was collapsing to a sliver (flex bug).
+   Force every email card + its body to render at full content height
+   with NO inner clipping, so all text shows. Image stays a square.
+   ============================================================ */
+@media (max-width: 900px) {
+  html body .deck section.slide.slide--email-pair .email-card-v78 {
+    display: block !important;             /* drop flex so children take natural height */
+    height: auto !important; min-height: 0 !important;
+    overflow: visible !important;
+  }
+  html body .deck section.slide.slide--email-pair .email-card-v78 > * {
+    flex: none !important;                 /* neutralise inherited flex sizing */
+  }
+  html body .deck section.slide.slide--email-pair .email-card-v78__meta,
+  html body .deck section.slide.slide--email-pair .email-card-v78__subj {
+    display: block !important; height: auto !important;
+  }
+  html body .deck section.slide.slide--email-pair .email-card-v78__meta {
+    display: flex !important; align-items: center !important; justify-content: space-between !important;
+  }
+  html body .deck section.slide.slide--email-pair .email-card-v78__body {
+    display: block !important;
+    height: auto !important; max-height: none !important; min-height: 0 !important;
+    overflow: visible !important;
+    font-size: 12.5px !important; line-height: 1.55 !important;
+  }
+  html body .deck section.slide.slide--email-pair .email-card-v78__body p {
+    overflow: visible !important; height: auto !important; max-height: none !important;
+    -webkit-line-clamp: unset !important; display: block !important;
+  }
+}
+
+/* ============================================================
+   v7.30 — MOBILE organic-duo: 2 phones were taller than the screen,
+   clipping phone 1 at top and phone 2 at bottom. Compact the layout
+   so both phones + captions are fully reachable via inner scroll,
+   with no header overlap and nothing cut.
+   ============================================================ */
+@media (max-width: 900px) {
+  html body .deck section.slide.slide--organic-duo > .slide__inner {
+    justify-content: flex-start !important;
+    padding-top: 12px !important;
+  }
+  html body .deck section.slide.slide--organic-duo .org-duo-counter { margin-bottom: 2px !important; font-size: 22px !important; }
+  html body .deck section.slide.slide--organic-duo .org-duo-title { font-size: 26px !important; margin-bottom: 6px !important; }
+  html body .deck section.slide.slide--organic-duo .org-duo-sub { margin-bottom: 14px !important; }
+  html body .deck section.slide.slide--organic-duo .org-duo-grid {
+    flex-direction: column !important; gap: 22px !important; align-items: center !important;
+  }
+  html body .deck section.slide.slide--organic-duo .phone-frame--duo {
+    width: 230px !important; height: 420px !important; flex: 0 0 auto !important;
+  }
+  html body .deck section.slide.slide--organic-duo .org-duo-meta { margin-top: 10px !important; }
+}
