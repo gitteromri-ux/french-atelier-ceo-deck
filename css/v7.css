@@ -8548,18 +8548,18 @@ html body .deck section.slide.slide--email-pair > .slide__inner > .rule {
 /* Two full emails side by side (hero banner on top, text below in each) */
 html body .deck section.slide.slide--email-pair .email-pair-v78 {
   display: grid !important; grid-template-columns: 1fr 1fr !important;
-  grid-template-rows: 1fr !important; gap: 36px !important;
-  flex: 1 1 auto !important; min-height: 0 !important; width: 100% !important;
-  max-width: 1280px !important; margin: 0 auto !important; align-items: stretch !important;
+  grid-template-rows: auto !important; gap: 36px !important;
+  flex: 0 1 auto !important; min-height: 0 !important; width: 100% !important;
+  max-width: 1088px !important; margin: 0 auto !important; align-items: start !important;
 }
 html body .deck section.slide.slide--email-pair .email-row-v78 {
-  display: block !important; min-height: 0 !important; height: 100% !important;
+  display: block !important; min-height: 0 !important; height: auto !important;
 }
 
 /* --- Mail-client window (text side) --- */
 html body .deck section.slide.slide--email-pair .email-card-v78 {
   position: relative !important;
-  height: 100% !important; min-height: 0 !important; min-width: 0 !important;
+  height: auto !important; min-height: 0 !important; min-width: 0 !important;
   background: #FFFFFF !important;
   border-radius: 16px !important;
   box-shadow: 0 24px 60px rgba(10,17,40,0.16), 0 4px 14px rgba(10,17,40,0.08) !important;
@@ -8602,7 +8602,7 @@ html body .deck section.slide.slide--email-pair .email-card-v78__subj {
 html body .deck section.slide.slide--email-pair .email-card-v78__hero {
   display: block !important;
   width: 100% !important;
-  aspect-ratio: 1920 / 640 !important;   /* cinematic banner, shows the full scene */
+  aspect-ratio: 1920 / 502 !important;   /* matches the native image so it is NOT stretched/smeared */
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
