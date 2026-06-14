@@ -8167,3 +8167,22 @@ html body .deck #slide-pinterest .platform-mini .mock-pinterest {
 .mock-quora.platform-hero .mock-quora__bar { font-size: 11px; gap: 12px; }
 .mock-quora__upvote { color: #B92B27; font-weight: 700; }
 
+/* ===== Website Walkthrough slide (self-contained, no tablet grid) ===== */
+.slide--website-walk .slide__inner.ww-inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 52px !important;
+  flex-wrap: wrap !important;
+  padding: 36px 64px !important;
+  max-width: 1220px !important;
+  margin: 0 auto !important;
+}
+.ww-frame-col { flex: 0 1 600px; max-width: 600px; width: 100%; }
+.ww-text-col { flex: 0 1 360px; max-width: 400px; }
+.slide--website-walk .ww-text-col h2 { margin: 0 0 16px !important; font-size: clamp(34px, 4vw, 52px) !important; line-height: 1.05 !important; color: #0A1128 !important; }
+.slide--website-walk .ww-text-col .rule { background: #C9A961 !important; }
+@media (max-width: 900px) {
+  .slide--website-walk .slide__inner.ww-inner { flex-direction: column !important; gap: 24px !important; padding: 24px 20px !important; }
+  .ww-frame-col, .ww-text-col { flex: 1 1 100% !important; max-width: 100% !important; }
+}
