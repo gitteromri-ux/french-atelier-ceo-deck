@@ -8186,3 +8186,144 @@ html body .deck #slide-pinterest .platform-mini .mock-pinterest {
   .slide--website-walk .slide__inner.ww-inner { flex-direction: column !important; gap: 24px !important; padding: 24px 20px !important; }
   .ww-frame-col, .ww-text-col { flex: 1 1 100% !important; max-width: 100% !important; }
 }
+
+/* ============================================================
+   FINAL EMAIL LAYOUT — single authoritative block (overrides
+   all earlier email-pair attempts). User spec:
+   - Email TEXT in full, nothing cut.
+   - SQUARE beauty image beside it, sitting LOWER on the frame.
+   - Two emails per slide, both fully visible in the slide height.
+   This block is last in the cascade and uses high-specificity
+   selectors with !important so it wins.
+   ============================================================ */
+html body .deck section.slide.slide--email-pair {
+  overflow: hidden !important;
+}
+html body .deck section.slide.slide--email-pair .slide__inner {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  padding: 20px 40px 22px !important;
+  overflow: hidden !important;
+}
+html body .deck section.slide.slide--email-pair .title {
+  font-size: 24px !important;
+  margin: 0 0 6px !important;
+  flex: 0 0 auto !important;
+}
+html body .deck section.slide.slide--email-pair .rule {
+  margin: 0 0 12px !important;
+  flex: 0 0 auto !important;
+}
+/* Two equal rows filling remaining height */
+html body .deck section.slide.slide--email-pair .email-pair-v78 {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  grid-template-rows: 1fr 1fr !important;
+  gap: 16px !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  width: 100% !important;
+}
+/* Each row: text card (left) + SQUARE image (right, lower) */
+html body .deck section.slide.slide--email-pair .email-row-v78 {
+  display: grid !important;
+  grid-template-columns: 1.5fr 1fr !important;
+  gap: 20px !important;
+  align-items: end !important;          /* image sits LOWER on frame */
+  min-height: 0 !important;
+  width: 100% !important;
+}
+/* Text card: full content, compact, no clip */
+html body .deck section.slide.slide--email-pair .email-card-v78 {
+  height: 100% !important;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  background: #fff !important;
+  border-radius: 14px !important;
+  box-shadow: 0 6px 22px rgba(10,17,40,0.10) !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 0 !important;
+}
+html body .deck section.slide.slide--email-pair .email-card-v78__meta {
+  padding: 12px 18px 8px !important;
+  flex: 0 0 auto !important;
+}
+html body .deck section.slide.slide--email-pair .email-card-v78__avatar {
+  width: 34px !important; height: 34px !important; font-size: 14px !important;
+}
+html body .deck section.slide.slide--email-pair .email-card-v78__subj {
+  padding: 4px 18px 4px !important;
+  font-size: 17px !important;
+  flex: 0 0 auto !important;
+}
+/* hide in-card hero banner — beauty image lives beside it now */
+html body .deck section.slide.slide--email-pair .email-card-v78__hero { display: none !important; }
+html body .deck section.slide.slide--email-pair .email-card-v78__body {
+  padding: 6px 18px 14px !important;
+  font-size: 11.5px !important;
+  line-height: 1.45 !important;
+  color: #2a2a2a !important;
+  overflow: hidden !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+}
+html body .deck section.slide.slide--email-pair .email-card-v78__body p {
+  margin: 0 0 6px !important;
+  font-size: 11.5px !important;
+  line-height: 1.45 !important;
+}
+/* SQUARE beauty image, bottom-aligned, fully visible, never cut */
+html body .deck section.slide.slide--email-pair .email-landing-preview {
+  aspect-ratio: 1 / 1 !important;
+  height: 100% !important;
+  width: auto !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  min-height: 0 !important;
+  justify-self: end !important;
+  align-self: end !important;
+  border-radius: 14px !important;
+  background-size: cover !important;
+  background-position: center bottom !important;
+  background-repeat: no-repeat !important;
+  box-shadow: 0 10px 30px rgba(10,17,40,0.16) !important;
+  border: 1px solid rgba(10,17,40,0.08) !important;
+}
+/* Mobile: stack text over square image */
+@media (max-width: 900px) {
+  html body .deck section.slide.slide--email-pair .slide__inner { overflow-y: auto !important; height: auto !important; min-height: 100% !important; }
+  html body .deck section.slide.slide--email-pair .email-pair-v78 { grid-template-rows: auto auto !important; }
+  html body .deck section.slide.slide--email-pair .email-row-v78 { grid-template-columns: 1fr !important; gap: 12px !important; align-items: stretch !important; }
+  html body .deck section.slide.slide--email-pair .email-landing-preview { width: 100% !important; height: auto !important; justify-self: stretch !important; }
+  html body .deck section.slide.slide--email-pair .email-card-v78__body { font-size: 12.5px !important; }
+}
+
+/* Play badge — force correct sizing/position over deck globals */
+html body .deck .video-clickwrap { position: relative !important; display: block !important; width: 100% !important; height: 100% !important; }
+html body .deck .video-clickwrap > video { display: block !important; width: 100% !important; height: 100% !important; }
+html body .deck .video-clickwrap .video-play-badge {
+  position: absolute !important; top: 50% !important; left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 64px !important; height: 64px !important; min-width: 64px !important; min-height: 64px !important;
+  border-radius: 50% !important; background: rgba(10,17,40,0.55) !important;
+  border: 2px solid #C9A961 !important; display: flex !important;
+  align-items: center !important; justify-content: center !important;
+  cursor: pointer !important; z-index: 7 !important; padding: 0 !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3) !important;
+}
+html body .deck .video-clickwrap .video-play-badge:hover { background: rgba(10,17,40,0.8) !important; transform: translate(-50%,-50%) scale(1.06) !important; }
+html body .deck .video-clickwrap .video-play-badge .video-play-badge__tri {
+  width: 0 !important; height: 0 !important; margin-left: 4px !important;
+  border-top: 12px solid transparent !important; border-bottom: 12px solid transparent !important;
+  border-left: 20px solid #C9A961 !important;
+}
+html body .deck .video-clickwrap.is-playing .video-play-badge { opacity: 0 !important; pointer-events: none !important; }
+
+/* Mobile: allow the email slide itself to scroll so both stacked emails are fully reachable */
+@media (max-width: 900px) {
+  html body .deck section.slide.slide--email-pair { overflow-y: auto !important; }
+}

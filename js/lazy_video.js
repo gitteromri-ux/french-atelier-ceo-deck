@@ -1,12 +1,12 @@
 /* ===================================================
    Safe Lazy Video Loader — French Atelier Deck
-   GUARANTEE: a video is NEVER shown black.
-   - Every <video> has a poster (first-frame JPG) that stays
-     visible until the video itself is decoded and playing.
-   - First videos load eagerly; the rest defer their network
-     fetch until near the viewport, then fade in over the poster.
-   - Pauses offscreen videos to save CPU/bandwidth (poster remains).
-   - Works alongside sound_toggle.js for user-controlled audio.
+   GUARANTEE: a video is NEVER shown black, and NOTHING autoplays.
+   - Every <video> shows its poster (first-frame JPG) until the
+     viewer clicks it. No video plays on its own.
+   - A gold play badge sits over each poster as an affordance.
+   - Click toggles play/pause. Sound stays OFF until the per-video
+     sound toggle is used (handled by sound_toggle.js).
+   - Offscreen playing videos are paused (poster/last frame remains).
    =================================================== */
 (function () {
   function loadVideo(video) {
@@ -19,11 +19,35 @@
     video.load();
   }
 
-  function playMuted(video) {
-    loadVideo(video);
-    video.muted = (video.dataset.userSound !== 'on');
-    var p = video.play();
-    if (p && p.catch) p.catch(function () {});
+  function wrapWithBadge(video) {
+    if (video.parentElement && video.parentElement.classList.contains('video-clickwrap')) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'video-clickwrap';
+    var parent = video.parentNode;
+    parent.insertBefore(wrap, video);
+    wrap.appendChild(video);
+    var badge = document.createElement('button');
+    badge.className = 'video-play-badge';
+    badge.setAttribute('aria-label', 'Play video');
+    badge.type = 'button';
+    badge.innerHTML = '<span class="video-play-badge__tri"></span>';
+    wrap.appendChild(badge);
+
+    function play() {
+      loadVideo(video);
+      video.muted = (video.dataset.userSound !== 'on');
+      var p = video.play();
+      if (p && p.catch) p.catch(function () {});
+    }
+    function pause() { try { video.pause(); } catch (e) {} }
+
+    badge.addEventListener('click', function (e) { e.stopPropagation(); play(); });
+    video.addEventListener('click', function () {
+      if (video.paused) play(); else pause();
+    });
+    video.addEventListener('playing', function () { wrap.classList.add('is-playing'); });
+    video.addEventListener('pause', function () { wrap.classList.remove('is-playing'); });
+    video.addEventListener('ended', function () { wrap.classList.remove('is-playing'); });
   }
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -37,40 +61,22 @@
         s.removeAttribute('src');
       }
       v.setAttribute('preload', 'none');
+      v.removeAttribute('autoplay');
       v.muted = true;
       v.loop = true;
       v.playsInline = true;
       v.setAttribute('playsinline', '');
+      wrapWithBadge(v);
     });
 
-    // Eager-load the first several videos so the opening slides are instant.
-    videos.slice(0, 8).forEach(function (v) { loadVideo(v); });
-
-    if (!('IntersectionObserver' in window)) {
-      videos.forEach(function (v) { playMuted(v); });
-      return;
+    // Pause videos that scroll fully offscreen (no autoplay on enter).
+    if ('IntersectionObserver' in window) {
+      var pauseObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) { try { e.target.pause(); } catch (err) {} }
+        });
+      }, { root: null, rootMargin: '0px', threshold: 0 });
+      videos.forEach(function (v) { pauseObserver.observe(v); });
     }
-
-    // Start fetching a bit before it scrolls into view.
-    var loadObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) loadVideo(e.target); });
-    }, { root: null, rootMargin: '1200px 1200px', threshold: 0 });
-
-    // Play when visible; pause when it leaves (poster stays underneath).
-    var playObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        var v = e.target;
-        if (e.isIntersecting && e.intersectionRatio > 0.2) {
-          playMuted(v);
-        } else {
-          try { v.pause(); } catch (err) {}
-        }
-      });
-    }, { root: null, rootMargin: '0px', threshold: [0, 0.2, 0.6] });
-
-    videos.forEach(function (v) {
-      loadObserver.observe(v);
-      playObserver.observe(v);
-    });
   });
 })();
