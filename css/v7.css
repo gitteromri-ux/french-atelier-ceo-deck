@@ -4643,11 +4643,21 @@
    Plus: format-tag pill styling. Quora/Reddit hero readable on desktop.
    ============================================================ */
 @media (min-width: 769px) {
-  .deck { height: 100vh !important; overflow: hidden !important; }
+  /* v7.27 — DESKTOP scroll FIX: deck is a horizontal flex strip with
+     scroll-snap x mandatory. It MUST scroll horizontally (overflow-x),
+     otherwise the 50 slides are frozen with no way to navigate. */
+  .deck {
+    height: 100vh !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
   .slide {
     height: 100vh !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
+    scroll-snap-align: start !important;
     -webkit-overflow-scrolling: touch !important;
   }
   .slide__inner {
